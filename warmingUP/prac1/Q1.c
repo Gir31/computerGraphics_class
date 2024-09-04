@@ -19,18 +19,16 @@ int main() {
 	int changeCount = 0;
 
 	printf("Q1. Çà·Ä ´Ù·ç±â\n\n");
+	printf("--------------------------------------------\n");
 	createMatrix();
 
 	while (1) {
-		printf("\n");
-		printf("m : °ö¼À\na : µ¡¼À\nd : »¬¼À\nr : Çà·Ä½ÄÀÇ °ª\n");
-		printf("t : ÀüÄ¡\ne : Â¦¼ö/È¦¼ö\ns : »õ·Î »ý¼º\n1~9 : ½ºÄ®¶ó°ö\n");
-		printf("q : Á¾·á\n");
+		printf("\nm : °ö¼À\na : µ¡¼À\nd : »¬¼À\nr : Çà·Ä½ÄÀÇ °ª\nt : ÀüÄ¡\ne : Â¦¼ö/È¦¼ö\ns : »õ·Î »ý¼º\n1~9 : ½ºÄ®¶ó°ö\nq : Á¾·á\n");
+		printf("¸í·É¾î ÀÔ·Â : ");
 		scanf("%c", &command);
-		getchar();
-
+		printf("\n");
 		switch (command) {
-		case 'm': multipleMatrix(); break;
+		case 'm' : multipleMatrix(); break;
 		case 'a': addMatrix();  break;
 		case 'd': minusMatrix(); break;
 		case 'r': printMatrix(); break;
@@ -52,8 +50,13 @@ int main() {
 			break;
 		case 's': createMatrix();  break;
 		case 'q': return 0;
-		default : break;
+		default : 
+			if (command - 48 > 0 && command - 48 < 10)
+				scalarMatrix(command - 48);
+			break;
 		}
+		fseek(stdin, 0, SEEK_END);
+		printf("--------------------------------------------\n");
 	}
 }
 
@@ -93,7 +96,7 @@ void multipleMatrix() {
 			for (int j = 0; j < 4; j++) {
 				matrix_ex[k][i] += matrix1[k][j] * matrix2[j][i];
 			}
-			printf("%4d", matrix_ex[k][i]);
+			printf("%5d", matrix_ex[k][i]);
 		}
 		printf("|\n");
 	}
@@ -105,7 +108,7 @@ void addMatrix() {
 		printf("|");
 		for (int j = 0; j < 4; j++) {
 			matrix_ex[i][j] = matrix1[i][j] + matrix2[i][j];
-			printf("%4d", matrix_ex[i][j]);
+			printf("%5d", matrix_ex[i][j]);
 		}
 		printf("|\n");
 	}
@@ -117,7 +120,7 @@ void minusMatrix() {
 		printf("|");
 		for (int j = 0; j < 4; j++) {
 			matrix_ex[i][j] = matrix1[i][j] - matrix2[i][j];
-			printf("%4d", matrix_ex[i][j]);
+			printf("%5d", matrix_ex[i][j]);
 		}
 		printf("|\n");
 	}
@@ -129,10 +132,10 @@ void printMatrix() {
 			printf("|");
 			for (int k = 0; k < 4; k++) {
 				if (j == 0) {
-					printf("%4d", matrix1[i][k]);
+					printf("%5d", matrix1[i][k]);
 				}
 				else {
-					printf("%4d", matrix2[i][k]);
+					printf("%5d", matrix2[i][k]);
 				}
 			}
 			printf("|");
@@ -169,15 +172,15 @@ void evenPrint() {
 			for (int k = 0; k < 4; k++) {
 				if (j == 0) {
 					if (!(matrix1[i][k] % 2))
-						printf("%4d", matrix1[i][k]);
+						printf("%5d", matrix1[i][k]);
 					else
-						printf("%4c", dot);
+						printf("%5c", dot);
 				}
 				else {
 					if (!(matrix2[i][k] % 2))
-						printf("%4d", matrix2[i][k]);
+						printf("%5d", matrix2[i][k]);
 					else
-						printf("%4c", dot);
+						printf("%5c", dot);
 				}
 			}
 			printf("|");
@@ -194,15 +197,15 @@ void oddPrint() {
 			for (int k = 0; k < 4; k++) {
 				if (j == 0) {
 					if (matrix1[i][k] % 2)
-						printf("%4d", matrix1[i][k]);
+						printf("%5d", matrix1[i][k]);
 					else
-						printf("%4c", dot);
+						printf("%5c", dot);
 				}
 				else {
 					if (matrix2[i][k] % 2)
-						printf("%4d", matrix2[i][k]);
+						printf("%5d", matrix2[i][k]);
 					else
-						printf("%4c", dot);
+						printf("%5c", dot);
 				}
 			}
 			printf("|");
@@ -212,6 +215,7 @@ void oddPrint() {
 }
 
 void scalarMatrix(int scalar) {
+	
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			matrix1[i][j] *= scalar;

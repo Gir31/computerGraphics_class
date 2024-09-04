@@ -1,4 +1,4 @@
 ﻿  Q1.c
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q1.c(64,2): warning C4013: 'srand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q1.c(69,21): warning C4013: 'rand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q1.c(65,2): warning C4013: 'srand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q1.c(70,21): warning C4013: 'rand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
   prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
