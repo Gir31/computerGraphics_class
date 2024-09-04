@@ -1,2 +1,3 @@
 ﻿  Q2.c
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q2.c(26,10): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'size_t'입니다.
   prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
