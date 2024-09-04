@@ -16,10 +16,10 @@ void scalarMatrix(int scalar);
 
 int main() {
 	char command;
+	int changeCount = 0;
 
 	printf("Q1. 행렬 다루기\n\n");
 	createMatrix();
-	printMatrix();
 
 	while (1) {
 		printf("\n");
@@ -35,11 +35,24 @@ int main() {
 		case 'd': minusMatrix(); break;
 		case 'r': printMatrix(); break;
 		case 't': transposedMatrix(); break;
-		case 'e': break;
-		case 's': break;
-		case 'q': return 0;
-		default:
+		case 'e':
+			if (changeCount == 0) {
+				oddPrint();
+				changeCount++;
+			}
+			else if (changeCount == 1) {
+				evenPrint();
+				changeCount++;
+			}
+			else {
+				printMatrix();
+				changeCount = 0;
+			}
+
 			break;
+		case 's': createMatrix();  break;
+		case 'q': return 0;
+		default : break;
 		}
 	}
 }
@@ -48,19 +61,28 @@ void createMatrix() {
 	int count_two = 0, count_two2 = 0;
 	srand(time(NULL));
 
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 4; j++) {
-			matrix1[i][j] = rand() % 3;
-			if (matrix1[i][j] == 2 && count_two < 2) count_two++;
-			else if (matrix1[i][j] == 2 && count_two == 2) j--;
-
-			matrix2[i][j] = rand() % 3;
-			if (matrix2[i][j] == 2 && count_two2 < 2) count_two2++;
-			else if (matrix2[i][j] == 2 && count_two2 == 2) j--;
+	while (count_two != 2) {
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				matrix1[i][j] = rand() % 3;
+				if (matrix1[i][j] == 2 && count_two < 2) count_two++;
+				else if (matrix1[i][j] == 2 && count_two == 2) j--;
+			}
 		}
+		if (count_two != 2) count_two = 0;
 	}
-	if (count_two != 2) matrix1[3][3] = 2;
-	if (count_two2 != 2) matrix2[3][3] = 2;
+	while (count_two2 != 2) {
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				matrix2[i][j] = rand() % 3;
+				if (matrix2[i][j] == 2 && count_two2 < 2) count_two2++;
+				else if (matrix2[i][j] == 2 && count_two2 == 2) j--;
+			}
+		}
+		if (count_two2 != 2) count_two2 = 0;
+	}
+
+	printMatrix();
 }
 
 void multipleMatrix() {
