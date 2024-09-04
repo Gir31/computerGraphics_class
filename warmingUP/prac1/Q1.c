@@ -12,13 +12,36 @@ void printMatrix();
 void transposedMatrix();
 void evenPrint();
 void oddPrint();
+void scalarMatrix(int scalar);
 
 int main() {
+	char command;
+
+	printf("Q1. Çà·Ä ´Ù·ç±â\n\n");
 	createMatrix();
 	printMatrix();
-	oddPrint();
-	evenPrint();
-	return 0;
+
+	while (1) {
+		printf("\n");
+		printf("m : °ö¼À\na : µ¡¼À\nd : »¬¼À\nr : Çà·Ä½ÄÀÇ °ª\n");
+		printf("t : ÀüÄ¡\ne : Â¦¼ö/È¦¼ö\ns : »õ·Î »ý¼º\n1~9 : ½ºÄ®¶ó°ö\n");
+		printf("q : Á¾·á\n");
+		scanf("%c", &command);
+		getchar();
+
+		switch (command) {
+		case 'm': multipleMatrix(); break;
+		case 'a': addMatrix();  break;
+		case 'd': minusMatrix(); break;
+		case 'r': printMatrix(); break;
+		case 't': transposedMatrix(); break;
+		case 'e': break;
+		case 's': break;
+		case 'q': return 0;
+		default:
+			break;
+		}
+	}
 }
 
 void createMatrix() {
@@ -43,35 +66,38 @@ void createMatrix() {
 void multipleMatrix() {
 	int matrix_ex[4][4] = { 0 };
 	for (int k = 0; k < 4; k++) {
+		printf("|");
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				matrix_ex[k][i] += matrix1[k][j] * matrix2[j][i];
 			}
 			printf("%4d", matrix_ex[k][i]);
 		}
-		printf("\n");
+		printf("|\n");
 	}
 }
 
 void addMatrix() {
 	int matrix_ex[4][4];
 	for (int i = 0; i < 4; i++) {
+		printf("|");
 		for (int j = 0; j < 4; j++) {
 			matrix_ex[i][j] = matrix1[i][j] + matrix2[i][j];
 			printf("%4d", matrix_ex[i][j]);
 		}
-		printf("\n");
+		printf("|\n");
 	}
 }
 
 void minusMatrix() {
 	int matrix_ex[4][4];
 	for (int i = 0; i < 4; i++) {
+		printf("|");
 		for (int j = 0; j < 4; j++) {
 			matrix_ex[i][j] = matrix1[i][j] - matrix2[i][j];
 			printf("%4d", matrix_ex[i][j]);
 		}
-		printf("\n");
+		printf("|\n");
 	}
 }
 
@@ -109,6 +135,8 @@ void transposedMatrix() {
 			}
 		}
 	}
+
+	printMatrix();
 }
 
 void evenPrint() {
@@ -159,4 +187,15 @@ void oddPrint() {
 		}
 		printf("\n");
 	}
+}
+
+void scalarMatrix(int scalar) {
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4; j++) {
+			matrix1[i][j] *= scalar;
+			matrix2[i][j] *= scalar;
+		}
+	}
+	
+	printMatrix();
 }
