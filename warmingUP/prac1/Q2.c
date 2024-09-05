@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <windows.h>
 
-typedef struct word{
-	struct word* next;
-	struct word* prev;
-	char w[15];
+typedef struct word {
+	char length[15];
+	struct word next;
+	struct word prev;
 }Word;
 
 int main() {
@@ -21,9 +21,8 @@ int main() {
 	p_file = fopen(fileName,"r");
 
 	if (NULL != p_file) {
-		fgets(str, sizeof(str), p_file);
+		fread(str, 1, 999, p_file);
 		printf("%s", str);
-		printf("%d", sizeof(Word));
 	}
 	else {
 		printf("fail");
@@ -32,4 +31,12 @@ int main() {
 	fclose(p_file);
 
 	return 0;
+}
+
+void newWord(Word* prevWord) {
+	Word* new;
+
+	new = (Word*)malloc(sizeof(Word));
+
+
 }
