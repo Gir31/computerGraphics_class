@@ -4,22 +4,97 @@
 #include <math.h>
 
 typedef struct coordinate {
-	int x, y, z;
-	float length;
-	struct coordinate* next;
+	int number; //순서
+	float length; //원점으로부터의 거리
+	_Bool fill; //좌표 값이 존재하는가
+	int x, y, z; //좌표 값
 }COORDINATE;
 
-COORDINATE* head = NULL;
+static COORDINATE coor[20];
 
-float findLength(int x, int y, int z);
+void createCoordinate();
+void newCoordinate_upper(int x, int y, int z);
+
+float findLength(int x, int y, int z); //원점으로부터의 거리를 구하는 함수
 
 int main() {
+	createCoordinate();
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
+	newCoordinate_upper(1, 2, 3);
 
-	printf("%lf", findLength(2,3,1));
-
+	for (int i = 19; i > -1; i--) {
+		printf("%d : %lf\n", coor[i].number, coor[i].length);
+	}
+	
+	
 	return 0;
 }
 
-float findLength(int x, int y, int z) {
-	return (sqrt((pow(x, 2) + pow(y, 2) + pow(z, 2))));
+void createCoordinate() {
+	for (int i = 0; i < 20; i++) {
+		coor[i].fill = 0;
+	}
 }
+
+void newCoordinate_upper(int x, int y, int z) {
+	int number = 0;
+
+	for (int i = 19; i > -1; i--) {
+		if (coor[i].fill) {
+			number = i + 1;
+			break;
+		}
+	}
+
+	if (number == 20) {
+		for (int i = 0; i < 20; i++) {
+			if (coor[i].fill) {
+				number = i - 1;
+				break;
+			}
+		}
+
+		if (number == -1) printf("List가 가득 찼습니다.\n");
+		else {
+			coor[number].x = x;
+			coor[number].y = y;
+			coor[number].z = z;
+			coor[number].number = number;
+			coor[number].length = findLength(x, y, z);
+			coor[number].fill = 1;
+		}
+	}
+	else {
+		coor[number].x = x;
+		coor[number].y = y;
+		coor[number].z = z;
+		coor[number].number = number;
+		coor[number].length = findLength(x, y, z);
+		coor[number].fill = 1;
+	}
+}
+
+float findLength(int x, int y, int z) {return (sqrt((pow(x, 2) + pow(y, 2) + pow(z, 2))));}

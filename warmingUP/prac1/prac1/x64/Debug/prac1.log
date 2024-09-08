@@ -1,4 +1,3 @@
 ﻿  Q3.c
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q3.c(15,13): warning C4101: 'begin' :참조되지 않은 지역 변수입니다.
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q3.c(23,9): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q3.c(100,47): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
