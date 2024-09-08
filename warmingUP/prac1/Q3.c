@@ -4,15 +4,16 @@
 #include <math.h>
 
 typedef struct coordinate {
-	struct coordinate* next;
 	int x, y, z;
 	float length;
+	struct coordinate* next;
 }COORDINATE;
+
+COORDINATE* head = NULL;
 
 float findLength(int x, int y, int z);
 
 int main() {
-	COORDINATE begin;
 
 	printf("%lf", findLength(2,3,1));
 
