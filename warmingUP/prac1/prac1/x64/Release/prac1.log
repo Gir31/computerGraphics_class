@@ -1,2 +1,10 @@
-﻿Q3.obj : error LNK2001: 확인할 수 없는 외부 기호 deleteCooridnate_lower
-D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Release\prac1.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  Q2.c
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q2.c(147,27): warning C4098: 'stringMenu': 'void' 함수에서 값을 반환하고 있습니다.
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q2.c(212,39): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q2.c(236,26): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  2 of 19 functions (10.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Release\prac1.exe

@@ -1,3 +1,2 @@
-﻿  Q3.c
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q3.c(147,12): warning C4098: 'menu': 'void' 함수에서 값을 반환하고 있습니다.
-  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
+﻿Q2.obj : error LNK2019: strcasecmpfind_word 함수에서 참조되는 확인할 수 없는 외부 기호
+D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
