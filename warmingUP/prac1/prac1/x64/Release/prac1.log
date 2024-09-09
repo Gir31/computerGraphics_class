@@ -1,7 +1,2 @@
-﻿  Q3.c
-  코드를 생성하고 있습니다.
-  1 of 9 functions (11.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Release\prac1.exe
+﻿Q3.obj : error LNK2001: 확인할 수 없는 외부 기호 deleteCooridnate_lower
+D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Release\prac1.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
