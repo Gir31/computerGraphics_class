@@ -1,3 +1,1 @@
-﻿  Q3.c
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q3.c(100,47): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
+﻿LINK : fatal error LNK1168: D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe을(를) 쓰기용으로 열 수 없습니다.
