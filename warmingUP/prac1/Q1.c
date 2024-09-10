@@ -14,6 +14,11 @@ void evenPrint();
 void oddPrint();
 void scalarMatrix(int scalar);
 
+int determinant_2x2(int(*matrix)[2]);
+int determinant_3x3(int(*matrix)[3]);
+int determinant_4x4(int (*matrix)[4]);
+
+
 int main() {
 	char command;
 	int changeCount = 0;
@@ -31,7 +36,10 @@ int main() {
 		case 'm' : multipleMatrix(); break;
 		case 'a': addMatrix();  break;
 		case 'd': minusMatrix(); break;
-		case 'r': printMatrix(); break;
+		case 'r': 
+			printMatrix();
+			printf("\n각 행렬의 행렬식\nMATRIX 1 : %d / MATRIX 2 : %d\n", determinant_4x4(matrix1), determinant_4x4(matrix2));
+			break;
 		case 't': transposedMatrix(); break;
 		case 'e':
 			if (changeCount == 0) {
@@ -226,7 +234,60 @@ void scalarMatrix(int scalar) {
 	printMatrix();
 }
 
-void aa() {
+int determinant_2x2(int(*matrix)[2]) {
+	return ((matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]));
+}
+
+int determinant_3x3(int(* matrix)[3]) {
+	int x = 0, y = 0;
+	int matrix_2x2[2][2];
 	int sum = 0;
-	
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 1; j < 3; j++) {
+			for (int k = 0; k < 3; k++) {
+				if (k != i) {
+					if(i == 0) matrix_2x2[j - 1][k - 1] = matrix[j][k];
+					else if(k > i) matrix_2x2[j - 1][k - i] = matrix[j][k];
+					else  matrix_2x2[j - 1][k] = matrix[j][k];
+				}
+			}
+		}
+
+		if (i % 2) {
+			sum += matrix[0][i] * -1 * determinant_2x2(matrix_2x2);
+		}
+		else {
+			sum += matrix[0][i] * determinant_2x2(matrix_2x2);
+		}
+	}
+
+	return sum;
+}
+
+int determinant_4x4(int (*matrix)[4]) {
+	int x = 0, y = 0;
+	int matrix_3x3[3][3];
+	int sum = 0;
+
+	for (int i = 0; i < 4; i++) {
+		for (int j = 1; j < 4; j++) {
+			for (int k = 0; k < 4; k++) {
+				if (k != i) {
+					if(i == 0) matrix_3x3[j - 1][k - 1] = matrix[j][k];
+					else if (k > i) matrix_3x3[j - 1][k - i] = matrix[j][k];
+					else  matrix_3x3[j - 1][k] = matrix[j][k];
+				}
+			}
+		}
+
+		if (i % 2) {
+			sum += matrix[0][i] * -1 * determinant_3x3(matrix_3x3);
+		}
+		else {
+			sum += matrix[0][i] * determinant_3x3(matrix_3x3);
+		}
+	}
+
+	return sum;
 }

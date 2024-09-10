@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Q4.c",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q4.c",
               "RelativeDocumentMoniker": "Q4.c",
@@ -38,34 +38,31 @@
               "RelativeToolTip": "Q4.c",
               "ViewState": "AQIAACUAAAAAAAAAAAAuwC8AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-10T04:16:34.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T04:16:34.751Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Q3.c",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q3.c",
               "RelativeDocumentMoniker": "Q3.c",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q3.c",
               "RelativeToolTip": "Q3.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJQAAAADAAAA",
+              "ViewState": "AQIAAO4AAAAAAAAAAAAAAJQAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-05T04:58:26.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-05T04:58:26.476Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Q2.c",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q2.c",
               "RelativeDocumentMoniker": "Q2.c",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q2.c",
               "RelativeToolTip": "Q2.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAfAAAA",
+              "ViewState": "AQIAAHQBAAAAAAAAAAAAAAAAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-04T05:20:04.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T05:20:04.716Z"
             },
             {
               "$type": "Document",
@@ -75,7 +72,7 @@
               "RelativeDocumentMoniker": "Q1.c",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\warmingUP\\prac1\\Q1.c",
               "RelativeToolTip": "Q1.c",
-              "ViewState": "AQIAANgAAAAAAAAAAAAAAN4AAAADAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC0AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-04T01:11:12.647Z",
               "EditorCaption": ""
