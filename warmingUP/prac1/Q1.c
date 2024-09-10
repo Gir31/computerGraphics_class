@@ -225,3 +225,8 @@ void scalarMatrix(int scalar) {
 	
 	printMatrix();
 }
+
+void aa() {
+	int sum = 0;
+	
+}

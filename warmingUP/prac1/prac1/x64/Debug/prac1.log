@@ -1,2 +1,31 @@
-﻿Q2.obj : error LNK2019: strcasecmpfind_word 함수에서 참조되는 확인할 수 없는 외부 기호
-D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  Q4.c
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(44,6): warning C4029: 선언된 정식 매개 변수 목록이 정의와 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(57,2): warning C4013: 'srand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(62,21): warning C4013: 'rand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(68,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(68,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(71,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(71,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(74,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(74,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(77,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(77,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(80,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(80,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(83,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(83,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(86,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(86,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(89,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(89,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(92,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(92,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(95,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(95,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(98,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(98,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(101,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(101,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(104,55): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(104,55): warning C4024: 'put_card': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
+LINK : fatal error LNK1168: D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe을(를) 쓰기용으로 열 수 없습니다.
