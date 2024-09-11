@@ -1,4 +1,4 @@
 ﻿  Q4.c
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(56,6): warning C4029: 선언된 정식 매개 변수 목록이 정의와 다릅니다.
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(116,8): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(78,6): warning C4029: 선언된 정식 매개 변수 목록이 정의와 다릅니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q4.c(138,8): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe

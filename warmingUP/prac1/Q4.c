@@ -1,10 +1,11 @@
-#define _CRT_SECURE_NO_WARINGS
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 #include <math.h>
 #include <windows.h>
+
 
 #define MAX_X 5
 #define MAX_Y 5
@@ -48,7 +49,28 @@ int main() {
 	print_board();
 
 	while (1) {
-		first_select_card();
+		char command;
+
+		printf("any press : start | r : reset | q : quit\ncommand : ");
+		scanf("%c", &command);
+		fseek(stdin, 0, SEEK_END);
+
+		switch (command) {
+		case 'r':
+			for (int i = 0; i < 5; i++) {
+				for (int j = 0; j < 5; j++) {
+					card[i][j].fill = 0;
+					card[i][j].open = 0;
+				}
+			}
+			mix_card();
+			print_board();
+			break;
+		case 'q': return 0;
+		default: 
+			first_select_card();
+			break;
+		}
 	}
 	return 0;
 }
@@ -168,6 +190,8 @@ void mix_card() {
 }
 
 void print_board() {
+	system("cls");
+
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
 	printf("%2c|%3c%3c%3c%3c%3c\n", ' ', 'a', 'b', 'c', 'd', 'e');
 	printf("-------------------\n");
@@ -203,6 +227,13 @@ void first_select_card() {
 	first_card[0] -= 97;
 	first_card[1] -= 49;
 
+	if (card[first_card[1]][first_card[0]].open) {
+		printf("Aready Open\n");
+		Sleep(500);
+		print_board();
+		return;
+	}
+
 	if (first_card[0] > -1 && first_card[0] < 5 && first_card[1] > -1 && first_card[1] < 5) {
 		card[first_card[1]][first_card[0]].open = 1;
 		card[first_card[1]][first_card[0]].color = 1;
@@ -211,6 +242,7 @@ void first_select_card() {
 	}
 	else { 
 		printf("Wrong card\n"); 
+		Sleep(500);
 		print_board();
 	}
 }
@@ -226,13 +258,34 @@ void second_select_card() {
 		fseek(stdin, 0, SEEK_END);
 		second_card[0] -= 97;
 		second_card[1] -= 49;
-		//첫번째 좌표와 두번째 좌표가 같으면 다시 코드 짜기
+
+		if (card[second_card[1]][second_card[0]].open) {
+			printf("Aready Open\n");
+			i = 0;
+			Sleep(500);
+			print_board();
+			continue;
+		}
+
+		if (second_card[0] == first_card[0] && second_card[1] == first_card[1]) {
+			printf("Same Card\n");
+			Sleep(500);
+			i = 0;
+			print_board();
+			continue;
+		}
+
 		if (second_card[0] > -1 && second_card[0] < 5 && second_card[1] > -1 && second_card[1] < 5) {
 			card[second_card[1]][second_card[0]].open = 1;
 			card[second_card[1]][second_card[0]].color = 5;
 			break;
 		}
-		else { printf("Wrong locate\n"); }
+		else { 
+			i = 0;
+			printf("Wrong card\n"); 
+			Sleep(500);
+			print_board();
+		}
 	}
 
 	print_board();
@@ -241,13 +294,24 @@ void second_select_card() {
 }
 
 void compare_card() {
-	if (card[first_card[1]][first_card[0]].card_character == '@' || card[first_card[1]][first_card[0]].card_character == '@') {
-		if (card[first_card[1]][first_card[0]].card_character == '@')
-			find_another_card(0);
-		else
-			find_another_card(1);
-		
+	if (card[first_card[1]][first_card[0]].card_character == '@') {
+		find_another_card(1);
+
+		card[first_card[1]][first_card[0]].color = 8;
+		card[second_card[1]][second_card[0]].color = 8;
+
 		printf("Correct!\n");
+		Sleep(500);
+		printf("Another Card Open\n");
+	}
+	else if(card[second_card[1]][second_card[0]].card_character == '@') {
+		find_another_card(0);
+
+		card[first_card[1]][first_card[0]].color = 8;
+		card[second_card[1]][second_card[0]].color = 8;
+
+		printf("Correct!\n");
+		Sleep(500);
 		printf("Another Card Open\n");
 	}
 	else if (card[first_card[1]][first_card[0]].card_character != card[second_card[1]][second_card[0]].card_character) {
@@ -262,35 +326,43 @@ void compare_card() {
 		printf("Correct!\n");
 	}
 
+	Sleep(1000);
 	print_board();
 }
 
 void find_another_card(int number) {
+
 	switch (number) {
 	case 0:
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
 				if (card[i][j].card_character == card[first_card[1]][first_card[0]].card_character) {
-					if (i != first_card[1] && j != first_card[0]) {
+					if (i != first_card[1] || j != first_card[0]) {
 						card[i][j].open = 1;
 						card[i][j].color = 14;
+						print_board();
+						card[i][j].color = 8;
 						return;
 					}
 				}
 			}
 		}
+		break;
 	case 1:
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
 				if (card[i][j].card_character == card[second_card[1]][second_card[0]].card_character) {
-					if (i != second_card[1] && j != second_card[0]) {
+					if (i != second_card[1] || j != second_card[0]) {
 						card[i][j].open = 1;
-						card[i][j].color = 2;
+						card[i][j].color = 14;
+						print_board();
+						card[i][j].color = 8;
 						return;
 					}
 				}
 			}
 		}
+		break;
 	default: break;
 	}
 }
