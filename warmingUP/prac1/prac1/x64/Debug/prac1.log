@@ -1,2 +1,5 @@
 ﻿  Q5.c
-  prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q5.c(81,46): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q5.c(83,47): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
+D:\github_my\computerGraphics_class\warmingUP\prac1\Q5.c(105,47): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
+  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
