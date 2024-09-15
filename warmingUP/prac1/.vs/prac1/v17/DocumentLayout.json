@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Q5.c",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q5.c",
               "RelativeToolTip": "Q5.c",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAvwFUAAAAwAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-12T04:46:48.265Z",
               "EditorCaption": ""
@@ -53,13 +53,13 @@
               "RelativeDocumentMoniker": "Q4.c",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q4.c",
               "RelativeToolTip": "Q4.c",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAAAMUAAAA9AAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAAAAADcAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-10T04:16:34.751Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Q3.c",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q3.c",
               "RelativeDocumentMoniker": "Q3.c",
@@ -71,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Q2.c",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q2.c",
               "RelativeDocumentMoniker": "Q2.c",
@@ -83,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Q1.c",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q1.c",
               "RelativeDocumentMoniker": "Q1.c",
