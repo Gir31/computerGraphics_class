@@ -95,7 +95,12 @@ int main() {
 			printf("현재 사각형의 면적 비율 : %0.2lf %%\n\n", quad_ratio());
 			Sleep(1000);
 			break;
-		case 'r': insert_quad_range(); break;
+		case 'r': 
+			reset_board(); 
+			Sleep(100);
+			system("cls");
+			print_board(); 
+			insert_quad_range(); break;
 		case 'q': return 0;
 		default:  break;
 		}

@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q5.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q5.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q7.C||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q7.C||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30FDA759-DC61-47B5-9FD8-E95746785058}|prac1.vcxproj|solutionrelative:Q3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +31,49 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Q5.c",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q5.c",
+              "RelativeDocumentMoniker": "Q5.c",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q5.c",
+              "RelativeToolTip": "Q5.c",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAAAGQAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-09-21T07:10:14.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Q4.c",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q4.c",
+              "RelativeDocumentMoniker": "Q4.c",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q4.c",
+              "RelativeToolTip": "Q4.c",
+              "ViewState": "AQIAABgAAAAAAAAAAADwvwgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-09-21T07:05:42.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Q3.c",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q3.c",
+              "RelativeDocumentMoniker": "Q3.c",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q3.c",
+              "RelativeToolTip": "Q3.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-09-21T07:05:39.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Q7.C",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q7.C",
               "RelativeDocumentMoniker": "Q7.C",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\warmingUP\\prac1\\Q7.C",
               "RelativeToolTip": "Q7.C",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAAGQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-21T04:39:55.539Z",
               "EditorCaption": ""
