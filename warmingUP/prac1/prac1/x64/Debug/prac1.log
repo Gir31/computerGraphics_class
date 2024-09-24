@@ -1,10 +1,3 @@
-﻿  Q7.C
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(90,21): warning C4098: 'menu': 'void' 함수에서 값을 반환하고 있습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(99,10): warning C4098: 'menu': 'void' 함수에서 값을 반환하고 있습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(140,48): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(142,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(180,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(208,48): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(210,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(248,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
+﻿  Q6.c
+D:\github_My\computerGraphics_class\warmingUP\prac1\Q6.c(34,8): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
