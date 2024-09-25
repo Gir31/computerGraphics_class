@@ -5,9 +5,9 @@
 #include <math.h>
 #include <Windows.h>
 
-#define MAX_X 10
-#define MAX_Y 10
-#define MAX_OBSTACLE 10
+#define MAX_X 7
+#define MAX_Y 7
+#define MAX_OBSTACLE 7
 
 enum{way, background, obstacle, me};
 enum{right, down, left, up};
@@ -38,9 +38,10 @@ void menu() {
 	reset_board();
 	create_obstacle();
 
+	search_way();
+	print_board();
+
 	while (1) {
-		search_way();
-		print_board();
 
 		char command;
 
@@ -200,6 +201,8 @@ void search_way() {
 			}
 			break;
 		}
+
+		print_board();
 	}
 	
 }

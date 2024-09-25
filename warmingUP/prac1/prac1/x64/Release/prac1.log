@@ -1,12 +1,1 @@
-﻿  Q7.C
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(69,21): warning C4098: 'menu': 'void' 함수에서 값을 반환하고 있습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(78,10): warning C4098: 'menu': 'void' 함수에서 값을 반환하고 있습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(119,48): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(121,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(159,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(187,48): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(189,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(227,49): warning C4144: '<=': 관계식을 switch 식으로 사용했습니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q7.C(270,2): warning C4013: 'create_quad'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-Q7.obj : error LNK2001: 확인할 수 없는 외부 기호 create_quad
-D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Release\prac1.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Release\prac1.exe

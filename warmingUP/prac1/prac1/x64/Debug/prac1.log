@@ -1,9 +1,4 @@
-﻿  Q6.c
-<<<<<<< HEAD
-D:\github_My\computerGraphics_class\warmingUP\prac1\Q6.c(34,8): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-  prac1.vcxproj -> D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
-=======
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q6.c(31,8): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-D:\github_my\computerGraphics_class\warmingUP\prac1\Q6.c(75,21): warning C4098: 'menu': 'void' 함수에서 값을 반환하고 있습니다.
-  prac1.vcxproj -> D:\github_my\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe
->>>>>>> 9676835883d518e949b6385b573989138e0236b7
+﻿  what.c
+D:\github_My\computerGraphics_class\warmingUP\prac1\what.c(32,8): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\github_My\computerGraphics_class\warmingUP\prac1\what.c(108,6): warning C4101: 'direction' :참조되지 않은 지역 변수입니다.
+LINK : fatal error LNK1168: D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe을(를) 쓰기용으로 열 수 없습니다.
