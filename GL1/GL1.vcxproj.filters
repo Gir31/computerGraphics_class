@@ -24,5 +24,8 @@
     <ClCompile Include="GL_Q2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GL_Q3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
