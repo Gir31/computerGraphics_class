@@ -166,7 +166,6 @@ void Mouse(int button, int state, int x, int y)
 
 		for (int i = 0; i < 10; i++) {
 			if (number != i && (overlap_rectangle(rectangle_xy[number], rectangle_xy[i]))) {
-				std::cout << "°ãÃÄÁü!!" << std::endl;
 				new_rectangle(rectangle_xy[number], rectangle_xy[i], rectangle_color[number]);
 			}
 		}
