@@ -4,7 +4,7 @@
 #include <gl/freeglut.h>
 #include <gl/freeglut_ext.h>
 
-#define MAX_DISPLAY 1200.0
+#define MAX_DISPLAY 800.0
 #define LENGTH 0.1
 #define MAX_LENGTH 1
 #define MIN_LENGTH 0.05

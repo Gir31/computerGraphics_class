@@ -1,21 +1,9 @@
-﻿  GL_Q5.cpp
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(46,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(50,29): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(50,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:         with
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:         [
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:             _Ty=int
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:         ]
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(104,30): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(105,30): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(129,17): warning C4244: '인수': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(151,18): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(156,17): warning C4244: '인수': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(181,42): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(182,43): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(183,42): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(184,43): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(187,36): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(189,36): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  GL1.vcxproj -> D:\github_my\computerGraphics_class\GL1\x64\Debug\GL1.exe
+﻿  GL_Q3.cpp
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(41,6): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(46,28): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(46,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(95,30): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(96,30): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(191,46): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL1\GL_Q3.cpp(193,46): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GL1.vcxproj -> D:\github_My\computerGraphics_class\GL1\x64\Debug\GL1.exe

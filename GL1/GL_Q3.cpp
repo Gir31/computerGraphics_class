@@ -4,8 +4,8 @@
 #include <gl/freeglut.h>
 #include <gl/freeglut_ext.h>
 
-#define MAX_X 1200.0
-#define MAX_Y 1200.0
+#define MAX_X 800.0
+#define MAX_Y 800.0
 #define MAX_WIDTH 0.1
 #define MAX_HEIGHT 0.1
 
@@ -88,7 +88,7 @@ GLvoid Reshape(int w, int h)
 void random_rectangle(float* rectangle) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> dis(100, 1100);
+	std::uniform_int_distribution<int> dis(100, 700);
 
 	rectangle[0] = conversion_x(dis(gen));
 	rectangle[1] = conversion_y(dis(gen));
@@ -188,9 +188,9 @@ void TimerFunction(int value) {
 	if(time_control) glutTimerFunc(1, TimerFunction, 1);
 }
 
-float conversion_x(int x) { return (x - 600) / (MAX_X / 2); }
+float conversion_x(int x) { return (x - 400) / (MAX_X / 2); }
 
-float conversion_y(int y) { return (y - 600) / (MAX_Y / -2); }
+float conversion_y(int y) { return (y - 400) / (MAX_Y / -2); }
 
 bool in_rectangle(float* rectangle, float x, float y) {
 	if (rectangle[0] <= x && x <= rectangle[2] && rectangle[3] <= y && y <= rectangle[1]) return TRUE;

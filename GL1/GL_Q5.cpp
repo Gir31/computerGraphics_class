@@ -4,7 +4,7 @@
 #include <gl/freeglut.h>
 #include <gl/freeglut_ext.h>
 
-#define LENGTH 1300.0
+#define LENGTH 800.0
 #define MAX_WIDTH 0.05
 #define MAX_HEIGHT 0.05
 
