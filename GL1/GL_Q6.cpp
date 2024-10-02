@@ -4,7 +4,7 @@
 #include <gl/freeglut.h>
 #include <gl/freeglut_ext.h>
 
-#define DISPLAY 1300.0
+#define DISPLAY 600.0
 
 typedef struct rectangle {
 	bool show;
@@ -17,6 +17,7 @@ REC rec[10];
 GLvoid drawScene(GLvoid);
 GLvoid Reshape(int w, int h);
 
+void Mouse(int button, int state, int x, int y);
 void reset_rectangle();
 void draw_rectangle(GLfloat* point, GLclampf* color);
 void random_color(GLclampf* color);
@@ -26,12 +27,14 @@ GLfloat random_size();
 GLfloat conversion_x(int x);
 GLfloat conversion_y(int y);
 
-void main(int argc, char** argv) 
+bool in_rectangle(float* rectangle, float x, float y);
+
+int main(int argc, char** argv) 
 {	
 	glutInit(&argc, argv); 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA); 
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(DISPLAY, DISPLAY);
+	glutInitWindowSize((int)DISPLAY, (int)DISPLAY);
 	glutCreateWindow("Example1"); 
 
 	glewExperimental = GL_TRUE;
@@ -46,13 +49,14 @@ void main(int argc, char** argv)
 	reset_rectangle();
 
 	glutDisplayFunc(drawScene);
+	glutMouseFunc(Mouse);
 	glutReshapeFunc(Reshape); 
 	glutMainLoop(); 
 }
 
 GLvoid drawScene()
 {
-	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	for (int i = 0; i < 10; i++) {
@@ -65,6 +69,18 @@ GLvoid drawScene()
 GLvoid Reshape(int w, int h)
 {
 	glViewport(0, 0, w, h);
+}
+
+void Mouse(int button, int state, int x, int y)
+{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+		for (int i = 9; i >= 0; i--) {
+			if (in_rectangle(rec[i].point, conversion_x(x), conversion_y(y)) && rec[i].show) {
+				rec[i].show = FALSE;
+				break;
+			}
+		}
+	}
 }
 
 void reset_rectangle() {
@@ -83,16 +99,16 @@ void draw_rectangle(GLfloat* point, GLclampf* color) {
 void random_color(GLclampf* color) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<GLclampf> dis(0, 100);
+	std::uniform_int_distribution<int> dis(1, 1000);
 
 	for (int i = 0; i < 3; i++)
-		color[i] = dis(gen) / dis(gen);
+		color[i] = (GLfloat)dis(gen) / (GLfloat)dis(gen);
 }
 
 void random_locate(GLfloat* point) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<GLfloat> dis(0, DISPLAY);
+	std::uniform_int_distribution<int> dis(0, (int)DISPLAY - 100);
 
 	GLfloat size = random_size();
 
@@ -105,12 +121,17 @@ void random_locate(GLfloat* point) {
 GLfloat random_size() {
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<GLfloat> dis1(1, 10);
-	std::uniform_int_distribution<GLfloat> dis2(11, 111);
+	std::uniform_int_distribution<int> dis1(1, 10);
+	std::uniform_int_distribution<int> dis2(20, 50);
 
-	return (dis1(gen) / dis2(gen));
+	return (GLfloat)((GLfloat)dis1(gen) / (GLfloat)dis2(gen));
 }
 
-GLfloat conversion_x(int x) { return (x - (DISPLAY / 2)) / (DISPLAY / 2); }
+GLfloat conversion_x(int x) { return (GLfloat)((x - (DISPLAY / 2)) / (DISPLAY / 2)); }
 
-GLfloat conversion_y(int y) { return (y - (DISPLAY / 2)) / (DISPLAY / -2); }
+GLfloat conversion_y(int y) { return (GLfloat)((y - (DISPLAY / 2)) / (DISPLAY / -2)); }
+
+bool in_rectangle(GLfloat* rectangle, GLfloat x, GLfloat y) {
+	if (rectangle[0] <= x && x <= rectangle[2] && rectangle[3] <= y && y <= rectangle[1]) return TRUE;
+	else return FALSE;
+}
