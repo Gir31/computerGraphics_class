@@ -1,34 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\github_My\\computerGraphics_class\\GL1\\",
+  "WorkspaceRootPath": "D:\\github_my\\computerGraphics_class\\GL1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\GL_Q6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\GL_Q4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\GL_Q3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\GL_Q2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\GL_Q1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_My\\computerGraphics_class\\GL1\\ORI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:ORI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\type_traits||{3B902123-F8A7-4915-9F01-361F908088D0}"
@@ -45,7 +41,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "type_traits",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\type_traits",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\type_traits",
@@ -57,11 +53,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GL_Q6.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q6.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q6.cpp",
               "RelativeDocumentMoniker": "GL_Q6.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q6.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q6.cpp",
               "RelativeToolTip": "GL_Q6.cpp",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAAANEAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-30T03:26:48.44Z",
               "EditorCaption": ""
@@ -70,34 +66,35 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "GL_Q5.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q5.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp",
               "RelativeDocumentMoniker": "GL_Q5.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q5.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp",
               "RelativeToolTip": "GL_Q5.cpp",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAYwLEAAAABAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAkwEkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-28T15:44:02.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GL_Q4.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q4.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q4.cpp",
               "RelativeDocumentMoniker": "GL_Q4.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q4.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q4.cpp",
               "RelativeToolTip": "GL_Q4.cpp",
-              "ViewState": "AQIAALoAAAAAAAAAAAAAAPkAAAAiAAAA",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAAPkAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-28T11:09:07.538Z"
+              "WhenOpened": "2024-09-28T11:09:07.538Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GL_Q3.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q3.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q3.cpp",
               "RelativeDocumentMoniker": "GL_Q3.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q3.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q3.cpp",
               "RelativeToolTip": "GL_Q3.cpp",
               "ViewState": "AQIAAG8AAAAAAAAAAAAAAHMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -105,35 +102,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "GL_Q2.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q2.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q2.cpp",
               "RelativeDocumentMoniker": "GL_Q2.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q2.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q2.cpp",
               "RelativeToolTip": "GL_Q2.cpp",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAAIMAAABAAAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAAAIMAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-25T05:40:33.483Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ORI.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\ORI.cpp",
-              "RelativeDocumentMoniker": "ORI.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\ORI.cpp",
-              "RelativeToolTip": "ORI.cpp",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAmwCoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-25T05:04:51.171Z"
+              "WhenOpened": "2024-09-25T05:40:33.483Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "GL_Q1.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q1.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q1.cpp",
               "RelativeDocumentMoniker": "GL_Q1.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL1\\GL_Q1.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q1.cpp",
               "RelativeToolTip": "GL_Q1.cpp",
               "ViewState": "AQIAAEIAAAAAAAAAAAAAAFAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
