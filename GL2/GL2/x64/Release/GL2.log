@@ -1,0 +1,63 @@
+﻿GL2_Q7.obj : error LNK2005: "unsigned int * vbo" (?vbo@@3PAIA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "unsigned int vertexShader" (?vertexShader@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "char * fragment" (?fragment@@3PADA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "char * vertex" (?vertex@@3PADA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "unsigned int shaderProgramID" (?shaderProgramID@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "unsigned int fragmentShader" (?fragmentShader@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "unsigned int vao" (?vao@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl make_shaderProgram(void)" (?make_shaderProgram@@YAXXZ)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl Reshape(int,int)" (?Reshape@@YAXHH@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl drawScene(void)" (?drawScene@@YAXXZ)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: main이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "float __cdecl conversion_y(float)" (?conversion_y@@YAMM@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "float __cdecl conversion_x(float)" (?conversion_x@@YAMM@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl random_color(float (* const)[3])" (?random_color@@YAXQEAY02M@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl InitBuffer(unsigned int,unsigned int *,float (* const)[3],float (* const)[3])" (?InitBuffer@@YAXIPEAIQEAY02M1@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "unsigned int __cdecl make_ShaderProgram(void)" (?make_ShaderProgram@@YAIXZ)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl make_FragmentShaders(char *)" (?make_FragmentShaders@@YAXPEAD@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "void __cdecl make_VertexShaders(char *)" (?make_VertexShaders@@YAXPEAD@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q7.obj : error LNK2005: "char * __cdecl filetobuf(char const *)" (?filetobuf@@YAPEADPEBD@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "unsigned int * vbo" (?vbo@@3PAIA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "unsigned int vertexShader" (?vertexShader@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "char * fragment" (?fragment@@3PADA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "char * vertex" (?vertex@@3PADA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "unsigned int shaderProgramID" (?shaderProgramID@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "unsigned int fragmentShader" (?fragmentShader@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "unsigned int vao" (?vao@@3IA)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl TimerFunction(int)" (?TimerFunction@@YAXH@Z)이(가) GL2_Q7.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl Keyboard(unsigned char,int,int)" (?Keyboard@@YAXEHH@Z)이(가) GL2_Q7.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl Mouse(int,int,int,int)" (?Mouse@@YAXHHHH@Z)이(가) GL2_Q7.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl make_shaderProgram(void)" (?make_shaderProgram@@YAXXZ)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl Reshape(int,int)" (?Reshape@@YAXHH@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl drawScene(void)" (?drawScene@@YAXXZ)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: main이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "float __cdecl conversion_y(float)" (?conversion_y@@YAMM@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "float __cdecl conversion_x(float)" (?conversion_x@@YAMM@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl random_color(float (* const)[3])" (?random_color@@YAXQEAY02M@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl InitBuffer(unsigned int,unsigned int *,float (* const)[3],float (* const)[3])" (?InitBuffer@@YAXIPEAIQEAY02M1@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "unsigned int __cdecl make_ShaderProgram(void)" (?make_ShaderProgram@@YAIXZ)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl make_FragmentShaders(char *)" (?make_FragmentShaders@@YAXPEAD@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "void __cdecl make_VertexShaders(char *)" (?make_VertexShaders@@YAXPEAD@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2_Q8.obj : error LNK2005: "char * __cdecl filetobuf(char const *)" (?filetobuf@@YAPEADPEBD@Z)이(가) GL2.obj에 이미 정의되어 있습니다.
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewEnableVertexAttribArray
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewBindVertexArray
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewUseProgram
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewVertexAttribPointer
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewGetShaderiv
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewCompileShader
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewCreateShader
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewBindBuffer
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewCreateProgram
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewGetShaderInfoLog
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewGetProgramiv
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewBufferData
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewAttachShader
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewShaderSource
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewGenVertexArrays
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glewExperimental
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewGetProgramInfoLog
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewGenBuffers
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewDeleteShader
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glewLinkProgram
+GL2.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glewInit
+D:\github_My\computerGraphics_class\GL2\x64\Release\GL2.exe : fatal error LNK1120: 21개의 확인할 수 없는 외부 참조입니다.

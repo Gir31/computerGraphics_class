@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q8.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_My\\computerGraphics_class\\GL2\\GL2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_My\\computerGraphics_class\\GL2\\GL2_Q7.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q7.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_My\\computerGraphics_class\\GL2\\GL2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_My\\computerGraphics_class\\GL2\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "GL2_Q8.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL2\\GL2_Q8.cpp",
               "RelativeToolTip": "GL2_Q8.cpp",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAEIAAAAAAAAA",
+              "ViewState": "AQIAAPMAAAAAAAAAAAAAAAkBAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-08T03:18:59.452Z",
               "IsPinned": true,
@@ -44,26 +44,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GL2.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL2\\GL2.cpp",
               "RelativeDocumentMoniker": "GL2.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL2\\GL2.cpp",
               "RelativeToolTip": "GL2.cpp",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAADIAAAABAAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAiwEQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-07T13:45:34.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T13:45:34.414Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GL2_Q7.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL2\\GL2_Q7.cpp",
               "RelativeDocumentMoniker": "GL2_Q7.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL2\\GL2_Q7.cpp",
               "RelativeToolTip": "GL2_Q7.cpp",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAAJIAAAABAAAA",
+              "ViewState": "AQIAALIAAAAAAAAAAAAAAK8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-07T12:26:09.424Z",
               "EditorCaption": ""
@@ -78,8 +77,7 @@
               "RelativeToolTip": "GL_My_header.h",
               "ViewState": "AQIAAH4AAAAAAAAAAAAAAI4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-07T03:22:51.237Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T03:22:51.237Z"
             }
           ]
         }
