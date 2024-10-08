@@ -4,8 +4,6 @@
 #define WIDTH 800.0
 #define HEIGHT 800.0
 
-#define MAX_LENGTH (GLfloat)0.1
-
 #define POINT_GL 1
 #define LINE_GL 2
 #define TRIANGLE_GL 3

@@ -1,6 +1,7 @@
 #include "GL_My_header.h"
 
 #define MAX_FIGURE 10
+#define MAX_LENGTH (GLfloat)0.1
 
 typedef struct figure {
 	GLfloat shape[3][3];
