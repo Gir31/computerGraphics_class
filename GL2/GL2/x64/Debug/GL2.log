@@ -1,27 +1,30 @@
 ﻿  GL2_Q8.cpp
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(68,28): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(68,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(95,16): warning C4244: '인수': 'GLuint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(105,15): warning C4244: '인수': 'GLuint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(141,68): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(141,85): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(147,67): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(147,84): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(193,57): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(193,57): warning C4244:         with
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(193,57): warning C4244:         [
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(193,57): warning C4244:             _Ty=int
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(193,57): warning C4244:         ]
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(197,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(198,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(203,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(204,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(209,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(210,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(215,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(216,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(284,16): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(288,37): warning C4305: '=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(289,42): warning C4305: '=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q8.cpp(290,43): warning C4305: '=': 'double'에서 'GLfloat'(으)로 잘립니다.
-  GL2.vcxproj -> D:\github_My\computerGraphics_class\GL2\x64\Debug\GL2.exe
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(81,28): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(81,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(108,16): warning C4244: '인수': 'GLuint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(118,15): warning C4244: '인수': 'GLuint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(154,68): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(154,85): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(160,67): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(160,84): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(245,57): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(245,57): warning C4244:         with
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(245,57): warning C4244:         [
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(245,57): warning C4244:             _Ty=int
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(245,57): warning C4244:         ]
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(249,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(250,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(255,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(256,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(261,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(262,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(267,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(268,22): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(344,16): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(421,60): warning C4244: '인수': 'GLdouble'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(422,60): warning C4244: '인수': 'GLdouble'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(424,60): warning C4244: '인수': 'GLdouble'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(425,60): warning C4244: '인수': 'GLdouble'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(427,51): warning C4244: '인수': 'GLdouble'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q8.cpp(428,51): warning C4244: '인수': 'GLdouble'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GL2.vcxproj -> D:\github_my\computerGraphics_class\GL2\x64\Debug\GL2.exe

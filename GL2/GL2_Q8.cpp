@@ -1,4 +1,7 @@
 #include "GL_My_header.h"
+#include <cmath>
+
+#define PI (GLfloat)3.141592
 
 typedef struct triangle {
 	GLfloat shape[3][3];
@@ -33,6 +36,11 @@ GLint tri_count[4];
 
 bool shape_type = FALSE;
 
+bool time_switch = FALSE;
+bool dia_switch = FALSE;
+bool zigzag_switch = FALSE;
+bool rec_spril_switch = FALSE;
+
 GLvoid drawScene();
 GLvoid Reshape(int w, int h);
 void make_shaderProgram();
@@ -50,10 +58,15 @@ void rec_spiral(TRIANGLE* t);
 void hori_move(TRIANGLE* t);
 void ver_move(TRIANGLE* t);
 
+void turn_tri(TRIANGLE* t, GLdouble radian);
+
 GLfloat random_length();
 GLint in_quadrant(int x, int y);
 
-bool target_length(GLfloat tc, GLfloat tl);
+GLfloat find_cx(GLfloat x1, GLfloat x2);
+GLfloat find_cy(GLfloat y1, GLfloat y2);
+
+bool target_length(GLfloat tc, GLfloat tl, GLfloat value);
 bool touch_top(GLfloat top);
 bool touch_bottom(GLfloat bottom);
 bool touch_right(GLfloat right);
@@ -152,20 +165,52 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
 	case '1':
-		glutTimerFunc(10, TimerFunction, 1);
+		if (!time_switch) {
+			time_switch = TRUE;
+			dia_switch = TRUE;
+			zigzag_switch = FALSE;
+			rec_spril_switch = FALSE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		else {
+			dia_switch = FALSE;
+			zigzag_switch = FALSE;
+		}
 		break;
 	case '2':
+		if (!time_switch) {
+			time_switch = TRUE;
+			dia_switch = FALSE;
+			zigzag_switch = TRUE;
+			rec_spril_switch = FALSE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		else {
+			time_switch = FALSE;
+			zigzag_switch = FALSE;
+		}
 		break;
 	case '3':
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 3; j++) {
-				tri[i][j].target_sprial = (GLfloat)1.0;
-				tri[i][j].x_inc = TRUE;
-				tri[i][j].y_inc = FALSE;
-				tri[i][j].spiral_count = 0;
+		if (!time_switch) {
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 3; j++) {
+					tri[i][j].target_sprial = (GLfloat)1.0;
+					tri[i][j].x_inc = TRUE;
+					tri[i][j].y_inc = FALSE;
+					tri[i][j].spiral_count = 0;
+					turn_tri(&tri[i][j], 0);
+				}
 			}
+			time_switch = TRUE;
+			dia_switch = FALSE;
+			zigzag_switch = FALSE;
+			rec_spril_switch = TRUE;
+			glutTimerFunc(10, TimerFunction, 1);
 		}
-		glutTimerFunc(10, TimerFunction, 1);
+		else {
+			time_switch = FALSE;
+			rec_spril_switch = FALSE;
+		}
 		break;
 	case 'a': shape_type = FALSE; break;
 	case 'b': shape_type = TRUE; break;
@@ -179,11 +224,18 @@ void TimerFunction(int value) {
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 3; j++) {
-			rec_spiral(&tri[i][j]);//zigzag(&tri[i][j]);//dia_move(&tri[i][j]);
+			if (dia_switch) {
+				dia_move(&tri[i][j]);
+			}
+			else if (zigzag_switch) {
+				zigzag(&tri[i][j]);
+			}
+			else if (rec_spril_switch) {
+				rec_spiral(&tri[i][j]);
+			}
 		}
 	}
-
-	glutTimerFunc(10, TimerFunction, 1);
+	if(time_switch)glutTimerFunc(10, TimerFunction, 1);
 }
 
 
@@ -195,25 +247,25 @@ void c_find(TRIANGLE t[][3]) {
 
 	// 1»çºÐ¸é »ï°¢Çü
 	x = conversion_x(dis(gen)) * -1;
-	y = conversion_x(dis(gen));
+	y = conversion_y(dis(gen));
 
 	make_triangle(&t[0][0], x, y);
 
 	// 2»çºÐ¸é »ï°¢Çü
 	x = conversion_x(dis(gen));
-	y = conversion_x(dis(gen));
+	y = conversion_y(dis(gen));
 
 	make_triangle(&t[1][0], x, y);
 
 	// 3»çºÐ¸é »ï°¢Çü
 	x = conversion_x(dis(gen));
-	y = conversion_x(dis(gen)) * -1;
+	y = conversion_y(dis(gen)) * -1;
 
 	make_triangle(&t[2][0], x, y);
 
 	// 4»çºÐ¸é »ï°¢Çü
 	x = conversion_x(dis(gen)) * -1;
-	y = conversion_x(dis(gen)) * -1;
+	y = conversion_y(dis(gen)) * -1;
 
 	make_triangle(&t[3][0], x, y);
 }
@@ -245,6 +297,14 @@ void make_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy) {
 	t->x_inc = dis(gen) % 2;
 	t->y_inc = dis(gen) % 2;
 	t->speed = (GLfloat)dis(gen) / (GLfloat)100;
+
+	if (rec_spril_switch) {
+		t->target_sprial = (GLfloat)1.0;
+		t->x_inc = TRUE;
+		t->y_inc = FALSE;
+		t->spiral_count = 0;
+		turn_tri(t, 0);
+	}
 }
 
 void dia_move(TRIANGLE* t) {
@@ -282,48 +342,56 @@ void zigzag(TRIANGLE* t) {
 
 void rec_spiral(TRIANGLE* t) {
 	GLfloat value = -0.1;
-	
-	std::cout << t->target_sprial << std::endl;
+	GLfloat cx = find_cx(t->shape[2][0], find_cx(t->shape[0][0], t->shape[1][0]));
+	GLfloat cy = find_cy(t->shape[2][1], find_cy(t->shape[0][1], t->shape[1][1]));
 
-	if (t->target_sprial == 0) value = 0.1;
-	else if (t->target_sprial == 1) value = -0.1;
-	else if (t->target_sprial == -1) value = -0.1;
+	if (t->target_sprial < 0.1 && t->target_sprial > -0.1) {
+		t->target_sprial = (GLfloat)1.0;
+		t->x_inc = TRUE;
+		t->y_inc = FALSE;
+		t->spiral_count = 0;
+		turn_tri(t, 0);
+	}
 
 	switch (t->spiral_count) {
 	case 0: // right move
 		hori_move(t);
 
-		if (target_length(t->shape[2][0], t->target_sprial)) {
-			t->target_sprial = (t->target_sprial + value) * -1;
+		if (target_length(cx, t->target_sprial, value)) {
+			t->target_sprial = t->target_sprial * -1;
+
 			t->x_inc = FALSE;
 			t->spiral_count++;
+			turn_tri(t, 270);
 		}
 		break;
 	case 1: // down move
 		ver_move(t);
 
-		if (target_length(t->shape[2][1], t->target_sprial)) {
-			t->target_sprial = (t->target_sprial - value);
+		if (target_length(cy, t->target_sprial, value)) {
 			t->y_inc = TRUE;
 			t->spiral_count++;
+			turn_tri(t, 180);
 		}
 		break;
 	case 2: // left move
 		hori_move(t);
 
-		if (target_length(t->shape[2][0], t->target_sprial)) {
-			t->target_sprial = (t->target_sprial - value) * -1;
+		if (target_length(cx, t->target_sprial, value)) {
+			t->target_sprial = t->target_sprial * -1 + value;
 			t->x_inc = TRUE;
 			t->spiral_count++;
+			turn_tri(t, 90);
 		}
 		break;
 	case 3: // up move
 		ver_move(t);
 
-		if (target_length(t->shape[2][1], t->target_sprial)) {
-			t->target_sprial = (t->target_sprial + value);
+		
+		if (target_length(cy, t->target_sprial, value)) {
 			t->y_inc = FALSE;
 			t->spiral_count = 0;
+			turn_tri(t, 0);
 		}
 		break;
 	}
@@ -341,6 +409,23 @@ void ver_move(TRIANGLE* t) {
 		if (t->y_inc) t->shape[i][1] += t->speed;
 		else t->shape[i][1] -= t->speed;
 	}
+}
+
+void turn_tri(TRIANGLE* t, GLdouble radian) { 
+	GLfloat cx = find_cx(t->shape[2][0], find_cx(t->shape[0][0], t->shape[1][0])); 
+	GLfloat cy = find_cy(t->shape[2][1], find_cy(t->shape[0][1], t->shape[1][1])); 
+
+	GLfloat length = sqrtf((powf((cx - t->shape[2][0]), 2) + powf((cy - t->shape[2][1]), 2)));
+	GLfloat length2 = sqrtf((powf((cx - t->shape[1][0]), 2) + powf((cy - t->shape[1][1]), 2)));
+
+	t->shape[0][0] = cx + (length2 * cosf((radian + 150) * PI / 180));
+	t->shape[0][1] = cy + (length2 * sinf((radian + 150) * PI / 180));
+
+	t->shape[1][0] = cx + (length2 * cosf((radian + 210) * PI / 180));
+	t->shape[1][1] = cy + (length2 * sinf((radian + 210) * PI / 180));
+
+	t->shape[2][0] = cx + (length * cosf(radian * PI / 180));
+	t->shape[2][1] = cy + (length * sinf(radian * PI / 180));
 }
 
 GLfloat random_length() {
@@ -362,12 +447,33 @@ GLint in_quadrant(int x, int y) {
 	}
 }
 
-bool target_length(GLfloat tc, GLfloat tl) {
-	if (tl < 0) {
-		if (tl > tc) return TRUE;
-	}
-	else {
-		if(tl < tc) return TRUE;
+GLfloat find_cx(GLfloat x1, GLfloat x2) {
+	GLfloat length = (x2 - x1) / 2;
+
+	return x1 + length;
+}
+
+GLfloat find_cy(GLfloat y1, GLfloat y2) {
+	GLfloat length = (y2 - y1) / 2;
+
+	return y1 + length;
+}
+
+bool target_length(GLfloat tc, GLfloat tl, GLfloat value) {
+	if (value < 0) {
+		if (tl < 0) {
+			if (tl > tc) return TRUE;
+		}
+		else {
+			if (tl < tc) return TRUE;
+		}
+	}else {
+		if (tl < 0) {
+			if (tl < tc) return TRUE;
+		}
+		else {
+			if (tl > tc) return TRUE;
+		}
 	}
 	return FALSE;
 }
