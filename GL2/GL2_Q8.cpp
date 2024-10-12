@@ -4,7 +4,9 @@ typedef struct triangle {
 	GLfloat shape[3][3];
 	GLfloat color[3][3];
 	GLfloat speed;
+	GLfloat target_sprial;
 	int count;
+	int spiral_count;
 	bool x_inc, y_inc; // FALSE - / TRUE +
 	bool show;
 	bool type; // FALSE 는 면, TRUE 는 선
@@ -44,12 +46,14 @@ void make_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy);
 
 void dia_move(TRIANGLE* t);
 void zigzag(TRIANGLE* t);
+void rec_spiral(TRIANGLE* t); 
 void hori_move(TRIANGLE* t);
 void ver_move(TRIANGLE* t);
 
 GLfloat random_length();
 GLint in_quadrant(int x, int y);
 
+bool target_length(GLfloat tc, GLfloat tl);
 bool touch_top(GLfloat top);
 bool touch_bottom(GLfloat bottom);
 bool touch_right(GLfloat right);
@@ -150,6 +154,19 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 	case '1':
 		glutTimerFunc(10, TimerFunction, 1);
 		break;
+	case '2':
+		break;
+	case '3':
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 3; j++) {
+				tri[i][j].target_sprial = (GLfloat)1.0;
+				tri[i][j].x_inc = TRUE;
+				tri[i][j].y_inc = FALSE;
+				tri[i][j].spiral_count = 0;
+			}
+		}
+		glutTimerFunc(10, TimerFunction, 1);
+		break;
 	case 'a': shape_type = FALSE; break;
 	case 'b': shape_type = TRUE; break;
 	case 'q': glutLeaveMainLoop();
@@ -162,7 +179,7 @@ void TimerFunction(int value) {
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 3; j++) {
-			zigzag(&tri[i][j]);//dia_move(&tri[i][j]);
+			rec_spiral(&tri[i][j]);//zigzag(&tri[i][j]);//dia_move(&tri[i][j]);
 		}
 	}
 
@@ -264,7 +281,52 @@ void zigzag(TRIANGLE* t) {
 }
 
 void rec_spiral(TRIANGLE* t) {
+	GLfloat value = -0.1;
+	
+	std::cout << t->target_sprial << std::endl;
 
+	if (t->target_sprial == 0) value = 0.1;
+	else if (t->target_sprial == 1) value = -0.1;
+	else if (t->target_sprial == -1) value = -0.1;
+
+	switch (t->spiral_count) {
+	case 0: // right move
+		hori_move(t);
+
+		if (target_length(t->shape[2][0], t->target_sprial)) {
+			t->target_sprial = (t->target_sprial + value) * -1;
+			t->x_inc = FALSE;
+			t->spiral_count++;
+		}
+		break;
+	case 1: // down move
+		ver_move(t);
+
+		if (target_length(t->shape[2][1], t->target_sprial)) {
+			t->target_sprial = (t->target_sprial - value);
+			t->y_inc = TRUE;
+			t->spiral_count++;
+		}
+		break;
+	case 2: // left move
+		hori_move(t);
+
+		if (target_length(t->shape[2][0], t->target_sprial)) {
+			t->target_sprial = (t->target_sprial - value) * -1;
+			t->x_inc = TRUE;
+			t->spiral_count++;
+		}
+		break;
+	case 3: // up move
+		ver_move(t);
+
+		if (target_length(t->shape[2][1], t->target_sprial)) {
+			t->target_sprial = (t->target_sprial + value);
+			t->y_inc = FALSE;
+			t->spiral_count = 0;
+		}
+		break;
+	}
 }
 
 void hori_move(TRIANGLE* t) {
@@ -298,6 +360,16 @@ GLint in_quadrant(int x, int y) {
 		if (y < HEIGHT / 2) return 1;
 		else return 2;
 	}
+}
+
+bool target_length(GLfloat tc, GLfloat tl) {
+	if (tl < 0) {
+		if (tl > tc) return TRUE;
+	}
+	else {
+		if(tl < tc) return TRUE;
+	}
+	return FALSE;
 }
 
 bool touch_top(GLfloat top) { return (1.0 < top); }
