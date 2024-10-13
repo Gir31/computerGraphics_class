@@ -32,6 +32,7 @@ extern GLuint make_ShaderProgram();
 extern void InitBuffer(GLuint vao, GLuint* vbo, GLfloat triShape[][3], GLfloat colors[][3]);
 
 extern void random_color(GLfloat color[][3]);
+void random_color_single(GLfloat* color);
 
 extern GLfloat conversion_x(GLfloat x);
 extern GLfloat conversion_y(GLfloat y);
@@ -151,6 +152,19 @@ void random_color(GLfloat color[][3]) {
 		color[0][i] = value;
 		color[1][i] = value;
 		color[2][i] = value;
+	}
+}
+
+void random_color_single(GLfloat* color) {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> dis(1, 1000);
+
+	for (int i = 0; i < 3; i++)
+	{
+		GLfloat value = (GLfloat)dis(gen) / (GLfloat)dis(gen);
+
+		color[i] = value;
 	}
 }
 

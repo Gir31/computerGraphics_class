@@ -8,6 +8,9 @@ typedef struct triangle {
 	GLfloat color[3][3];
 	GLfloat speed;
 	GLfloat target_sprial;
+	GLfloat length;
+	GLfloat clength; // 중점으로부터의 거리
+	GLint radian; 
 	int count;
 	int spiral_count;
 	bool x_inc, y_inc; // FALSE - / TRUE +
@@ -39,9 +42,10 @@ bool shape_type = FALSE;
 bool time_switch = FALSE;
 bool dia_switch = FALSE;
 bool zigzag_switch = FALSE;
-bool rec_spril_switch = FALSE;
+bool rec_spiral_switch = FALSE;
+bool circle_spiral_switch = FALSE;
 
-GLvoid drawScene();
+GLvoid drawScene();  
 GLvoid Reshape(int w, int h);
 void make_shaderProgram();
 
@@ -51,20 +55,24 @@ void TimerFunction(int value);
 
 void c_find(TRIANGLE t[][3]);
 void make_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy);
+void circle_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy);
 
 void dia_move(TRIANGLE* t);
 void zigzag(TRIANGLE* t);
 void rec_spiral(TRIANGLE* t); 
+void circle_spiral(TRIANGLE* t);
 void hori_move(TRIANGLE* t);
 void ver_move(TRIANGLE* t);
 
-void turn_tri(TRIANGLE* t, GLdouble radian);
+void turn_tri(TRIANGLE* t, GLint radian);
 
 GLfloat random_length();
 GLint in_quadrant(int x, int y);
 
 GLfloat find_cx(GLfloat x1, GLfloat x2);
 GLfloat find_cy(GLfloat y1, GLfloat y2);
+GLint get_radian(GLfloat cx, GLfloat cy);
+GLfloat get_length(GLfloat cx, GLfloat cy);
 
 bool target_length(GLfloat tc, GLfloat tl, GLfloat value);
 bool touch_top(GLfloat top);
@@ -169,7 +177,7 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 			time_switch = TRUE;
 			dia_switch = TRUE;
 			zigzag_switch = FALSE;
-			rec_spril_switch = FALSE;
+			rec_spiral_switch = FALSE;
 			glutTimerFunc(10, TimerFunction, 1);
 		}
 		else {
@@ -182,7 +190,7 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 			time_switch = TRUE;
 			dia_switch = FALSE;
 			zigzag_switch = TRUE;
-			rec_spril_switch = FALSE;
+			rec_spiral_switch = FALSE;
 			glutTimerFunc(10, TimerFunction, 1);
 		}
 		else {
@@ -204,12 +212,35 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 			time_switch = TRUE;
 			dia_switch = FALSE;
 			zigzag_switch = FALSE;
-			rec_spril_switch = TRUE;
+			rec_spiral_switch = TRUE;
 			glutTimerFunc(10, TimerFunction, 1);
 		}
 		else {
 			time_switch = FALSE;
-			rec_spril_switch = FALSE;
+			rec_spiral_switch = FALSE;
+		}
+		break;
+	case '4':
+		if (!time_switch) {
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 3; j++) {
+					GLfloat cx = find_cx(tri[i][j].shape[2][0], find_cx(tri[i][j].shape[0][0], tri[i][j].shape[1][0]));
+					GLfloat cy = find_cy(tri[i][j].shape[2][1], find_cy(tri[i][j].shape[0][1], tri[i][j].shape[1][1]));
+
+					tri[i][j].radian = get_radian(cx, cy);
+					tri[i][j].clength = get_length(cx, cy);
+				}
+			}
+			time_switch = TRUE;
+			circle_spiral_switch = TRUE;
+			dia_switch = FALSE;
+			zigzag_switch = FALSE;
+			rec_spiral_switch = FALSE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		else {
+			time_switch = FALSE;
+			circle_spiral_switch = FALSE;
 		}
 		break;
 	case 'a': shape_type = FALSE; break;
@@ -224,14 +255,19 @@ void TimerFunction(int value) {
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 3; j++) {
-			if (dia_switch) {
-				dia_move(&tri[i][j]);
-			}
-			else if (zigzag_switch) {
-				zigzag(&tri[i][j]);
-			}
-			else if (rec_spril_switch) {
-				rec_spiral(&tri[i][j]);
+			if (tri[i][j].show) {
+				if (dia_switch) {
+					dia_move(&tri[i][j]);
+				}
+				else if (zigzag_switch) {
+					zigzag(&tri[i][j]);
+				}
+				else if (rec_spiral_switch) {
+					rec_spiral(&tri[i][j]);
+				}
+				else if (circle_spiral_switch) {
+					circle_spiral(&tri[i][j]);
+				}
 			}
 		}
 	}
@@ -274,9 +310,8 @@ void make_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<int> dis(1, 4);
-
-	GLfloat length = random_length();
-
+	GLfloat length  = random_length();
+	t->length = length;
 	// 첫번째 정점
 	t->shape[0][0] = cx - (length / 2);
 	t->shape[0][1] = cy - length;
@@ -298,13 +333,36 @@ void make_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy) {
 	t->y_inc = dis(gen) % 2;
 	t->speed = (GLfloat)dis(gen) / (GLfloat)100;
 
-	if (rec_spril_switch) {
+	if (rec_spiral_switch) {
 		t->target_sprial = (GLfloat)1.0;
 		t->x_inc = TRUE;
 		t->y_inc = FALSE;
 		t->spiral_count = 0;
 		turn_tri(t, 0);
 	}
+	
+	if (circle_spiral_switch) {
+		t->radian = get_radian(cx, cy);
+		t->clength = get_length(cx, cy);
+		circle_triangle(t, cx, cy);
+	}
+}
+
+void circle_triangle(TRIANGLE* t, GLfloat cx, GLfloat cy) {
+	GLfloat length = t->length;
+
+	// 첫번째 정점
+	t->shape[0][0] = cx - (length / 2);
+	t->shape[0][1] = cy - length;
+	t->shape[0][2] = 0.5;
+	// 두번째 정점
+	t->shape[1][0] = cx + (length / 2);
+	t->shape[1][1] = cy - length;
+	t->shape[1][2] = 0.5;
+	// 세번째 정점
+	t->shape[2][0] = cx;
+	t->shape[2][1] = cy + length;
+	t->shape[2][2] = 0.5;
 }
 
 void dia_move(TRIANGLE* t) {
@@ -316,6 +374,11 @@ void dia_move(TRIANGLE* t) {
 	hori_move(t);
 
 	ver_move(t);
+
+	if (t->x_inc && t->y_inc) turn_tri(t, 45);
+	else if(!(t->x_inc) && t->y_inc) turn_tri(t, 135);
+	else if (t->x_inc && !(t->y_inc)) turn_tri(t, 315);
+	else if (!(t->x_inc) && !(t->y_inc)) turn_tri(t, 225);
 }
 
 void zigzag(TRIANGLE* t) {
@@ -325,15 +388,27 @@ void zigzag(TRIANGLE* t) {
 	if (touch_right(t->shape[1][0])) {
 		t->x_inc = FALSE;
 		t->count = 0;
+		if (t->y_inc) turn_tri(t, 90);
+		else turn_tri(t, 270);
+		hori_move(t);
+		hori_move(t);
 		hori_move(t);
 	}
 	else if (touch_left(t->shape[0][0])) {
 		t->x_inc = TRUE;
 		t->count = 0;
+		if (t->y_inc) turn_tri(t, 90);
+		else turn_tri(t, 270);
+		hori_move(t);
+		hori_move(t);
 		hori_move(t);
 	}
 	
-	if (t->count == 8) hori_move(t);
+	if (t->count == 8) {
+		if(t->x_inc) turn_tri(t, 0);
+		else turn_tri(t, 180);
+		hori_move(t);
+	}
 	else { 
 		ver_move(t);
 		t->count++;
@@ -397,6 +472,39 @@ void rec_spiral(TRIANGLE* t) {
 	}
 }
 
+void circle_spiral(TRIANGLE* t) {
+	GLfloat cx = t->clength * cosf(t->radian * PI / 180);
+	GLfloat	cy = t->clength * sinf(t->radian * PI / 180);
+	GLint speed = t->speed * 100;
+
+	if (touch_top(cy)) {
+		cx = 0;
+		cy = 0;
+		t->clength = 0;
+	}
+	else if (touch_bottom(cy)) {
+		cx = 0;
+		cy = 0;
+		t->clength = 0;
+	}
+	else if (touch_right(cx)) {
+		cx = 0;
+		cy = 0;
+		t->clength = 0;
+	}
+	else if (touch_left(cx)) {
+		cx = 0;
+		cy = 0;
+		t->clength = 0;
+	}
+
+	circle_triangle(t, cx, cy);
+
+	turn_tri(t, t->radian + 90);
+	t->radian = (t->radian + speed) % 360;
+	t->clength += t->speed / 100;
+}
+
 void hori_move(TRIANGLE* t) {
 	for (int i = 0; i < 3; i++) {
 		if (t->x_inc) t->shape[i][0] += t->speed;
@@ -411,7 +519,7 @@ void ver_move(TRIANGLE* t) {
 	}
 }
 
-void turn_tri(TRIANGLE* t, GLdouble radian) { 
+void turn_tri(TRIANGLE* t, GLint radian) { 
 	GLfloat cx = find_cx(t->shape[2][0], find_cx(t->shape[0][0], t->shape[1][0])); 
 	GLfloat cy = find_cy(t->shape[2][1], find_cy(t->shape[0][1], t->shape[1][1])); 
 
@@ -457,6 +565,14 @@ GLfloat find_cy(GLfloat y1, GLfloat y2) {
 	GLfloat length = (y2 - y1) / 2;
 
 	return y1 + length;
+}
+
+GLint get_radian(GLfloat cx, GLfloat cy) {
+	return atan2(cy, cx) * 180 / PI;
+}
+
+GLfloat get_length(GLfloat cx, GLfloat cy) {
+	return sqrtf((powf(cx, 2) + powf(cy, 2)));
 }
 
 bool target_length(GLfloat tc, GLfloat tl, GLfloat value) {

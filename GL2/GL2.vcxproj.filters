@@ -24,6 +24,12 @@
     <ClCompile Include="GL2_Q8.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GL2_Q10.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="aa.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL_My_header.h">
