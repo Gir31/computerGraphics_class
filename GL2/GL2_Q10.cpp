@@ -2,29 +2,35 @@
 
 #define PI 3.141592
 #define R 0.001
+#define POINT_DRAW 300
+#define POINT_SPEED 6
 
 char vertex[] = { "vertex1.glsl" };
 char fragment[] = { "fragment1.glsl" };
 
 typedef struct {
-	GLfloat color[3][3];
+	GLfloat color[3];
 	GLfloat cx, cy, r; // 중심 좌표, 반지름
 	GLint degree, speed;
-}CIRCLE;
+	GLint count;
+	GLint spiral_count;
+}SPIRAL;
 
 GLuint shaderProgramID;
 GLuint vao, vbo[2];
-GLint count = 0;
+
+GLint Count = 0;
 GLint number = 300;
+GLint spiral_count = 1;
 
 bool time_control = FALSE;
 
-CIRCLE c;
+SPIRAL s;
+
+std::vector<SPIRAL> spirals;
 
 GLvoid drawScene();
 GLvoid Reshape(int w, int h);
-
-GLint sprial_count = 1;
 
 void make_shaderProgram();
 void Keyboard(unsigned char key, int x, int y);
@@ -32,8 +38,10 @@ void Mouse(int button, int state, int x, int y);
 void TimerFunction(int value);
 
 void random_color(GLfloat* color[3]);
-void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed);
+void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed, GLint count);
 
+void draw_spiral(SPIRAL* spiral);
+void addSpiral(GLfloat x, GLfloat y);
 void changeBackgroundColor();
 
 int main(int argc, char** argv)
@@ -67,15 +75,10 @@ GLvoid drawScene()
 
 	glUseProgram(shaderProgramID);
 
-	for (int i = 0; i < sprial_count; i++) {
-		circle_spiral(c.cx + (R *100*i), c.cy + (R * 210 * i), c.r, c.degree, c.speed);
+	for (int i = 0; i < s.spiral_count; i++) {
+		circle_spiral(s.cx + (R *100*i), s.cy + (R * 210 * i), s.r, s.degree, s.speed, s.count);
+		for (auto& spiral : spirals) draw_spiral(&spiral);
 	}
-
-	/*InitBuffer(vao, vbo, c.shape, c.color);
-	glPointSize(5);
-	glDrawArrays(GL_POINTS, 0, 1);*/
-	
-	
 	
 
 	glutSwapBuffers();
@@ -103,7 +106,7 @@ void Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
 	case '1': case '2': case '3': case '4': case '5':  // 1~5개 스파이럴 그리기
-		sprial_count = key - '0';  // 숫자 변환
+		spiral_count = key - '0';  // 숫자 변환
 		break;
 	}
 }
@@ -113,15 +116,18 @@ void Mouse(int button, int state, int x, int y) {
 		if (!time_control) {
 			changeBackgroundColor();
 
-			c.cx = conversion_x(x);
-			c.cy = conversion_y(y);
+			s.cx = conversion_x(x);
+			s.cy = conversion_y(y);
 
-			count = 0;
-			c.r = 0;
-			c.speed = 6;
-			random_color(c.color);
+			Count = 0;
+			s.r = 0;
+			s.speed = POINT_SPEED;
+			s.count = 0;
+			random_color_single(s.color);
 
 			time_control = TRUE;
+
+			s.spiral_count = spiral_count;
 			glutTimerFunc(10, TimerFunction, 1);
 		}
 	}
@@ -129,8 +135,9 @@ void Mouse(int button, int state, int x, int y) {
 
 void TimerFunction(int value) {
 	glutPostRedisplay();
-	count++;
-	if (count == 300) time_control = FALSE;
+	Count++;
+	s.count++;
+	if (Count == POINT_DRAW) time_control = FALSE;
 	if(time_control) glutTimerFunc(10, TimerFunction, 1);
 }
 
@@ -142,12 +149,12 @@ void random_color(GLfloat* color[3]) {
 	}
 }
 
-void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed) {
+void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed, GLint count) {
 	GLfloat x, y;
 
 	glBegin(GL_LINES);
 	for (int i = 0; i < count; i++) {
-		if (i < 150) {
+		if (i < POINT_DRAW/2) {
 			x = cx + (r * cosf(degree * PI / 180));
 			y = cy + (r * sinf(degree * PI / 180));
 			r += R;
@@ -160,7 +167,53 @@ void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed)
 			degree = (degree - speed) % 360;
 		}
 
-		if (i == 150) {
+		if (i == POINT_DRAW / 2) {
+			cx -= r * 2;
+			degree -= 180;
+		}
+		glPointSize(10);
+		glVertex2f(x, y);
+	}
+	glEnd();
+
+	if (count == POINT_DRAW) addSpiral(cx + (R*300), cy);
+}
+
+void addSpiral(GLfloat x, GLfloat y)
+{
+	SPIRAL new_s;
+	new_s.cx = x; 
+	new_s.cy = y;
+	new_s.r = 0;
+	new_s.speed = POINT_SPEED;
+	new_s.count = POINT_DRAW;
+
+	spirals.push_back(new_s);
+}
+
+void draw_spiral(SPIRAL* spiral) {
+	GLfloat cx = spiral->cx;
+	GLfloat cy = spiral->cy;
+	GLfloat r = spiral->r;
+	GLint degree = 0;
+	GLint speed = POINT_SPEED;
+	GLfloat x, y;
+	glBegin(GL_LINES);
+	for (int i = 0; i < spiral->count; i++) {
+		if (i < POINT_DRAW/2) {
+			x = cx + (r * cosf(degree * PI / 180));
+			y = cy + (r * sinf(degree * PI / 180));
+			r += R;
+			degree = (degree + speed) % 360;
+		}
+		else {
+			x = cx + (r * cosf(degree * PI / 180));
+			y = cy + (r * sinf(degree * PI / 180));
+			r -= R;
+			degree = (degree - speed) % 360;
+		}
+
+		if (i == POINT_DRAW/2) {
 			cx -= r * 2;
 			degree -= 180;
 		}
