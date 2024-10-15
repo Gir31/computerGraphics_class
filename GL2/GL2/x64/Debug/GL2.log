@@ -1,4 +1,7 @@
 ﻿  GL2_Q11.cpp
-D:\github_My\computerGraphics_class\GL2\GL2_Q11.cpp(47,28): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL2\GL2_Q11.cpp(47,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  GL2.vcxproj -> D:\github_My\computerGraphics_class\GL2\x64\Debug\GL2.exe
+D:\github_my\computerGraphics_class\GL2\GL2_Q11.cpp(65,28): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q11.cpp(65,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q11.cpp(84,25): warning C4305: '인수': 'double'에서 'GLclampf'(으)로 잘립니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q11.cpp(84,20): warning C4305: '인수': 'double'에서 'GLclampf'(으)로 잘립니다.
+D:\github_my\computerGraphics_class\GL2\GL2_Q11.cpp(84,15): warning C4305: '인수': 'double'에서 'GLclampf'(으)로 잘립니다.
+  GL2.vcxproj -> D:\github_my\computerGraphics_class\GL2\x64\Debug\GL2.exe
