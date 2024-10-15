@@ -9,11 +9,11 @@ char vertex[] = { "vertex1.glsl" };
 char fragment[] = { "fragment1.glsl" };
 
 typedef struct {
-	GLfloat color[3];
 	GLfloat cx, cy, r; // 중심 좌표, 반지름
 	GLint degree, speed;
 	GLint count;
 	GLint spiral_count;
+	bool line_type;
 }SPIRAL;
 
 GLuint shaderProgramID;
@@ -23,6 +23,7 @@ GLint Count = 0;
 GLint number = 300;
 GLint spiral_count = 1;
 
+bool type = TRUE;
 bool time_control = FALSE;
 
 SPIRAL s;
@@ -38,7 +39,7 @@ void Mouse(int button, int state, int x, int y);
 void TimerFunction(int value);
 
 void random_color(GLfloat* color[3]);
-void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed, GLint count);
+void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed, GLint count, bool line_type);
 
 void draw_spiral(SPIRAL* spiral);
 void addSpiral(GLfloat x, GLfloat y);
@@ -76,7 +77,7 @@ GLvoid drawScene()
 	glUseProgram(shaderProgramID);
 
 	for (int i = 0; i < s.spiral_count; i++) {
-		circle_spiral(s.cx + (R *100*i), s.cy + (R * 210 * i), s.r, s.degree, s.speed, s.count);
+		circle_spiral(s.cx + (R *100*i), s.cy + (R * 210 * i), s.r, s.degree, s.speed, s.count, s.line_type);
 		for (auto& spiral : spirals) draw_spiral(&spiral);
 	}
 	
@@ -105,6 +106,12 @@ void make_shaderProgram()
 void Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
+	case 'p':
+		type = TRUE;
+		break;
+	case 'l':
+		type = FALSE;
+		break;
 	case '1': case '2': case '3': case '4': case '5':  // 1~5개 스파이럴 그리기
 		spiral_count = key - '0';  // 숫자 변환
 		break;
@@ -123,7 +130,7 @@ void Mouse(int button, int state, int x, int y) {
 			s.r = 0;
 			s.speed = POINT_SPEED;
 			s.count = 0;
-			random_color_single(s.color);
+			s.line_type = type;
 
 			time_control = TRUE;
 
@@ -149,10 +156,10 @@ void random_color(GLfloat* color[3]) {
 	}
 }
 
-void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed, GLint count) {
+void circle_spiral(GLfloat cx, GLfloat cy, GLfloat r, GLint degree, GLint speed, GLint count, bool line_type) {
 	GLfloat x, y;
 
-	glBegin(GL_LINES);
+	glBegin(line_type ? GL_POINTS : GL_LINE_STRIP);
 	for (int i = 0; i < count; i++) {
 		if (i < POINT_DRAW/2) {
 			x = cx + (r * cosf(degree * PI / 180));
@@ -187,6 +194,7 @@ void addSpiral(GLfloat x, GLfloat y)
 	new_s.r = 0;
 	new_s.speed = POINT_SPEED;
 	new_s.count = POINT_DRAW;
+	new_s.line_type = type;
 
 	spirals.push_back(new_s);
 }
@@ -198,7 +206,7 @@ void draw_spiral(SPIRAL* spiral) {
 	GLint degree = 0;
 	GLint speed = POINT_SPEED;
 	GLfloat x, y;
-	glBegin(GL_LINES);
+	glBegin(spiral->line_type ? GL_POINTS : GL_LINE_STRIP);
 	for (int i = 0; i < spiral->count; i++) {
 		if (i < POINT_DRAW/2) {
 			x = cx + (r * cosf(degree * PI / 180));

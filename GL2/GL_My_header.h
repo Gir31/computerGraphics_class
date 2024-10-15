@@ -63,7 +63,7 @@ void make_VertexShaders(char* fileName) {
 	vertexSource = filetobuf(fileName);
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-	glShaderSource(vertexShader, 1, &vertexSource, NULL);
+	glShaderSource(vertexShader, 1, (const GLchar**)&vertexSource, NULL);
 	glCompileShader(vertexShader);
 	
 	GLint result;
@@ -85,7 +85,7 @@ void make_FragmentShaders(char* fileName)
 	fragmentSource = filetobuf(fileName);
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-	glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
+	glShaderSource(fragmentShader, 1, (const GLchar**)&fragmentSource, NULL);
 	glCompileShader(fragmentShader);
 
 	GLint result;
