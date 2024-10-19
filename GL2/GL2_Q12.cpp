@@ -41,6 +41,7 @@ void make_line(SHAPE* s, GLfloat cx, GLfloat cy, GLfloat l);
 void make_triangle(SHAPE* s, GLfloat cx, GLfloat cy, GLfloat l);
 void make_rectangle(SHAPE* s, GLfloat cx, GLfloat cy, GLfloat l);
 void make_pentagon(SHAPE* s, GLfloat cx, GLfloat cy, GLfloat l);
+void make_point(SHAPE* s, GLfloat cx, GLfloat cy);
 
 void random_RGB(GLfloat RGB[][3]);
 
@@ -64,7 +65,6 @@ int main(int argc, char** argv)
 	reset_shape();
 
 	glutDisplayFunc(drawScene);
-	glutTimerFunc(10, TimerFunction, 1);
 	glutReshapeFunc(Reshape);
 	glutMainLoop();
 }
@@ -154,8 +154,8 @@ void reset_shape() {
 		case 3:
 			make_pentagon(&shape[i], random_locate_x(), random_locate_y(), SMALL_LENGTH_MAX);
 			break;
-		default: 
-			make_pentagon(&shape[i], random_locate_x(), random_locate_y(), SMALL_LENGTH_MAX);
+		case 4: 
+			make_point(&shape[i], random_locate_x(), random_locate_y());
 			break;
 		}
 
@@ -258,6 +258,34 @@ void make_pentagon(SHAPE* s, GLfloat cx, GLfloat cy, GLfloat l) {
 	s->index[2][0] = 0;
 	s->index[2][1] = 4;
 	s->index[2][2] = 3;
+}
+
+void make_point(SHAPE* s, GLfloat cx, GLfloat cy) {
+	// 왼쪽 아래 점
+	s->point[0][0] = cx - 0.005;
+	s->point[0][1] = cy - 0.005;
+	// 오른쪽 아래 점
+	s->point[1][0] = cx + 0.005;
+	s->point[1][1] = cy - 0.005;
+	// 왼쪽 위 점
+	s->point[2][0] = cx - 0.005;
+	s->point[2][1] = cy + 0.005;
+	// 오른쪽 위 점
+	s->point[3][0] = cx + 0.005;
+	s->point[3][1] = cy + 0.005;
+	// 애니메이션을 위한 꼭대기 점 초기화
+	s->point[4][0] = cx;
+	s->point[4][1] = cy + 0.005;
+
+	// --- 인덱스 저장 ---
+	// 첫번째 삼각형
+	s->index[0][0] = 0;
+	s->index[0][1] = 1;
+	s->index[0][2] = 2;
+	// 두번째 삼각형
+	s->index[1][0] = 1;
+	s->index[1][1] = 3;
+	s->index[1][2] = 2;
 }
 
 void random_RGB(GLfloat RGB[][3]) {
