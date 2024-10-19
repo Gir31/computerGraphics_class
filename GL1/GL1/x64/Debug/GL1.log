@@ -1,62 +1,21 @@
-﻿  GL_Q6.cpp
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(282,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(283,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(285,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(286,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(288,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(289,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(291,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(292,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(298,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(299,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(300,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(301,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(303,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(304,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(305,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(306,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(308,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(309,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(310,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(311,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(313,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(314,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(315,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(316,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(326,34): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(327,34): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(332,34): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(333,34): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(338,34): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(339,34): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(344,34): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(345,34): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(354,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(355,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(356,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(357,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(359,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(360,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(362,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(363,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(365,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(366,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(367,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(368,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(370,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(371,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(372,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(373,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(375,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(376,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(378,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(379,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(381,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(382,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(383,32): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(384,32): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(394,33): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(395,33): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(396,33): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\github_My\computerGraphics_class\GL1\GL_Q6.cpp(397,33): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
-  GL1.vcxproj -> D:\github_My\computerGraphics_class\GL1\x64\Debug\GL1.exe
+﻿  GL_Q5.cpp
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(46,1): warning C4326: 'main'의 반환 형식이 'int'이어야 하는데 'void'입니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(50,29): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(50,21): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244: '인수': 'double'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:         with
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:         [
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:             _Ty=int
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(100,53): warning C4244:         ]
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(104,30): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(105,30): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(129,17): warning C4244: '인수': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(151,18): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(156,17): warning C4244: '인수': 'double'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(181,42): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(182,43): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(183,42): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(184,43): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(187,36): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_my\computerGraphics_class\GL1\GL_Q5.cpp(189,36): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GL1.vcxproj -> D:\github_my\computerGraphics_class\GL1\x64\Debug\GL1.exe
