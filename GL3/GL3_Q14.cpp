@@ -39,6 +39,15 @@ GLint cube_index[6][6] = {
 	{7, 6, 5, 7, 5, 4}
 };
 
+GLfloat line[3][2][3] = {
+	{{1.0f, 0.0f, 0.0f}, {-1.0f, 0.0f, 0.0f}}, // xรเ
+	{{0.0f, 1.0f, 0.0f}, {0.0f, -1.0f, 0.0f}}, // yรเ
+	{{0.0f, 0.0f, 1.0f}, {0.0f, 0.0f, -1.0f}} // zรเ
+};
+GLfloat line_color[1][3];
+GLuint line_index[1][3] = { 0, 1 };
+GLsizei line_vertex = 2;
+
 char vertex[] = { "vertex.glsl" };
 char fragment[] = { "fragment.glsl" };
 GLuint VAO, VBO, VBO_pos, EBO;
@@ -107,6 +116,16 @@ GLvoid drawScene()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glUseProgram(shaderProgramID);
+
+	for (int i = 0; i < 3; i++) {
+		rotate_shape(0.0f, 0.0f, 0.0f, shaderProgramID);
+
+		InitBuffer_EBO(line[i], line_index, line_color, sizeof(line[i]), sizeof(line_index), sizeof(line_color));
+		glBindVertexArray(VAO);
+
+		glDrawElements(GL_LINES, line_vertex, GL_UNSIGNED_INT, 0);
+	}
+
 
 	trans_shape(rotate, translate, shaderProgramID);
 

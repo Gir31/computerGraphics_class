@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\github_my\\computerGraphics_class\\GL3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q15.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|solutionrelative:GL3_Q15.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q13.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|solutionrelative:GL3_Q13.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q14.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|solutionrelative:GL3_Q14.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q15.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|solutionrelative:GL3_Q15.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DE63689-9C3D-4680-B440-55C67A724E86}|GL3.vcxproj|D:\\github_my\\computerGraphics_class\\GL3\\vertex.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -34,37 +34,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GL3_Q15.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q15.cpp",
               "RelativeDocumentMoniker": "GL3_Q15.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q15.cpp",
               "RelativeToolTip": "GL3_Q15.cpp",
-              "ViewState": "AQIAANwAAAAAAAAAAAAAAPMAAAAqAAAA",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAHUAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T11:13:06.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "GL3_Q14.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q14.cpp",
               "RelativeDocumentMoniker": "GL3_Q14.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q14.cpp",
               "RelativeToolTip": "GL3_Q14.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAbAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-20T01:30:38.231Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "GL_My_header.h",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL3\\GL_My_header.h",
               "RelativeDocumentMoniker": "GL_My_header.h",
@@ -72,8 +72,7 @@
               "RelativeToolTip": "GL_My_header.h",
               "ViewState": "AQIAAIEAAAAAAAAAAAAAAJYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-16T01:32:31.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T01:32:31.923Z"
             },
             {
               "$type": "Document",
@@ -89,13 +88,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "GL3_Q13.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q13.cpp",
               "RelativeDocumentMoniker": "GL3_Q13.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL3\\GL3_Q13.cpp",
               "RelativeToolTip": "GL3_Q13.cpp",
-              "ViewState": "AQIAAB8BAAAAAAAAAAAqwEYBAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-16T01:27:52.526Z",
               "EditorCaption": ""
