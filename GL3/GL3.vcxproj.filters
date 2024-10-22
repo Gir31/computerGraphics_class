@@ -21,6 +21,9 @@
     <ClCompile Include="GL3_Q14.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GL3_Q15.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment.glsl" />

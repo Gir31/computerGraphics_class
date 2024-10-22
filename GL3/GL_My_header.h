@@ -41,7 +41,7 @@ extern GLfloat conversion_x(GLfloat x);
 extern GLfloat conversion_y(GLfloat y);
 
 
-extern GLvoid rotate_shape(GLfloat degreeX, GLfloat degreeY, GLfloat degreeZ);
+extern GLvoid rotate_shape(GLfloat degreeX, GLfloat degreeY, GLfloat degreeZ, GLuint shaderProgramID);
 extern GLvoid translation_shape(GLfloat transX, GLfloat transY, GLfloat transZ, GLuint shaderProgramID);
 extern GLvoid scaleing_shape(GLfloat scaleX, GLfloat scaleY, GLfloat scaleZ, GLuint shaderProgramID);
 
