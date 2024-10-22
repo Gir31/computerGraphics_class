@@ -61,6 +61,7 @@ GLfloat degree_value[2] = { 1.0f, -1.0f };
 GLboolean time_switch = FALSE;
 GLboolean rotate_switch = FALSE; // FALSE 자전 | TRUE 공전
 GLboolean x_y = FALSE;
+GLboolean select[2] = { TRUE, TRUE };
 
 GLint dValue;
 GLint number[2] = { 0, 1 };
@@ -239,9 +240,23 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 		number[0] = 0;
 		number[1] = 1;
 		time_switch = FALSE;
+		select[0] = TRUE;
+		select[1] = TRUE;
 
 		rotate_1[0] = rotate_1[0] = rotate_2[0] = rotate_2[0] = 30.0f; // x, y, z
 		rotate_rev1[1] = rotate_rev2[1] = 30.0f;
+		break;
+	case '1':
+		select[0] = TRUE;
+		select[1] = FALSE;
+		break;
+	case '2':
+		select[0] = FALSE;
+		select[1] = TRUE;
+		break;
+	case '3':
+		select[0] = TRUE;
+		select[1] = TRUE;
 		break;
 	}
 	glutPostRedisplay();
@@ -256,12 +271,12 @@ GLvoid TimerFunction(int value) {
 	}
 	else {
 		if (x_y) {
-			rotate_1[1] += degree_value[dValue];
-			rotate_2[1] += degree_value[dValue];
+			if(select[0]) rotate_1[1] += degree_value[dValue];
+			if(select[1]) rotate_2[1] += degree_value[dValue];
 		}
 		else {
-			rotate_1[0] += degree_value[dValue];
-			rotate_2[0] += degree_value[dValue];
+			if (select[0]) rotate_1[0] += degree_value[dValue];
+			if (select[1]) rotate_2[0] += degree_value[dValue];
 		}
 	}
 
