@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GL3.cpp">
+    <ClCompile Include="GL3_Q13.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GL3_Q14.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,0 @@
-﻿  what.c
-D:\github_My\computerGraphics_class\warmingUP\prac1\what.c(32,8): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-D:\github_My\computerGraphics_class\warmingUP\prac1\what.c(108,6): warning C4101: 'direction' :참조되지 않은 지역 변수입니다.
-LINK : fatal error LNK1168: D:\github_My\computerGraphics_class\warmingUP\prac1\x64\Debug\prac1.exe을(를) 쓰기용으로 열 수 없습니다.

@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\github_my\\computerGraphics_class\\GL2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q12.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q12.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q8.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q8.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q7.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q7.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q10.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q10.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q7.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|solutionrelative:GL2_Q7.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB02BE2D-0DE3-421D-A74B-9F37CA7494C4}|GL2.vcxproj|D:\\github_my\\computerGraphics_class\\GL2\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -40,27 +36,26 @@
               "RelativeDocumentMoniker": "GL2_Q7.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q7.cpp",
               "RelativeToolTip": "GL2_Q7.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-16T02:14:32.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T02:14:32.633Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GL2_Q8.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q8.cpp",
               "RelativeDocumentMoniker": "GL2_Q8.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q8.cpp",
               "RelativeToolTip": "GL2_Q8.cpp",
-              "ViewState": "AQIAAF4BAAAAAAAAAAAAAHABAAABAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAAAHUAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-16T02:12:25.099Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "GL_My_header.h",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL2\\GL_My_header.h",
               "RelativeDocumentMoniker": "GL_My_header.h",
@@ -72,26 +67,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GL2_Q12.cpp",
-              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q12.cpp",
-              "RelativeDocumentMoniker": "GL2_Q12.cpp",
-              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q12.cpp",
-              "RelativeToolTip": "GL2_Q12.cpp",
-              "ViewState": "AQIAAKsBAAAAAAAAAAAAABQCAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-16T01:35:02.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "GL2_Q10.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q10.cpp",
               "RelativeDocumentMoniker": "GL2_Q10.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL2\\GL2_Q10.cpp",
               "RelativeToolTip": "GL2_Q10.cpp",
-              "ViewState": "AQIAAJkAAAAAAAAAAADwvz4AAAAAAAAA",
+              "ViewState": "AQIAAJAAAAAAAAAAAADwv6wAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-15T13:50:44.006Z"
             }
