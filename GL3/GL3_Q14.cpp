@@ -118,7 +118,7 @@ GLvoid drawScene()
 	glUseProgram(shaderProgramID);
 
 	for (int i = 0; i < 3; i++) {
-		rotate_shape(0.0f, 0.0f, 0.0f, shaderProgramID);
+		rotate_shape(30.0f, 30.0f, 0.0f, shaderProgramID);
 
 		InitBuffer_EBO(line[i], line_index, line_color, sizeof(line[i]), sizeof(line_index), sizeof(line_color));
 		glBindVertexArray(VAO);
