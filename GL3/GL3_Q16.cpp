@@ -57,11 +57,27 @@ GLfloat shape_rotate[3] = { 0.0f, 0.0f, 0.0f };
 GLfloat shape_trans[3] = { 0.5f, 0.0f, 0.0f };
 GLfloat shape_rotate_rev[3] = { 30.0f, 30.0f, 30.0f };
 GLfloat shape_revolution = { 0.0f };
+GLfloat shape_scale[2] = {1.0f, 1.0f};
+GLfloat move = { 0.01f };
 
 GLfloat shape_rotate2[3] = { 0.0f, 0.0f, 0.0f };
 GLfloat shape_trans2[3] = { -0.5f, 0.0f, 0.0f };
 GLfloat shape_rotate_rev2[3] = { 30.0f, 30.0f, 30.0f };
 GLfloat shape_revolution2 = { 0.0f };
+GLfloat shape_scale2[2] = {1.0f, 1.0f};
+GLfloat move2 = { -0.01f };
+
+GLboolean time_switch = FALSE;
+GLboolean spiral_move_switch = FALSE;
+GLboolean swap_position_switch = FALSE;
+GLboolean revolution_swap_switch = FALSE;
+GLboolean revolution_switch = FALSE;
+GLboolean up_down_swap_switch = FALSE;
+GLboolean x = FALSE;
+GLboolean y = FALSE;
+GLboolean z = FALSE;
+
+GLboolean move_switch[8];
 
 GLuint shaderProgramID;
 
@@ -80,9 +96,21 @@ GLvoid red_color(GLfloat* color);
 GLvoid green_color(GLfloat* color);
 GLvoid blue_color(GLfloat* color);
 
-GLvoid trans_shape(GLfloat* degree, GLfloat* trans, GLfloat revolution, GLfloat* degree_rev, GLuint shaderProgramID);
+GLvoid trans_shape(GLfloat scale, GLfloat* degree, GLfloat* trans, GLfloat revolution, GLfloat* degree_rev, GLfloat scale2, GLuint shaderProgramID);
+
+GLvoid reset_shape();
 
 GLvoid spiral_move();
+GLvoid swap_position();
+GLvoid revolution_swap_move();
+GLvoid up_down_swap_move();
+GLvoid revolution_move();
+GLvoid x_move();
+GLvoid y_move();
+GLvoid z_move();
+
+GLvoid reset_switch(GLint on);
+void circle_spiral();
 
 int main(int argc, char** argv)
 {
@@ -101,7 +129,6 @@ int main(int argc, char** argv)
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(Reshape);
 	glutKeyboardFunc(Keyboard);
-	glutTimerFunc(10, TimerFunction, 1);
 	glutMainLoop();
 }
 
@@ -114,7 +141,11 @@ GLvoid drawScene()
 
 	glUseProgram(shaderProgramID);
 
+
+
 	rotate_shape(line_rotate[0], line_rotate[1], line_rotate[2], shaderProgramID);
+
+	if (move_switch[0]) circle_spiral();
 
 	for (int i = 0; i < 3; i++) {
 		InitBuffer_EBO(line[i], line_index, line_color[i], sizeof(line[i]), sizeof(line_index), sizeof(line_color[i]));
@@ -123,10 +154,10 @@ GLvoid drawScene()
 		glDrawElements(GL_LINES, line_vertex, GL_UNSIGNED_INT, 0);
 	}
 
-	trans_shape(shape_rotate, shape_trans, shape_revolution, shape_rotate_rev, shaderProgramID);
+	trans_shape(shape_scale[0], shape_rotate, shape_trans, shape_revolution, shape_rotate_rev, shape_scale[1], shaderProgramID);
 	draw_shape(0);
 
-	trans_shape(shape_rotate2, shape_trans2, shape_revolution2, shape_rotate_rev2, shaderProgramID);
+	trans_shape(shape_scale2[0], shape_rotate2, shape_trans2, shape_revolution2, shape_rotate_rev2, shape_scale2[1], shaderProgramID);
 	draw_shape(1);
 
 	glutSwapBuffers();
@@ -178,23 +209,104 @@ GLvoid InitBuffer_EBO(GLfloat vPositionList[][3], GLuint index[][3], GLfloat col
 GLvoid Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
+	case '[':
+		if (shape_scale[0] > 0.1f) {
+			shape_scale[0] -= 0.1f;
+			shape_scale2[0] -= 0.1f;
+		}
+		break;
+	case ']':
+		shape_scale[0] += 0.1f;
+		shape_scale2[0] += 0.1f;
+		break;
+	case 'o':
+		if (shape_scale[1] > 0.1f) {
+			shape_scale[1] -= 0.1f;
+			shape_scale2[1] -= 0.1f;
+		}
+		break;
+	case 'p':
+		shape_scale[1] += 0.1f;
+		shape_scale2[1] += 0.1f;
+		break;
 	case 'q':
 		shape_trans[0] += 0.1f;
+		shape_trans2[0] += 0.1f;
 		break;
 	case 'w':
 		shape_trans[0] -= 0.1f;
+		shape_trans2[0] -= 0.1f;
 		break;
 	case 'a':
 		shape_trans[1] += 0.1f;
+		shape_trans2[1] += 0.1f;
 		break;
 	case 's':
 		shape_trans[1] -= 0.1f;
+		shape_trans2[1] -= 0.1f;
 		break;
 	case 'z':
 		shape_trans[2] += 0.1f;
+		shape_trans2[2] += 0.1f;
 		break;
 	case 'x':
 		shape_trans[2] -= 0.1f;
+		shape_trans2[2] -= 0.1f;
+		break;
+
+	case '1':
+		reset_shape();
+		shape_trans[0] = shape_trans2[0] = 0.0f;
+		reset_switch(key - '1');
+		break;
+	case '2':
+		reset_shape();
+
+		shape_trans[0] = 0.5f;
+		shape_trans[1] = 0.0f;
+		shape_trans[2] = 0.0f;
+		shape_revolution = 0.0f;
+
+		shape_trans2[0] = -0.5f;
+		shape_trans2[1] = 0.0f;
+		shape_trans2[2] = 0.0f;
+		shape_revolution2 = 0.0f;
+
+		reset_switch(key - '1');
+		break;
+	case '3':
+		reset_shape();
+
+		reset_switch(key - '1');
+		break;
+	case '4':
+		reset_shape();
+
+		reset_switch(key - '1');
+		break;
+	case '5':
+		reset_shape();
+
+		reset_switch(key - '1');
+		break;
+	case '6':
+		reset_shape();
+		shape_trans[0] = shape_trans2[0] = 0.0f;
+		reset_switch(key - '1');
+		break;
+	case '7':
+		reset_shape();
+		shape_trans[0] = shape_trans2[0] = 0.0f;
+		reset_switch(key - '1');
+		break;
+	case '8':
+		reset_shape();
+		shape_trans[0] = shape_trans2[0] = 0.0f;
+		reset_switch(key - '1');
+		break;
+	case '9':
+		reset_shape();
+		reset_switch(key - '1');
 		break;
 	}
 	glutPostRedisplay();
@@ -202,8 +314,17 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 
 GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
-	spiral_move();
-	glutTimerFunc(10, TimerFunction, 1);
+	
+	if (move_switch[0]) spiral_move();
+	else if (move_switch[1]) swap_position();
+	else if (move_switch[2]) revolution_swap_move();
+	else if (move_switch[3]) up_down_swap_move();
+	else if (move_switch[4]) revolution_move();
+	else if (move_switch[5]) x_move();
+	else if (move_switch[6]) y_move();
+	else if (move_switch[7]) z_move();
+
+	if(time_switch) glutTimerFunc(10, TimerFunction, 1);
 }
 
 GLvoid draw_shape(GLint number) {
@@ -278,7 +399,13 @@ GLvoid blue_color(GLfloat* color) {
 	color[2] = 1.0f;
 }
 
-GLvoid trans_shape(GLfloat* degree, GLfloat* trans, GLfloat revolution, GLfloat* degree_rev, GLuint shaderProgramID) { 
+GLvoid trans_shape(GLfloat scale, GLfloat* degree, GLfloat* trans, GLfloat revolution, GLfloat* degree_rev, GLfloat scale2, GLuint shaderProgramID) { 
+
+	// 원점에서 신축
+	glm::mat4 scaleMatrix(1.0f);
+	scaleMatrix = glm::scale(scaleMatrix, glm::vec3(scale, scale, scale)); //--- 크기 변환
+
+	// 자전
 	glm::mat4 rotateMatrix_x(1.0f);
 	rotateMatrix_x = glm::rotate(rotateMatrix_x, glm::radians(degree[0]), glm::vec3(1.0f, 0.0f, 0.0f)); //--- X축 회전
 
@@ -291,12 +418,15 @@ GLvoid trans_shape(GLfloat* degree, GLfloat* trans, GLfloat revolution, GLfloat*
 	glm::mat4 rotateMatrix(1.0f);
 	rotateMatrix = rotateMatrix_z * rotateMatrix_y * rotateMatrix_x;
 
+	// 원점에 대한 이동
 	glm::mat4 transMatrix(1.0f);
 	transMatrix = glm::translate(transMatrix, glm::vec3(trans[0], trans[1], trans[2])); //--- 이동
 
+	// 공전
 	glm::mat4 rotateMatrix_revolution(1.0f);
 	rotateMatrix_revolution = glm::rotate(rotateMatrix_revolution, glm::radians(revolution), glm::vec3(0.0f, 1.0f, 0.0f)); //--- Y축 회전
 
+	// 이동 후 회전
 	glm::mat4 rotateMatrix_rev_x(1.0f);
 	rotateMatrix_rev_x = glm::rotate(rotateMatrix_rev_x, glm::radians(degree_rev[0]), glm::vec3(1.0f, 0.0f, 0.0f)); //--- X축 회전
 
@@ -309,12 +439,34 @@ GLvoid trans_shape(GLfloat* degree, GLfloat* trans, GLfloat revolution, GLfloat*
 	glm::mat4 rotateMatrix_rev(1.0f);
 	rotateMatrix_rev = rotateMatrix_rev_z * rotateMatrix_rev_y * rotateMatrix_rev_x;
 
+	// 원점에서 이동 후 신축
+	glm::mat4 scaleMatrix2(1.0f);
+	scaleMatrix2 = glm::scale(scaleMatrix2, glm::vec3(scale2, scale2, scale2)); //--- 크기 변환
+
 	glm::mat4 Matrix(1.0f);
-	Matrix = rotateMatrix_rev * rotateMatrix_revolution * transMatrix * rotateMatrix;
+	Matrix = scaleMatrix2 * rotateMatrix_rev * rotateMatrix_revolution * transMatrix * rotateMatrix * scaleMatrix;
 
 	//--- 변환 행렬 값을 버텍스 세이더로 보내기
 	unsigned int transformLocation = glGetUniformLocation(shaderProgramID, "transform");
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(Matrix));
+}
+
+GLvoid reset_shape() {
+
+	for (int i = 0; i < 3; i++) {
+		shape_rotate[i] = shape_rotate2[i] = 0.0f;
+		shape_rotate_rev[i] = shape_rotate_rev2[i] = 30.0f;
+	}
+
+	for (int i = 0; i < 2; i++) {
+		shape_scale[i] = shape_scale2[i] = 1.0f;
+		shape_trans[i + 1] = shape_trans2[i + 1] = 0.0f;
+	}
+	shape_trans[0] = 0.5f;
+	shape_trans2[0] = -0.5f;
+	shape_revolution = shape_revolution2 = 0.0f;
+	move = 0.01f;
+	move2 = -0.01f;
 }
 
 GLvoid spiral_move() {
@@ -327,4 +479,139 @@ GLvoid spiral_move() {
 
 	shape_trans2[0] -= 0.0005f;
 	if (shape_trans2[0] <= -1.0f) shape_trans2[0] = 0.0f;
+}
+
+GLvoid swap_position() {
+	shape_trans[0] -= 0.01f;
+	shape_trans2[0] += 0.01f;
+
+	if (shape_trans[0] <= -0.5f) {
+		shape_trans[0] = 0.5f;
+		shape_trans2[0] = -0.5f;
+	}
+}
+
+GLvoid revolution_swap_move() {
+	shape_revolution = shape_revolution + 1;
+	if (shape_revolution >= 180.0f)
+		shape_revolution = 0.0f;
+
+	shape_revolution2 = shape_revolution2 + 1;
+	if (shape_revolution2 >= 180.0f)
+		shape_revolution2 = 0.0f;
+}
+
+GLvoid up_down_swap_move() {
+	if (shape_trans[0] > 0.0f) {
+		shape_trans[0] -= 0.01f;
+		shape_trans[1] += 0.0075f;
+	}
+	else if(shape_trans[0] < -0.5f) {
+		shape_trans[0] = 0.5f;
+		shape_trans[1] = 0.0f;
+	}
+	else {
+		shape_trans[0] -= 0.01f;
+		shape_trans[1] -= 0.0075f;
+	}
+
+	if (shape_trans2[0] < 0.0f) {
+		shape_trans2[0] += 0.01f;
+		shape_trans2[1] -= 0.0075f;
+	}
+	else if (shape_trans2[0] > 0.5f) {
+		shape_trans2[0] = -0.5f;
+		shape_trans2[1] = 0.0f;
+	}
+	else {
+		shape_trans2[0] += 0.01f;
+		shape_trans2[1] += 0.0075f;
+	}
+}
+
+GLvoid revolution_move() {
+	shape_revolution = shape_revolution + 1;
+	if (shape_revolution == 360.0f) shape_revolution = 0.0f;
+	if (shape_revolution < 180.0f)
+		shape_scale[0] -= 0.0025f;
+	else
+		shape_scale[0] += 0.0025f;
+
+	shape_revolution2 = shape_revolution2 + 1;
+	if (shape_revolution2 == 360.0f) shape_revolution2 = 0.0f;
+	if (shape_revolution2 < 180.0f)
+		shape_scale2[0] += 0.0025f;
+	else
+		shape_scale2[0] -= 0.0025f;
+
+	shape_rotate[1] += 2.0f;
+	shape_rotate2[1] += 2.0f;
+}
+
+GLvoid x_move() {
+	shape_trans[0] += move;
+
+	if (shape_trans[0] < -1.0f || shape_trans[0] > 1.0f) {
+		move *= -1;
+	}
+
+	shape_trans2[0] += move2;
+	if (shape_trans2[0] < -1.0f || shape_trans2[0] > 1.0f) {
+		move2 *= -1;
+	}
+}
+
+GLvoid y_move() {
+	shape_trans[1] += move;
+
+	if (shape_trans[1] < -1.0f || shape_trans[1] > 1.0f) {
+		move *= -1;
+	}
+
+	shape_trans2[1] += move2;
+	if (shape_trans2[1] < -1.0f || shape_trans2[1] > 1.0f) {
+		move2 *= -1;
+	}
+}
+
+GLvoid z_move() {
+	shape_trans[2] += move;
+
+	if (shape_trans[2] < -1.0f || shape_trans[2] > 1.0f) {
+		move *= -1;
+	}
+
+	shape_trans2[2] += move2;
+	if (shape_trans2[2] < -1.0f || shape_trans2[2] > 1.0f) {
+		move2 *= -1;
+	}
+}
+
+GLvoid reset_switch(GLint on) {
+	for (int i = 0; i < 8; i++) move_switch[i] = FALSE;
+
+	if(on != 8)move_switch[on] = TRUE;
+
+	if (!time_switch) {
+		time_switch = TRUE;
+		glutTimerFunc(10, TimerFunction, 1);
+	}
+}
+
+void circle_spiral() {
+	GLfloat x, z;
+	GLfloat r = 0.0f;
+	GLint degree = 0;
+
+	glBegin(GL_LINE_STRIP);
+	while (r <= 1.0f) {
+		x = r * sinf(degree * PI / 180);
+		z = r* cosf(degree * PI / 180);
+		r += 0.0005f;
+		degree = (degree + 1) % 360;
+
+		glPointSize(10);
+		glVertex3f(x, 0, z);
+	}
+	glEnd();
 }
