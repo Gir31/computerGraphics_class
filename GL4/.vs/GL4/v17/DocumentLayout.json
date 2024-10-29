@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q18.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_my\\computerGraphics_class\\GL4\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_my\\computerGraphics_class\\GL4\\vertex_Q18.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:vertex_Q18.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_my\\computerGraphics_class\\GL4\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_my\\computerGraphics_class\\GL4\\vertex.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -34,13 +34,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "vertex_Q18.glsl",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL4\\vertex_Q18.glsl",
               "RelativeDocumentMoniker": "vertex_Q18.glsl",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL4\\vertex_Q18.glsl",
               "RelativeToolTip": "vertex_Q18.glsl",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-10-29T04:09:13.225Z",
               "EditorCaption": ""
@@ -53,7 +53,7 @@
               "RelativeDocumentMoniker": "GL4_Q18.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL4\\GL4_Q18.cpp",
               "RelativeToolTip": "GL4_Q18.cpp",
-              "ViewState": "AQIAAIgBAAAAAAAAAAAAAI4BAAABAAAA",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAAAM8AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-29T02:37:20.279Z",
               "EditorCaption": ""
@@ -68,7 +68,8 @@
               "RelativeToolTip": "vertex.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:38:10.407Z"
+              "WhenOpened": "2024-10-25T08:38:10.407Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -90,13 +91,13 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "5be5e5f4-21af-49c0-b9e2-2ee9cc97d81b",
+        "Id": "456bbeb4-3f27-4352-825a-108a57daac25",
         "Display": 1,
         "X": 1,
         "Y": 1,
         "Width": 1918,
         "Height": 1030,
-        "WindowState": 0
+        "WindowState": 2
       },
       "DocumentGroups": [
         {
@@ -105,15 +106,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GL_My_header.h",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL4\\GL_My_header.h",
               "RelativeDocumentMoniker": "GL_My_header.h",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL4\\GL_My_header.h",
               "RelativeToolTip": "GL_My_header.h",
-              "ViewState": "AQIAAPkAAAAAAAAAAADwvxABAAAdAAAA",
+              "ViewState": "AQIAACwBAAAAAAAAAADwvzsBAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-29T12:10:54.066Z",
+              "WhenOpened": "2024-10-29T13:06:08.016Z",
               "EditorCaption": ""
             }
           ]

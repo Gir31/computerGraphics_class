@@ -8,6 +8,7 @@
 
 typedef struct {
 	glm::vec3 trans; // 행성으로부터의 거리
+	glm::vec3 rotation; // 달 자전
 	glm::vec3 revolution; // 공전
 	glm::vec3 obitalOrbit; // 달 공전궤도
 	glm::vec3 color; // 달의 색
@@ -15,6 +16,7 @@ typedef struct {
 
 typedef struct {
 	glm::vec3 trans; // 행성 위치
+	glm::vec3 rotation; // 행성 자전
 	glm::vec3 revolution; // 행성 공전
 	glm::vec3 obitalOrbit; // 행성 공전궤도
 	glm::vec3 color; // 행성 색
@@ -67,10 +69,12 @@ GLvoid Keyboard(unsigned char key, int x, int y);
 GLvoid SpecialKeyboard(int key, int x, int y);
 GLvoid TimerFunction(int value);
 void make_shaderProgram();
-void InitBuffer_EBO_VEC(glm::vec3* color, GLuint cSize);
 //========================================================
 // 사용자 지정 함수
 GLvoid resetStar();
+
+GLvoid galaxyMotion();
+
 GLvoid drawObitalOrbit(PLANET planet, GLfloat distance, GLboolean use); 
 GLvoid drawStar();
 GLvoid drawPlanet(PLANET* planet);
@@ -201,6 +205,9 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 		if (!galacticSystem_z) galacticSystem_z = TRUE;
 		zValue = -1.0f;
 		break;
+	case '1':
+
+		break;
 	}
 	glutPostRedisplay();
 }
@@ -222,16 +229,7 @@ GLvoid SpecialKeyboard(int key, int x, int y) {
 GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
-	star.planet[0].revolution.y += 1.0f;
-	star.planet[0].moon.revolution.y += 1.0f;
-	star.planet[0].moon.obitalOrbit.y -= 1.0f;
-
-	star.planet[1].revolution.y -= 1.2f;
-	star.planet[1].moon.revolution.y += 5.0f;
-	star.planet[1].moon.obitalOrbit.y += 1.2f;
-
-	star.planet[2].revolution.y += 0.7f;
-	star.planet[2].moon.revolution.y -= 3.0f;
+	galaxyMotion();
 
 	if (galacticSystem_y) {
 		galacticSystemRotate.y += yValue;
@@ -242,26 +240,25 @@ GLvoid TimerFunction(int value) {
 	glutTimerFunc(10, TimerFunction, 1);
 }
 
-void InitBuffer_EBO_VEC(glm::vec3* color, GLuint cSize)
-{
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO_pos);
+GLvoid galaxyMotion() {
+	star.rotation.y += 0.2f;
 
-	glBindVertexArray(VAO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO_pos);
-	glBufferData(GL_ARRAY_BUFFER, NULL, NULL, GL_STATIC_DRAW);
+	star.planet[0].rotation.y += 1.0f; 
+	star.planet[0].revolution.y += 1.0f; 
+	star.planet[0].moon.rotation += 2.0f;
+	star.planet[0].moon.revolution.y += 1.0f;
+	star.planet[0].moon.obitalOrbit.y -= 1.0f;
 
-	glGenBuffers(1, &EBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, NULL, NULL, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
-	glEnableVertexAttribArray(0);
+	star.planet[1].rotation.y += 1.5f;
+	star.planet[1].revolution.y -= 1.2f;
+	star.planet[1].moon.rotation -= 2.5f;
+	star.planet[1].moon.revolution.y += 5.0f;
+	star.planet[1].moon.obitalOrbit.y += 1.2f;
 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, cSize, color, GL_STATIC_DRAW);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(1);
+	star.planet[2].rotation.y -= 1.3f;
+	star.planet[2].revolution.y += 0.7f;
+	star.planet[2].moon.rotation += 1.7f;
+	star.planet[2].moon.revolution.y -= 3.0f;
 }
 
 GLvoid drawObitalOrbit(PLANET planet, GLfloat distance, GLboolean use) {
@@ -318,7 +315,7 @@ GLvoid drawStar() {
 
 GLvoid drawPlanet(PLANET* planet) { 
 	glm::mat4 Matrix = glm::mat4(1.0f);
-	Matrix = galacticSystem(galacticSystemTrans, galacticSystemRotate) * revolution(planet->revolution, planet->obitalOrbit, planet->trans) * rotation(star.rotation); 
+	Matrix = galacticSystem(galacticSystemTrans, galacticSystemRotate) * revolution(planet->revolution, planet->obitalOrbit, planet->trans) * rotation(planet->rotation); 
 
 	GLuint transformLocation = glGetUniformLocation(shaderProgramID, "model");
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(Matrix));
@@ -338,7 +335,7 @@ GLvoid drawPlanet(PLANET* planet) {
 GLvoid drawMoon(PLANET* planet) {
 	glm::mat4 Matrix = glm::mat4(1.0f); 
 	Matrix = galacticSystem(galacticSystemTrans, galacticSystemRotate) * revolution(planet->revolution, planet->obitalOrbit, planet->trans) 
-		* revolution(planet->moon.revolution, planet->moon.obitalOrbit, planet->moon.trans) * rotation(star.rotation); 
+		* revolution(planet->moon.revolution, planet->moon.obitalOrbit, planet->moon.trans) * rotation(planet->moon.rotation); 
 
 	GLuint transformLocation = glGetUniformLocation(shaderProgramID, "model");
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(Matrix));
@@ -352,7 +349,7 @@ GLvoid drawMoon(PLANET* planet) {
 }
 
 GLvoid resetStar() {
-	star.color = glm::vec3(1.0f, 0.0f, 0.0f);
+	star.color = glm::vec3(1.0f, 0.65f, 0.0f);
 	star.rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 	star.trans = glm::vec3(0.0f, 0.0f, 0.0f);
 
@@ -367,7 +364,7 @@ GLvoid resetStar() {
 	blue_color(&star.planet[1].color); 
 	star.planet[1].trans = glm::vec3(-1.5f, 0.0f, 0.0f);
 	star.planet[1].obitalOrbit = glm::vec3(10.0f, 0.0f, -45.0f);
-	yellow_color(&star.planet[1].moon.color);
+	cyan_color(&star.planet[1].moon.color);
 	star.planet[1].moon.trans = glm::vec3(0.5f, 0.0f, 0.0f);
 	star.planet[1].moon.revolution = glm::vec3(0.0f, 0.0f, 0.0f);
 	star.planet[1].moon.obitalOrbit = glm::vec3(0.0f, 0.0f, 45.0f);
@@ -375,7 +372,7 @@ GLvoid resetStar() {
 	red_color(&star.planet[2].color);
 	star.planet[2].trans = glm::vec3(0.0f, 0.0f, 1.5f);
 	star.planet[2].obitalOrbit = glm::vec3(10.0f, 0.0f, 0.0f);
-	yellow_color(&star.planet[2].moon.color);
+	magenta_color(&star.planet[2].moon.color);
 	star.planet[2].moon.trans = glm::vec3(0.5f, 0.0f, 0.0f);
 	star.planet[2].moon.revolution = glm::vec3(0.0f, 0.0f, 0.0f);
 	star.planet[2].moon.obitalOrbit = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -389,7 +386,7 @@ glm::mat4 rotation(glm::vec3 rotatePlanet) {
 	return Matrix;
 }
 
-// y축 기준 행성 공전
+// y축 기준 행성/달 공전
 glm::mat4 revolution(glm::vec3 revolutionPlanet, glm::vec3 obitalOrbit, glm::vec3 locate) {
 	glm::mat4 Matrix = glm::mat4(1.0f);
 	// 공전 궤도, 공전
