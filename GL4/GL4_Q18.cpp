@@ -1,11 +1,15 @@
 #include "GL_My_header.h"
 //========================================================
-#define STAR_SIZE 0.5f
-#define PLANET_SIZE 0.2f
+#define STAR_SIZE 0.4f
+#define PLANET_SIZE 0.15f
+#define MOON_SIZE 0.05f
 
 
 typedef struct {
-
+	glm::vec3 trans; // 행성으로부터의 거리
+	glm::vec3 revolution; // 공전
+	glm::vec3 obitalOrbit; // 달 공전궤도
+	glm::vec3 color; // 달의 색
 }MOON;
 
 typedef struct {
@@ -13,6 +17,8 @@ typedef struct {
 	glm::vec3 revolution; // 행성 공전
 	glm::vec3 obitalOrbit; // 행성 공전궤도
 	glm::vec3 color; // 행성 색
+
+	MOON moon;
 }PLANET;
 
 typedef struct {
@@ -50,10 +56,14 @@ void make_shaderProgram();
 void InitBuffer_EBO_VEC(glm::vec3* color, GLuint cSize);
 //========================================================
 // 사용자 지정 함수
+GLvoid resetStar();
 GLvoid drawStar();
+GLvoid drawPlanet(PLANET* planet);
+GLvoid drawMoon(PLANET* planet); 
 
 glm::mat4 rotation(glm::vec3 transPlanet, glm::vec3 rotatePlanet);
 glm::mat4 revolution(glm::vec3 revolutionPlanet, glm::vec3 obitalOrbit, glm::vec3 locate); 
+glm::mat4 revolutionMoon(glm::vec3 centerDistance, glm::vec3 revolutionMoon); 
 //========================================================
 
 int main(int argc, char** argv)
@@ -71,6 +81,7 @@ int main(int argc, char** argv)
 	make_shaderProgram();
 
 	star.color = glm::vec3(1.0f, 0.5f, 0.5f);
+	resetStar();
 
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(Reshape);
@@ -144,7 +155,11 @@ GLvoid SpecialKeyboard(int key, int x, int y) {
 GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
-	star.planet[0].revolution += 1.0f;
+	star.planet[0].revolution.y += 1.0f;
+	star.planet[0].moon.revolution.y += 1.0;
+
+	star.planet[1].revolution.y += 2.0f;
+	star.planet[2].revolution.y += 3.0f;
 
 	glutTimerFunc(10, TimerFunction, 1);
 }
@@ -181,21 +196,40 @@ GLvoid drawStar() {
 	qobj = gluNewQuadric();
 	gluQuadricDrawStyle(qobj, GLU_FILL);
 	gluSphere(qobj, STAR_SIZE, 50, 50); 
+
+	for (int i = 0; i < 3; i++) drawPlanet(&star.planet[i]);
 }
 
-GLvoid drawPlanet() { 
+GLvoid drawPlanet(PLANET* planet) { 
 	glm::mat4 Matrix = glm::mat4(1.0f);
-	Matrix = revolution(star.planet[0].revolution, star.planet[0].obitalOrbit, star.planet[0].trans) * rotation(star.trans, star.rotation);
+	Matrix = revolution(planet->revolution, planet->obitalOrbit, planet->trans) * rotation(star.trans, star.rotation);
 
 	GLuint transformLocation = glGetUniformLocation(shaderProgramID, "model");
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(rotation(star.trans, star.rotation)));
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(Matrix));
 
 	GLuint colorLocation = glGetUniformLocation(shaderProgramID, "color");
-	glUniform3f(colorLocation, star.planet[0].color.x, star.planet[0].color.y, star.planet[0].color.z);
+	glUniform3f(colorLocation, planet->color.x, planet->color.y, planet->color.z);
 
 	qobj = gluNewQuadric();
 	gluQuadricDrawStyle(qobj, GLU_FILL);
-	gluSphere(qobj, STAR_SIZE, 50, 50);
+	gluSphere(qobj, PLANET_SIZE, 50, 50);
+
+	drawMoon(planet);
+}
+
+GLvoid drawMoon(PLANET* planet) {
+	glm::mat4 Matrix = glm::mat4(1.0f);
+	Matrix = revolution(planet->revolution, planet->obitalOrbit, planet->trans) * revolutionMoon(planet->moon.trans, planet->moon.revolution) * rotation(star.trans, star.rotation);
+
+	GLuint transformLocation = glGetUniformLocation(shaderProgramID, "model");
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(Matrix));
+
+	GLuint colorLocation = glGetUniformLocation(shaderProgramID, "color");
+	glUniform3f(colorLocation, planet->moon.color.x, planet->moon.color.y, planet->moon.color.z);
+
+	qobj = gluNewQuadric();
+	gluQuadricDrawStyle(qobj, GLU_FILL);
+	gluSphere(qobj, MOON_SIZE, 50, 50);
 }
 
 GLvoid resetStar() {
@@ -203,16 +237,26 @@ GLvoid resetStar() {
 	star.rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 	star.trans = glm::vec3(0.0f, 0.0f, 0.0f);
 
-	star.planet[0].color = glm::vec3(0.0f, 1.0f, 0.0f);
-	star.planet[0].trans.x = 0.5f;
-	star.planet[0].obitalOrbit = glm::vec3(45.0f, 0.0f, 45.0f);
+	green_color(&star.planet[0].color); 
+	star.planet[0].trans = glm::vec3(1.5f, 0.0f, 0.0f); 
+	star.planet[0].obitalOrbit = glm::vec3(10.0f, 0.0f, 45.0f);
+	yellow_color(&star.planet[0].moon.color);
+	star.planet[0].moon.trans = glm::vec3(0.5f, 0.0f, 0.0f);
+	star.planet[0].moon.revolution = glm::vec3(0.0f, 0.0f, 0.0f);
 
+	blue_color(&star.planet[1].color); 
+	star.planet[1].trans = glm::vec3(-1.5f, 0.0f, 0.0f);
+	star.planet[1].obitalOrbit = glm::vec3(10.0f, 0.0f, -45.0f);
+
+	red_color(&star.planet[2].color);
+	star.planet[2].trans = glm::vec3(0.0f, 0.0f, 1.5f);
+	star.planet[2].obitalOrbit = glm::vec3(10.0f, 0.0f, 0.0f);
 }
 
 // 항성/행성/달 자전
 glm::mat4 rotation(glm::vec3 transPlanet, glm::vec3 rotatePlanet) {
 	glm::mat4 Matrix = glm::mat4(1.0f);
-	Matrix = translation_shape(transPlanet) * rotate_shape(rotatePlanet);
+	Matrix = rotate_shape(rotatePlanet);
 
 	return Matrix;
 }
@@ -226,10 +270,10 @@ glm::mat4 revolution(glm::vec3 revolutionPlanet, glm::vec3 obitalOrbit, glm::vec
 	return Matrix;
 }
 
-// 달의 공전??
+// 달의 공전
 glm::mat4 revolutionMoon(glm::vec3 centerDistance, glm::vec3 revolutionMoon) {
 	glm::mat4 Matrix = glm::mat4(1.0f);
-	Matrix = rotate_shape(revolutionMoon);
+	Matrix = rotate_shape(revolutionMoon) * translation_shape(centerDistance);
 
 	return Matrix;
 }
