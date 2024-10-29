@@ -11,7 +11,6 @@ uniform mat4 model = mat4(1.0f); // ¸ðµ¨¸µº¯È¯
 uniform mat4 view = mat4(1.0f); // ºäÀ×º¯È¯
 uniform mat4 projection = mat4(1.0f); // Åõ¿µº¯È¯
 
-
 void main(void) 
 {
 	gl_Position = projection * view * model * vec4 (in_Position, 1.0f); 

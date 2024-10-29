@@ -21,6 +21,9 @@
     <ClCompile Include="GL4_Q17.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GL4_Q18.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL_My_header.h">
@@ -34,5 +37,6 @@
     <None Include="vertex.glsl">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="vertex_Q18.glsl" />
   </ItemGroup>
 </Project>
