@@ -77,7 +77,7 @@ GLuint cubeIndex[12][3] = {
 };
 GLsizei cubeVertex = 36;
 // 좌표 평면 회전
-glm::vec3 shapeDegree = glm::vec3(30.0f, 30.0f, 30.0f);
+glm::vec3 shapeDegree = glm::vec3(30.0f, 0.0f, 0.0f);
 //========================================================
 char vertex[] = { "vertex.glsl" };
 char fragment[] = { "fragment.glsl" };
@@ -90,8 +90,9 @@ GLfloat topDegreeValue = 1.0f;
 GLfloat barrelDegreeValue = 1.0f;
 GLfloat barrelTransValue = 0.01f;
 GLfloat armDegreeValue = 1.0f;
+GLfloat cameraRotValue, cameraRevValue;
 
-GLboolean timeSwitch = FALSE;
+GLboolean timeSwitch = FALSE; 
 GLboolean bottomTrans = FALSE;
 GLboolean topRotate = FALSE;
 GLboolean barrelRotate = FALSE;
@@ -100,6 +101,11 @@ GLboolean armRotate = FALSE;
 GLboolean armPo, armNe;
 GLboolean bottomPo, bottomNe;
 GLboolean barrelPo;
+GLboolean viewRotate, viewRevolution;
+
+glm::vec3 cameraMove = glm::vec3(0.0f, 0.0f, 0.0f);
+glm::vec3 cameraRotate = glm::vec3(0.0f, 0.0f, 0.0f);
+glm::vec3 cameraRevolution = glm::vec3(0.0f, 0.0f, 0.0f);
 //========================================================
 GLvoid drawScene();
 GLvoid Reshape(int w, int h);
@@ -126,7 +132,9 @@ GLvoid rotateBarrel();
 GLvoid transBarrel();
 GLvoid rotateArm(); 
 
-glm::mat4 initialLocate(glm::vec3 scale, glm::vec3 trans); 
+glm::mat4 initialLocate(glm::vec3 scale, glm::vec3 trans);
+GLvoid cameraTranslation(glm::vec3 cameraMove, glm::vec3 cameraRotate, glm::vec3 cameraRevolution); 
+
 //========================================================
 
 int main(int argc, char** argv)
@@ -160,6 +168,8 @@ GLvoid drawScene()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glUseProgram(shaderProgramID);
+
+	cameraTranslation(cameraMove, cameraRotate, cameraRevolution);
 
 	Perspective_Projection_Transformation(projection, spaceTrans, shaderProgramID);
 
@@ -330,9 +340,6 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 				glutTimerFunc(10, TimerFunction, 1);
 			}
 		}
-		else {
-			barrelRotate = FALSE;
-		}
 
 
 		break;
@@ -345,9 +352,6 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 				timeSwitch = TRUE;
 				glutTimerFunc(10, TimerFunction, 1);
 			}
-		}
-		else {
-			barrelRotate = FALSE;
 		}
 
 		break;
@@ -409,6 +413,54 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 
 		initialState();
 		break;
+	case 'z':
+		cameraMove.z += 1.0f;
+		break;
+	case 'Z':
+		cameraMove.z -= 1.0f;
+		break;
+	case 'x':
+		cameraMove.x += 1.0f;
+		break;
+	case 'X':
+		cameraMove.x -= 1.0f;
+		break;
+	case 'y':
+		cameraRotValue = 1.0f;
+		viewRotate = TRUE;
+
+		if (!timeSwitch) {
+			timeSwitch = TRUE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		break;
+	case 'Y':
+		cameraRotValue = -1.0f;
+		viewRotate = TRUE;
+
+		if (!timeSwitch) {
+			timeSwitch = TRUE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		break;
+	case 'r':
+		cameraRevValue = 1.0f;
+		viewRevolution = TRUE;
+
+		if (!timeSwitch) {
+			timeSwitch = TRUE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		break;
+	case 'R':
+		cameraRevValue = -1.0f;
+		viewRevolution = TRUE;
+
+		if (!timeSwitch) {
+			timeSwitch = TRUE;
+			glutTimerFunc(10, TimerFunction, 1);
+		}
+		break;
 	case 'q': case 'Q':
 		glutLeaveMainLoop();
 	}
@@ -437,6 +489,9 @@ GLvoid TimerFunction(int value) {
 	if (barrelRotate) rotateBarrel();
 	if (barrelTrans) transBarrel();
 	if (armRotate) rotateArm();
+
+	if (viewRotate) cameraRotate.y += cameraRotValue;
+	if (viewRevolution)cameraRevolution.y += cameraRevValue;
 
 	if (timeSwitch) glutTimerFunc(10, TimerFunction, 1);
 }
@@ -522,13 +577,13 @@ GLvoid initialState() {
 	bottom.trans = zero;
 
 	arm[0].scale = arm[1].scale = glm::vec3(0.15f, 0.8f, 0.15f);
-	arm[0].trans = glm::vec3(0.0f, LENGTH * 1.5, 0.1f);
-	arm[1].trans = glm::vec3(0.0f, LENGTH * 1.5, -0.1f);
+	arm[0].trans = glm::vec3(0.1f, LENGTH * 1.5, 0.0f);
+	arm[1].trans = glm::vec3(-0.1f, LENGTH * 1.5, 0.0f);
 	arm[0].rotate = arm[1].rotate = zero;
 
-	barrel[0].scale = barrel[1].scale = glm::vec3(1.0f, 0.1f, 0.15f);
-	barrel[0].trans = glm::vec3(-LENGTH, 0.0f, -0.15f);
-	barrel[1].trans = glm::vec3(-LENGTH, 0.0f, 0.15f);
+	barrel[0].scale = barrel[1].scale = glm::vec3(0.15f, 0.1f, 1.0f);
+	barrel[0].trans = glm::vec3(-0.15f, 0.0f, LENGTH);
+	barrel[1].trans = glm::vec3(0.15f, 0.0f, LENGTH);
 	barrel[0].rotate = barrel[1].rotate = zero;
 }
 
@@ -547,33 +602,35 @@ GLvoid rotateBarrel() {
 	barrel[0].rotate.y += barrelDegreeValue;
 	barrel[1].rotate.y -= barrelDegreeValue;
 
-	if (barrel[0].rotate.y > 360.0f) {
+	if (barrel[0].rotate.y > 359.0f) {
 		barrel[0].rotate.y = 0.0f;
 		barrel[1].rotate.y = 0.0f;
 	}
 }
 
 GLvoid transBarrel() {
-	if (barrel[0].rotate.y > 0.0f) {
+	if (barrel[0].rotate.y != 0.0f) {
 		rotateBarrel();
 	}
 	else {
 		if (barrelPo) {
-			barrel[0].trans.z += barrelTransValue;
-			barrel[1].trans.z -= barrelTransValue;
-			if (barrel[0].trans.z > 0.0f) {
-				barrel[0].trans.z = 0.0f;
-				barrel[1].trans.z = 0.0f;
+			barrel[0].trans.x += barrelTransValue;
+			barrel[1].trans.x -= barrelTransValue;
+			if (barrel[0].trans.x > 0.0f) {
+				barrel[0].trans.x = 0.0f;
+				barrel[1].trans.x = 0.0f;
 				barrelTrans = FALSE;
+				barrelPo = FALSE;
 			}
 		}
 		else {
-			barrel[0].trans.z -= barrelTransValue;
-			barrel[1].trans.z += barrelTransValue;
-			if (barrel[0].trans.z < -0.15f) {
-				barrel[0].trans.z = -0.15f;
-				barrel[1].trans.z = 0.15f;
+			barrel[0].trans.x -= barrelTransValue;
+			barrel[1].trans.x += barrelTransValue;
+			if (barrel[0].trans.x < -0.15f) {
+				barrel[0].trans.x = -0.15f;
+				barrel[1].trans.x = 0.15f;
 				barrelTrans = FALSE;
+				barrelPo = TRUE;
 			}
 		}
 	}
@@ -594,3 +651,14 @@ glm::mat4 initialLocate(glm::vec3 scale, glm::vec3 trans) {
 	return Matrix;
 }
 
+GLvoid cameraTranslation(glm::vec3 cameraMove, glm::vec3 cameraRotate, glm::vec3 cameraRevolution) {
+	glm::vec3 zero = glm::vec3(0.0f, 0.0f, -5.0f);
+	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 5.0f);
+	
+	glm::mat4 view = glm::mat4(1.0f);
+	view = rotate_camera(cameraRevolution) * trans_camera(cameraMove)
+		* trans_camera(pos) * rotate_camera(cameraRotate) * trans_camera(zero);
+
+	unsigned int viewLocation = glGetUniformLocation(shaderProgramID, "view");
+	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]); 
+}
