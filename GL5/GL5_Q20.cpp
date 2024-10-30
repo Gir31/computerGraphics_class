@@ -24,6 +24,10 @@ GLvoid TimerFunction(int value);
 void make_shaderProgram();
 //========================================================
 // 사용자 지정 함수
+GLvoid draw();
+GLvoid ScreenOne();
+GLvoid ScreenTwo();
+GLvoid ScreenThree();
 GLvoid Draw_Coordinate_Plane();
 GLvoid DrawFloor();
 //========================================================
@@ -51,17 +55,20 @@ int main(int argc, char** argv)
 
 GLvoid drawScene()
 {
+	
+
+
 	glEnable(GL_DEPTH_TEST);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
 	glUseProgram(shaderProgramID);
 
-	Perspective_Projection_Transformation(projection, spaceTrans, shaderProgramID);
-
-	Draw_Coordinate_Plane();
-	DrawFloor();
+	ScreenOne();
+	ScreenTwo();
+	ScreenThree();
 
 	glutSwapBuffers();
 }
@@ -69,7 +76,6 @@ GLvoid drawScene()
 GLvoid Reshape(int w, int h)
 {
 	projection.Aspect = w / h;
-	glViewport(0, 0, w, h);
 }
 
 void make_shaderProgram()
@@ -118,6 +124,35 @@ GLvoid TimerFunction(int value) {
 	if (timeSwitch) glutTimerFunc(10, TimerFunction, 1);
 }
 
+GLvoid draw() { 
+	Draw_Coordinate_Plane();
+	DrawFloor();
+}
+
+GLvoid ScreenOne() {
+	glViewport(50, 100, 400, 400);
+
+	Perspective_Projection_Transformation(projection, spaceTrans, shaderProgramID);
+
+	draw();
+}
+
+GLvoid ScreenTwo() {
+	glViewport(550, 300, 350, 300);
+
+	Orthogoanl_Projection_Transformation(2.0f, shaderProgramID);
+
+	draw();
+}
+
+GLvoid ScreenThree() {
+	glViewport(550, 0, 350, 300);
+
+	Perspective_Projection_Transformation(projection, spaceTrans, shaderProgramID);
+
+	draw();
+}
+
 GLvoid Draw_Coordinate_Plane() {
 	glm::vec3 line[3][2] = {
 		{glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(-1.0f, 0.0f, 0.0f)}, // x축
@@ -150,8 +185,8 @@ GLvoid DrawFloor() {
 		{glm::vec3(-1.0f, 0.0f, 1.0f)}, {glm::vec3(1.0f, 0.0f, 1.0f)}
 	};
 	glm::vec3 floorColor[4] = {
-		{ glm::vec3(0.0f, 1.0f, 0.0f) },{ glm::vec3(0.0f, 1.0f, 0.0f) },
-		{ glm::vec3(0.0f, 1.0f, 0.0f) },{ glm::vec3(0.0f, 1.0f, 0.0f) }
+		{ glm::vec3(1.0f, 1.0f, 0.0f) },{ glm::vec3(0.0f, 1.0f, 0.0f) },
+		{ glm::vec3(0.0f, 1.0f, 1.0f) },{ glm::vec3(0.0f, 0.0f, 1.0f) }
 	};
 	GLuint floorIndex[2][3] = {
 		{0, 2, 1}, {1, 2, 3}

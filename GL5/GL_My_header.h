@@ -1,8 +1,8 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 
-#define WIDTH 800.0
-#define HEIGHT 800.0
+#define WIDTH 1000.0
+#define HEIGHT 600.0
 
 #include <stdlib.h>
 #include <stdio.h>

@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "GL5_Q20.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q20.cpp",
               "RelativeToolTip": "GL5_Q20.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAACgAAAAMAAAA",
+              "ViewState": "AQIAAI8AAAAAAAAAAAAAALwAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-30T02:51:02.456Z",
               "EditorCaption": ""
@@ -49,7 +49,7 @@
               "RelativeDocumentMoniker": "GL_My_header.h",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
               "RelativeToolTip": "GL_My_header.h",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAkwIoAAABIAAAA",
+              "ViewState": "AQIAAPYAAAAAAAAAAAAAADUAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-30T02:50:31.414Z",
               "EditorCaption": ""
@@ -64,8 +64,7 @@
               "RelativeToolTip": "vertex.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-30T02:49:57.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:49:57.231Z"
             },
             {
               "$type": "Document",
@@ -77,8 +76,7 @@
               "RelativeToolTip": "fragment.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-30T02:49:37.063Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:49:37.063Z"
             }
           ]
         }
