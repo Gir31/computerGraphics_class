@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\github_My\\computerGraphics_class\\GL4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q19.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -38,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GL_My_header.h",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL_My_header.h",
               "RelativeDocumentMoniker": "GL_My_header.h",
@@ -55,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "GL4_Q17.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q17.cpp",
               "RelativeDocumentMoniker": "GL4_Q17.cpp",
@@ -63,12 +59,11 @@
               "RelativeToolTip": "GL4_Q17.cpp",
               "ViewState": "AQIAAA0AAAAAAAAAAADwvzcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-29T14:15:39.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T14:15:39.256Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "fragment.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\fragment.glsl",
               "RelativeDocumentMoniker": "fragment.glsl",
@@ -76,25 +71,11 @@
               "RelativeToolTip": "fragment.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:37:50.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:37:50.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GL4_Q19.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
-              "RelativeDocumentMoniker": "GL4_Q19.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
-              "RelativeToolTip": "GL4_Q19.cpp",
-              "ViewState": "AQIAAP4BAAAAAAAAAADwv5cCAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-29T14:15:55.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "GL4_Q18.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q18.cpp",
               "RelativeDocumentMoniker": "GL4_Q18.cpp",
@@ -106,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "vertex.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\vertex.glsl",
               "RelativeDocumentMoniker": "vertex.glsl",
@@ -114,12 +95,11 @@
               "RelativeToolTip": "vertex.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:38:10.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:38:10.407Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "vertex_Q18.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\vertex_Q18.glsl",
               "RelativeDocumentMoniker": "vertex_Q18.glsl",

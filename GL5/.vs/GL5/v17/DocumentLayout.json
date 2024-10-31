@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\github_My\\computerGraphics_class\\GL5\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q21.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|solutionrelative:GL5_Q21.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q20.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|solutionrelative:GL5_Q20.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -31,32 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GL5_Q21.cpp",
+              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q21.cpp",
+              "RelativeDocumentMoniker": "GL5_Q21.cpp",
+              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q21.cpp",
+              "RelativeToolTip": "GL5_Q21.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-31T05:15:23.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GL5_Q20.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q20.cpp",
               "RelativeDocumentMoniker": "GL5_Q20.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q20.cpp",
               "RelativeToolTip": "GL5_Q20.cpp",
-              "ViewState": "AQIAAI8AAAAAAAAAAAAAALwAAAAtAAAA",
+              "ViewState": "AQIAAEICAAAAAAAAAADwv9QCAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-30T02:51:02.456Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GL_My_header.h",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
-              "RelativeDocumentMoniker": "GL_My_header.h",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
-              "RelativeToolTip": "GL_My_header.h",
-              "ViewState": "AQIAAPYAAAAAAAAAAAAAADUAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-30T02:50:31.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "vertex.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\vertex.glsl",
               "RelativeDocumentMoniker": "vertex.glsl",
@@ -64,11 +68,12 @@
               "RelativeToolTip": "vertex.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-30T02:49:57.231Z"
+              "WhenOpened": "2024-10-30T02:49:57.231Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "fragment.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\fragment.glsl",
               "RelativeDocumentMoniker": "fragment.glsl",
@@ -76,7 +81,42 @@
               "RelativeToolTip": "fragment.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-30T02:49:37.063Z"
+              "WhenOpened": "2024-10-30T02:49:37.063Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "21704637-df1e-4cec-9d9e-fe12a9d8d6d2",
+        "Display": 0,
+        "X": -5,
+        "Y": 263,
+        "Width": 705,
+        "Height": 594,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GL_My_header.h",
+              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
+              "RelativeDocumentMoniker": "GL_My_header.h",
+              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
+              "RelativeToolTip": "GL_My_header.h",
+              "ViewState": "AQIAAAIBAAAAAAAAAAAAAAUBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-30T02:50:31.414Z",
+              "EditorCaption": ""
             }
           ]
         }
