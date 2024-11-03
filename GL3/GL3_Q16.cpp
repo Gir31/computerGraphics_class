@@ -233,27 +233,60 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 		shape_trans[0] += 0.1f;
 		shape_trans2[0] += 0.1f;
 		break;
-	case 'w':
+	case 'Q':
 		shape_trans[0] -= 0.1f;
 		shape_trans2[0] -= 0.1f;
 		break;
-	case 'a':
+	case 'w':
 		shape_trans[1] += 0.1f;
 		shape_trans2[1] += 0.1f;
 		break;
-	case 's':
+	case 'W':
 		shape_trans[1] -= 0.1f;
 		shape_trans2[1] -= 0.1f;
 		break;
-	case 'z':
+	case 'e':
 		shape_trans[2] += 0.1f;
-		shape_trans2[2] += 0.1f;
+		break;
+	case 'E':
+		shape_trans[2] -= 0.1f;
+		break;
+	case 'a':
+		shape_trans[0] += 0.1f;
+		break;
+	case 'A':
+		shape_trans[0] -= 0.1f;
+		break;
+	case 's':
+		shape_trans[1] += 0.1f;
+		break;
+	case 'S':
+		shape_trans[1] -= 0.1f;
+		break;
+	case 'd':
+		shape_trans[2] += 0.1f;
+		break;
+	case 'D':
+		shape_trans[2] -= 0.1f;
+		break;
+	case 'z':
+		shape_trans2[0] += 0.1f;
+		break;
+	case 'Z':
+		shape_trans2[0] -= 0.1f;
 		break;
 	case 'x':
-		shape_trans[2] -= 0.1f;
+		shape_trans2[1] += 0.1f;
+		break;
+	case 'X':
+		shape_trans2[1] -= 0.1f;
+		break;
+	case 'c':
+		shape_trans2[2] += 0.1f;
+		break;
+	case 'C':
 		shape_trans2[2] -= 0.1f;
 		break;
-
 	case '1':
 		reset_shape();
 		shape_trans[0] = shape_trans2[0] = 0.0f;
