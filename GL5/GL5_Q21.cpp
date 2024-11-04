@@ -36,7 +36,17 @@ float points[] = {
 	1.f, 1.f, 1.f,
 	1.f, 1.f, -1.f,
 	1.f, -1.f, -1.f, 
-	1.f, -1.f, 1.f // 오
+	1.f, -1.f, 1.f, // 오
+
+	0.f, 1.f, 0.f,
+	0.f, -1.f, 0.f,
+	1.f, -1.f, 0.f,
+	1.f, 1.f, 0.f, // 좌 문
+
+	-1.f, 1.f, 0.f,
+	-1.f, -1.f, 0.f,
+	0.f, -1.f, 0.f,
+	0.f, 1.f, 0.f, // 우 문
 };
 float color[] = {
 	0, 1, 1, 
@@ -62,11 +72,22 @@ float color[] = {
 	1, 1, 0,
 	1, 1, 0,
 	1, 1, 0,
-	1, 1, 0
+	1, 1, 0,
+
+	1, 0, 0, 
+	0, 1, 0, 
+	0, 0, 1, 
+	0, 1, 1, 
+
+	0, 1, 1,
+	0, 0, 1,
+	0, 1, 0,
+	1, 0, 0
 };
 
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 rotateCamera = glm::vec3(0, 0, 0);
+glm::vec3 open = glm::vec3(0, 0, 0);
 
 GLfloat rotateValue = 1;
 
@@ -112,9 +133,25 @@ GLvoid drawScene()
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	Perspective_Projection_Transformation(projection, spaceTrans, shaderProgramID);
+	Perspective_Projection_Transformation(projection, spaceTrans, shaderProgramID); 
 	cameraTranslation(transCamera, rotateCamera);
+
+	unsigned int transformLocation = glGetUniformLocation(shaderProgramID, "model");
+
+	glm::mat4 box = glm::mat4(1.0f);
+	box = translation_shape(glm::vec3(0.f, 0.f, 0.f));
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(box));
 	glDrawArrays(GL_QUADS, 0, 20);
+
+	glm::mat4 openLeftDoor = glm::mat4(1.0f);
+	openLeftDoor = translation_shape(glm::vec3(-1.f, 0.f, 1.f)) * rotate_shape(open);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(openLeftDoor));
+	glDrawArrays(GL_QUADS, 20, 4);
+
+	glm::mat4 openRightDoor = glm::mat4(1.0f);
+	openRightDoor = translation_shape(glm::vec3(1.f, 0.f, 1.f)) * rotate_shape(-open);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(openRightDoor));
+	glDrawArrays(GL_QUADS, 24, 4);
 
 	glUseProgram(shaderProgramID);
 
@@ -164,6 +201,12 @@ void InitBuffer_() {
 GLvoid Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
+	case 'o':
+		open.y += 1.f;
+		break;
+	case 'O':
+		open.y -= 1.f;
+		break;
 	case 'y':
 		rotateValue = 1;
 		if (!timeSwitch) {
@@ -219,3 +262,4 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 	unsigned int viewLocation = glGetUniformLocation(shaderProgramID, "view");
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 }
+
