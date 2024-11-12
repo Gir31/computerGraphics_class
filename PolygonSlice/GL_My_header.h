@@ -23,8 +23,6 @@ extern void make_VertexShaders(char* fileName);
 extern void make_FragmentShaders(char* fileName);
 extern GLuint make_ShaderProgram();
 
-extern void InitBuffer(GLuint vao, GLuint* vbo, GLfloat triShape[][3], GLfloat colors[][3]);
-
 
 char* filetobuf(const char* file) {
 
@@ -112,18 +110,4 @@ GLuint make_ShaderProgram()
 	}
 	glUseProgram(shaderID);
 	return shaderID;
-}
-
-void InitBuffer(GLuint vao, GLuint* vbo, GLfloat triShape[][3], GLfloat colors[][3]) {
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-	glGenBuffers(2, vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), triShape, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(GLfloat), colors, GL_STATIC_DRAW);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(1);
 }

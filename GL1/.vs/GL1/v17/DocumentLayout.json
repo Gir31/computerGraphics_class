@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\github_my\\computerGraphics_class\\GL1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -23,10 +27,6 @@
       "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:GL_Q5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|D:\\github_my\\computerGraphics_class\\GL1\\ORI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C470E169-8C57-4B3D-9D30-CDDD3B5F6890}|GL1.vcxproj|solutionrelative:ORI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -41,7 +41,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GL_Q6.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q6.cpp",
               "RelativeDocumentMoniker": "GL_Q6.cpp",
@@ -75,37 +75,37 @@
               "RelativeToolTip": "GL_Q6.cpp",
               "ViewState": "AQIAABoAAAAAAAAAAAAQwEoAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-30T03:26:48.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T03:26:48.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "GL_Q5.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp",
               "RelativeDocumentMoniker": "GL_Q5.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q5.cpp",
               "RelativeToolTip": "GL_Q5.cpp",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAALMAAAAAAAAA",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAALMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-28T15:44:02.53Z"
+              "WhenOpened": "2024-09-28T15:44:02.53Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GL_Q4.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q4.cpp",
               "RelativeDocumentMoniker": "GL_Q4.cpp",
               "ToolTip": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q4.cpp",
               "RelativeToolTip": "GL_Q4.cpp",
-              "ViewState": "AQIAAIgAAAAAAAAAAAAAAKgAAAALAAAA",
+              "ViewState": "AQIAAKsAAAAAAAAAAAAAAA0AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-28T11:09:07.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GL_Q3.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q3.cpp",
               "RelativeDocumentMoniker": "GL_Q3.cpp",
@@ -113,12 +113,11 @@
               "RelativeToolTip": "GL_Q3.cpp",
               "ViewState": "AQIAAD8AAAAAAAAAAAAAAHMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-27T12:13:57.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T12:13:57.473Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GL_Q2.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q2.cpp",
               "RelativeDocumentMoniker": "GL_Q2.cpp",
@@ -126,12 +125,11 @@
               "RelativeToolTip": "GL_Q2.cpp",
               "ViewState": "AQIAAF0AAAAAAAAAAAAAAIUAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-25T05:40:33.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T05:40:33.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GL_Q1.cpp",
               "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL1\\GL_Q1.cpp",
               "RelativeDocumentMoniker": "GL_Q1.cpp",
@@ -139,8 +137,7 @@
               "RelativeToolTip": "GL_Q1.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-25T01:10:50.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T01:10:50.36Z"
             }
           ]
         }
