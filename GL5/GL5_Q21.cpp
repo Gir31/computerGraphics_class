@@ -4,6 +4,8 @@ typedef struct {
 	glm::vec3 move;
 	glm::vec3 dir;
 	glm::vec3 left_motion, right_motion;
+
+	GLint moveDir; // | 0 : up | 1 : right | 2 : down | 3 : left |
 }ROBOT;
 
 ROBOT robot;
@@ -233,6 +235,18 @@ float points[] = {
 	0.f, -1.f, -0.025f,
 	0.05f, -1.f, -0.025f,
 	0.05f, -1.f, 0.025f, // 哭促府 酒贰率
+
+	0.f, -0.75f, 0.05f,
+	-0.01f, -0.775f, 0.05f,
+	0.f, -0.775f, 0.07f, // 内 哭率
+
+	0.f, -0.75f, 0.05f,
+	0.01f, -0.775f, 0.05f,
+	0.f, -0.775f, 0.07f, // 内 坷弗率
+
+	-0.01f, -0.775f, 0.05f,
+	0.01f, -0.775f, 0.05f,
+	0.f, -0.775f, 0.07f // 内 关
 };
 float color[] = {
 	0, 1, 1, 
@@ -448,7 +462,19 @@ float color[] = {
 	0, 1, 1,
 	0, 1, 1,
 	0, 1, 1,
-	0, 1, 1
+	0, 1, 1,
+
+	0, 0, 0,
+	0, 0, 0,
+	0, 0, 0,
+
+	0, 0, 0,
+	0, 0, 0,
+	0, 0, 0,
+
+	0, 0, 0,
+	0, 0, 0,
+	0, 0, 0
 };
 
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
@@ -459,6 +485,7 @@ GLfloat rotateValue = 1.f;
 GLfloat openValue;
 GLfloat armLegMotionValue = 5.f;
 GLfloat robotJumpValue = 0.05f;
+GLfloat speedValue = 0.01f;
 
 GLboolean timeSwitch = FALSE;
 GLboolean rFlag = FALSE;
@@ -481,6 +508,9 @@ glm::mat4 armMotion(glm::vec3 motionValue);
 glm::mat4 legMotion(glm::vec3 motionValue);
 
 GLvoid robotJump();
+GLvoid touchWall();
+GLvoid robotMove();
+GLvoid resetAll();
 //========================================================
 
 int main(int argc, char** argv)
@@ -494,6 +524,8 @@ int main(int argc, char** argv)
 
 	glewExperimental = GL_TRUE;
 	glewInit();
+
+	robot.moveDir = 2;
 
 	make_shaderProgram();
 	InitBuffer_();
@@ -561,6 +593,10 @@ GLvoid drawScene()
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotLeftLeg));
 	glDrawArrays(GL_QUADS, 148, 24);
 
+	glm::mat4 nose = glm::mat4(1.0f);
+	nose = translation_shape(robot.move) * rotate_shape(robot.dir);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(nose));
+	glDrawArrays(GL_TRIANGLES, 172, 9);
 
 
 	glUseProgram(shaderProgramID);
@@ -614,6 +650,37 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 	case 'j':
 		if (timeSwitch) 
 			if (!jFlag) jFlag = TRUE;
+		break;
+	case 'w': case 'W':
+		robot.dir.y = 180.f;
+		robot.moveDir = 0;
+		break;
+	case 'a': case 'A':
+		robot.dir.y = -90.f;
+		robot.moveDir = 3;
+		break;
+	case 's': case 'S':
+		robot.dir.y = 0.f;
+		robot.moveDir = 2;
+		break;
+	case 'd': case 'D':
+		robot.dir.y = 90.f;
+		robot.moveDir = 1;
+		break;
+	case 'i':
+		resetAll();
+		break;
+	case '+':
+		if (speedValue < 0.3f) {
+			speedValue += 0.001f;
+			if(armLegMotionValue < 10.0f)armLegMotionValue += 0.01f;
+		}
+		break;
+	case '-':
+		if (speedValue > 0.002f) {
+			speedValue -= 0.001f;
+			if(armLegMotionValue > 0.02f)armLegMotionValue -= 0.01f;
+		}
 		break;
 	case 'o':
 		if (open.y > -90.f) {
@@ -690,6 +757,7 @@ GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
 	armLegMotion();
+	robotMove();
 
 	if (jFlag) robotJump();
 
@@ -712,10 +780,16 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 }
 
 GLvoid armLegMotion() {
+	static GLboolean alFlag = TRUE;
+
 	robot.left_motion.x += armLegMotionValue;
 	robot.right_motion.x -= armLegMotionValue;
 
-	if (robot.left_motion.x > 45.f || robot.left_motion.x < -45.f) armLegMotionValue *= -1;
+	if ((robot.left_motion.x > speedValue * 4500.f && alFlag) || (robot.left_motion.x < speedValue * -4500.f && !alFlag)) {
+		armLegMotionValue *= -1;
+
+		alFlag = (alFlag + 1) % 2;
+	}
 }
 
 glm::mat4 armMotion(glm::vec3 motionValue) {
@@ -739,10 +813,44 @@ GLvoid robotJump() {
 		robotJumpValue *= -1;
 		jFlag = FALSE;
 	}
+}
 
-	std::cout << robot.move.y << std::endl;
+GLvoid touchWall() {
+	if (robot.move.x > 1.0f || robot.move.x < -1.0f || robot.move.z > 1.0f || robot.move.z < -1.0f) {
+		robot.moveDir = (robot.moveDir + 2) % 4;
+		robot.dir.y += 180.f;
+	}
 }
 
 GLvoid robotMove() {
+	switch (robot.moveDir) {
+	case 0: // up
+		robot.move.z -= speedValue;
+		break;
+	case 1: // right
+		robot.move.x += speedValue;
+		break;
+	case 2: // down
+		robot.move.z += speedValue;
+		break;
+	case 3: // left
+		robot.move.x -= speedValue;
+		break;
+	}
 
+	touchWall();
+}
+
+GLvoid resetAll() {
+	robot.move = glm::vec3(0.f, 0.f, 0.f);
+	robot.dir = glm::vec3(0.f, 0.f, 0.f);
+	robot.moveDir = 2;
+	robot.left_motion = glm::vec3(0.f, 0.f, 0.f);
+	robot.right_motion = glm::vec3(0.f, 0.f, 0.f);
+
+	transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
+	rotateCamera = glm::vec3(0, 0, 0);
+
+	speedValue = 0.01f;
+	armLegMotionValue = 5.0f;
 }
