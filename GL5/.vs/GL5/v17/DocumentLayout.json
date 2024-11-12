@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\github_My\\computerGraphics_class\\GL5\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q21.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BCB5433-EED6-4BAD-810B-01EE4912BB61}|GL5.vcxproj|solutionrelative:GL5_Q21.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -27,19 +31,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GL_My_header.h",
+              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
+              "RelativeDocumentMoniker": "GL_My_header.h",
+              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL_My_header.h",
+              "RelativeToolTip": "GL_My_header.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-12T06:10:33.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GL5_Q21.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q21.cpp",
               "RelativeDocumentMoniker": "GL5_Q21.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL5\\GL5_Q21.cpp",
               "RelativeToolTip": "GL5_Q21.cpp",
-              "ViewState": "AQIAAP0CAAAAAAAAAAAAABEDAAArAAAA",
+              "ViewState": "AQIAAJ8CAAAAAAAAAAAiwNMCAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-31T05:15:23.974Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "vertex.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\vertex.glsl",
               "RelativeDocumentMoniker": "vertex.glsl",
@@ -51,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "fragment.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL5\\fragment.glsl",
               "RelativeDocumentMoniker": "fragment.glsl",
