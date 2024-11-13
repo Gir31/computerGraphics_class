@@ -103,7 +103,7 @@ GLboolean bottomPo, bottomNe;
 GLboolean barrelPo;
 GLboolean viewRotate, viewRevolution;
 
-glm::vec3 cameraMove = glm::vec3(0.0f, 0.0f, 0.0f);
+glm::vec3 cameraMove = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 cameraRotate = glm::vec3(0.0f, 0.0f, 0.0f);
 glm::vec3 cameraRevolution = glm::vec3(0.0f, 0.0f, 0.0f);
 //========================================================
@@ -652,11 +652,11 @@ glm::mat4 initialLocate(glm::vec3 scale, glm::vec3 trans) {
 }
 
 GLvoid cameraTranslation(glm::vec3 cameraMove, glm::vec3 cameraRotate, glm::vec3 cameraRevolution) {
-	glm::vec3 zero = glm::vec3(0.0f, 0.0f, -5.0f);
-	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 5.0f);
+	glm::vec3 zero = glm::vec3(0.0f, 0.0f, -5.0f) - cameraMove;
+	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 5.0f) + cameraMove;
 	
 	glm::mat4 view = glm::mat4(1.0f);
-	view = rotate_camera(cameraRevolution) * trans_camera(cameraMove)
+	view = camera_locate(cameraMove, glm::vec3(0.f, 0.f, 0.f)) *  rotate_camera(cameraRevolution)
 		* trans_camera(pos) * rotate_camera(cameraRotate) * trans_camera(zero);
 
 	unsigned int viewLocation = glGetUniformLocation(shaderProgramID, "view");
