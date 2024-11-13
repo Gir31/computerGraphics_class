@@ -1,15 +1,19 @@
 ﻿#include "GL_My_header.h"
 
+#define LENGTH 0.1f
+
 typedef struct SHAPE {
 	GLfloat point[12];
 	GLfloat color[12];
 
+	GLfloat clippingPoint[4];
+
+	GLfloat cx, cy;
 	GLfloat cp[3][3]; // 곡선 움직임을 위한 컨트롤 포인트
 
-	struct SHAPE* next; 
+	GLfloat t; // 매개변수 t
 }SHAPE;
 SHAPE shape;
-//SHAPE* start = NULL;
 
 typedef struct RUBBLE {
 	GLfloat point[9];
@@ -20,6 +24,8 @@ typedef struct RUBBLE {
 
 char vertex[] = { "vertex.glsl" };
 char fragment[] = { "fragment.glsl" };
+
+GLfloat mousePoint[2][2];
 
 GLuint shaderProgramID;
 GLuint vao, vbo[2];
@@ -35,6 +41,10 @@ void TimerFunction(int value);
 
 GLvoid setPath();
 GLvoid makeShape();
+GLvoid moveShape();
+GLvoid shapeReset(); 
+
+GLboolean slice();
 
 
 int main(int argc, char** argv)
@@ -50,13 +60,13 @@ int main(int argc, char** argv)
 	glewInit();
 
 	make_shaderProgram();
-	makeShape();
 	setPath();
 
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(Reshape);
 	glutKeyboardFunc(Keyboard);
 	glutMouseFunc(Mouse);
+	glutTimerFunc(10, TimerFunction, 1);
 	glutMainLoop();
 }
 
@@ -67,7 +77,7 @@ GLvoid drawScene()
 
 	glUseProgram(shaderProgramID);
 
-	
+	moveShape();
 
 	InitBuffer(shape.point, shape.color);
 	glDrawArrays(GL_QUADS, 0, 4);
@@ -104,43 +114,26 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 void Mouse(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-		
+		mousePoint[0][0] = ((GLfloat)x / 400.0f) - 1.f;
+		mousePoint[0][1] = (((GLfloat)y / 400.0f) - 1.f) * -1;
 	}
 	else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
+		mousePoint[1][0] = ((GLfloat)x / 400.0f) - 1.f;
+		mousePoint[1][1] = (((GLfloat)y / 400.0f) - 1.f) * -1;
 
+		if (slice()) shapeReset();
 	}
 }
 
 void TimerFunction(int value) {
 	glutPostRedisplay();
+
+	shape.t += 0.0025f;
+	if (shape.t > 1) {
+		shapeReset();
+	}
+
 	glutTimerFunc(10, TimerFunction, 1);
-}
-
-GLvoid makeShape() {
-	shape.point[0] = -0.5f;
-	shape.point[1] = 0.5f;
-
-	shape.point[3] = -0.5f;
-	shape.point[4] = -0.5f;
-
-	shape.point[6] = 0.5f;
-	shape.point[7] = -0.5f;
-
-	shape.point[9] = 0.5f;
-	shape.point[10] = 0.5f;
-}
-
-GLvoid setPath() {
-	srand((unsigned int)time(NULL));
-
-	shape.cp[0][0] = (rand() % 2 ? -1.f : 1.f);
-	shape.cp[0][1] = (GLfloat)(rand() % 100) / 100.f;
-
-	shape.cp[1][0] = shape.cp[0][0] * -1.f * (GLfloat)(rand() % 100) / 100.f;
-	shape.cp[1][1] = 1.f;
-
-	shape.cp[2][0] = shape.cp[0][0] * -1;
-	shape.cp[2][1] = (GLfloat)(rand() % 100) / 100.f;
 }
 
 void InitBuffer(GLfloat point[], GLfloat colors[]) {
@@ -155,4 +148,77 @@ void InitBuffer(GLfloat point[], GLfloat colors[]) {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(colors) * 6, colors, GL_STATIC_DRAW);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(1);
+}
+
+GLvoid makeShape() {
+
+	shape.point[0] = shape.cx - LENGTH;
+	shape.point[1] = shape.cy + LENGTH;
+
+	shape.point[3] = shape.cx - LENGTH;
+	shape.point[4] = shape.cy - LENGTH;
+
+	shape.point[6] = shape.cx + LENGTH;
+	shape.point[7] = shape.cy - LENGTH;
+
+	shape.point[9] = shape.cx + LENGTH;
+	shape.point[10] = shape.cy + LENGTH;
+
+	shape.clippingPoint[0] = shape.point[3];
+	shape.clippingPoint[1] = shape.point[1];
+	shape.clippingPoint[2] = shape.point[6];
+	shape.clippingPoint[3] = shape.point[7];
+}
+
+GLvoid setPath() {
+	srand((unsigned int)time(NULL));
+
+	shape.cp[0][0] = (rand() % 2 ? -1.f : 1.f);
+	shape.cp[0][1] = (GLfloat)(rand() % 100) / 100.f - 0.3f;
+
+	shape.cp[1][0] = shape.cp[0][0] * -1.f * (GLfloat)(rand() % 100) / 100.f;
+	shape.cp[1][1] = (GLfloat)(rand() % 100) / 100.f - 0.3f;
+
+	shape.cp[2][0] = shape.cp[0][0] * -1;
+	shape.cp[2][1] = (GLfloat)(rand() % 100) / 100.f - 0.3f;
+}
+
+// f(t) = (1-t^2)p0 + 2t(1-t)p1 + t^2p2
+GLvoid moveShape() {
+	shape.cx = (1 - powf(shape.t, 2)) * shape.cp[0][0] + (2 * shape.t) * (1 - shape.t) * shape.cp[1][0] + powf(shape.t, 2) * shape.cp[2][0];
+	shape.cy = (1 - powf(shape.t, 2)) * shape.cp[0][1] + (2 * shape.t) * (1 - shape.t) * shape.cp[1][1] + powf(shape.t, 2) * shape.cp[2][1];
+
+	makeShape();
+}
+
+GLvoid shapeReset() {
+	shape = {NULL};
+
+	setPath();
+}
+
+GLboolean slice() {
+	GLfloat minX = shape.clippingPoint[0];
+	GLfloat maxY = shape.clippingPoint[1];  
+	GLfloat maxX = shape.clippingPoint[2]; 
+	GLfloat minY = shape.clippingPoint[3]; 
+
+	GLfloat x, y;
+	GLfloat m = (mousePoint[1][1] - mousePoint[0][1]) / (mousePoint[1][0] - mousePoint[0][0]);
+
+	y = mousePoint[0][1] + (m * (minX - mousePoint[0][0]));
+	if (y > minY && y < maxY) return TRUE;
+
+	y = mousePoint[0][1] + (m * (maxX - mousePoint[0][0]));
+	if (y > minY && y < maxY) return TRUE;
+
+	x = mousePoint[0][0] + ((minY - mousePoint[0][1]) / m);
+	if (x > minX && x < maxX) return TRUE;
+
+	x = mousePoint[0][0] + ((maxY - mousePoint[0][1]) / m);
+	if (x > minX && x < maxX) return TRUE;
+
+
+
+	return FALSE; 
 }
