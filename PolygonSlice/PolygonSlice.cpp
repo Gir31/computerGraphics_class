@@ -38,8 +38,8 @@ GLuint vao, vbo[2];
 
 GLfloat basketPoint[] = {
 	-0.2f, -0.9f, 0.f,
-	-0.2f, -1.f, 0.f,
-	0.2f, -1.f, 0.f,
+	-0.2f, -0.925f, 0.f,
+	0.2f, -0.925f, 0.f,
 	0.2f, -0.9f, 0.f,
 };
 GLfloat basketColor[] = {
@@ -50,6 +50,9 @@ GLfloat basketColor[] = {
 };
 
 GLfloat basketMoveValue = 0.01f;
+GLfloat speedValue = 0.0025f;
+GLboolean lFlag = TRUE;
+GLboolean pFlag = FALSE;
 
 GLvoid drawScene();
 GLvoid InitBuffer(GLfloat point[], GLfloat colors[]);
@@ -107,13 +110,17 @@ GLvoid drawScene()
 
 	moveShape();
 
+	glPolygonMode(GL_FRONT_AND_BACK, lFlag ? GL_LINE : GL_FILL);
+
 	InitBuffer(shape.point, shape.color);
 	glDrawArrays(GL_QUADS, 0, 4);
 
+	drawRubble(); 
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 	InitBuffer(basketPoint, basketColor);
 	glDrawArrays(GL_QUADS, 0, 4);
-
-	drawRubble(); 
 
 	glutSwapBuffers();
 }
@@ -139,7 +146,25 @@ void make_shaderProgram()
 GLvoid Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
-	case 'q': glutLeaveMainLoop();
+	case 'l': case 'L':
+		lFlag = TRUE;
+		break;
+	case 'f': case 'F':
+		lFlag = FALSE;
+		break;
+	case 'p':
+		pFlag = TRUE;
+		break;
+	case 'P':
+		pFlag = FALSE;
+		break;
+	case '+':
+		if (speedValue < 0.01f) speedValue += 0.0005f;
+		break;
+	case '-':
+		if (speedValue > 0.001f) speedValue -= 0.0005f;
+		break;
+	case 'q': case 'Q' : glutLeaveMainLoop();
 	}
 	glutPostRedisplay();
 }
@@ -164,7 +189,7 @@ void Mouse(int button, int state, int x, int y)
 void TimerFunction(int value) {
 	glutPostRedisplay();
 
-	shape.t += 0.0025f;
+	shape.t += speedValue;
 	if (shape.t > 1) {
 		shapeReset();
 	}
@@ -250,6 +275,21 @@ GLvoid setPath() {
 GLvoid moveShape() {
 	shape.cx = (1 - powf(shape.t, 2)) * shape.cp[0][0] + (2 * shape.t) * (1 - shape.t) * shape.cp[1][0] + powf(shape.t, 2) * shape.cp[2][0];
 	shape.cy = (1 - powf(shape.t, 2)) * shape.cp[0][1] + (2 * shape.t) * (1 - shape.t) * shape.cp[1][1] + powf(shape.t, 2) * shape.cp[2][1];
+
+	if (pFlag) {
+		GLfloat t = 0.f;
+		GLfloat x, y;
+		glBegin(GL_LINE_STRIP);
+		while (t < 1.f) {
+			x = (1 - powf(t, 2)) * shape.cp[0][0] + (2 * t) * (1 - t) * shape.cp[1][0] + powf(t, 2) * shape.cp[2][0];
+			y = (1 - powf(t, 2)) * shape.cp[0][1] + (2 * t) * (1 - t) * shape.cp[1][1] + powf(t, 2) * shape.cp[2][1];
+			
+			glVertex2f(x, y);
+
+			t += 0.01f;
+		}
+		glEnd();
+	}
 
 	makeShape();
 }
