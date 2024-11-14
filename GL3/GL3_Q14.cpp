@@ -128,7 +128,7 @@ GLvoid drawScene()
 
 
 	trans_shape(rotate, translate, shaderProgramID);
-
+	
 	glPolygonMode(GL_FRONT_AND_BACK, line_switch ? GL_LINE : GL_FILL);
 
 	if (shape) {
