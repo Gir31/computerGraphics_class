@@ -1,6 +1,6 @@
 #include "GL_My_header.h"
 //========================================================
-
+#define PI 3.141592f
 //========================================================
 // 원근 투영
 PROJECTION projection = { 45.0f, 0.0f, 0.1f, 50.0f };
@@ -36,7 +36,18 @@ float points[] = {
 	1.f, 1.f, 1.f,
 	1.f, 1.f, -1.f,
 	1.f, -1.f, -1.f,
-	1.f, -1.f, 1.f // 오
+	1.f, -1.f, 1.f, // 오
+
+	-0.2f, 0.2f, -0.2f,
+	-0.2f, 0.2f, 0.2f,
+	0.2f, 0.2f, 0.2f,
+	0.2f, 0.2f, -0.2f, // 장애물 1 위
+
+	-0.2f, 0.2f, -0.2f,
+	-0.2f, -0.2f, -0.2f,
+	-0.2f, -0.2f, 0.2f,
+	-0.2f, 0.2f, 0.2f, // 장애물 1 왼
+
 };
 float color[] = {
 	0.3f, 0.3f, 0.3f,
@@ -70,6 +81,9 @@ glm::vec3 rotateBox = glm::vec3(0.f, 0.f, 0.f);
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 rotateCamera = glm::vec3(0, 0, 0);
 
+GLfloat initMouseDegree; // 마우스의 초기 각도
+
+GLboolean left_button = FALSE;
 GLboolean timeSwitch = FALSE;
 //========================================================
 GLvoid drawScene();
@@ -174,17 +188,26 @@ void InitBuffer_() {
 
 GLvoid Mouse(int button, int state, int x, int y) {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+		left_button = TRUE;
 
+		initMouseDegree = atan2f(((y / 400.f) - 1.f) * -1.f, (x / 400.f) - 1.f) / PI * 180.f; // 마우스 클릭시 초기 각도 초기화
+	}else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
+		left_button = FALSE;
 	}
+	glutPostRedisplay();
 }
 
 void Motion(int x, int y) {
-	if (x < 400.f) {
-		
-	}
-	else {
+	if (left_button) {
+		GLfloat curMouseDegree; // 마우스 이동 시 각도  
 
+		curMouseDegree = atan2f(((y / 400.f) - 1.f) * -1.f, (x / 400.f) - 1.f) / PI * 180.f; // 현재 각도 초기화
+
+		rotateBox.z += curMouseDegree - initMouseDegree; // 초기 각도와 현재 각도의 차를 rotate.z에 더해줌 
+
+		initMouseDegree = curMouseDegree; // 초기 각도를 현재 각도로 초기화
 	}
+	glutPostRedisplay();
 }
 
 GLvoid Keyboard(unsigned char key, int x, int y)
