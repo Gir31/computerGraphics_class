@@ -248,6 +248,7 @@ float color[] = {
 glm::vec3 rotateBox = glm::vec3(0.f, 0.f, 0.f);
 
 glm::vec3 transObstacle1 = glm::vec3(0.f, -0.8f, -0.35f);
+glm::vec3 fallObstacle1 = glm::vec3(0.f, 0.f, 0.f);
 glm::vec3 transObstacle2 = glm::vec3(0.f, -0.85f, 0.f);
 glm::vec3 transObstacle3 = glm::vec3(0.f, -0.9f, 0.25f);
 
@@ -293,6 +294,7 @@ int main(int argc, char** argv)
 	glutMotionFunc(Motion);
 	glutKeyboardFunc(Keyboard);
 	glutSpecialFunc(SpecialKeyboard);
+	glutTimerFunc(10, TimerFunction, 1);
 	glutMainLoop();
 }
 
@@ -315,19 +317,19 @@ GLvoid drawScene()
 	glDrawArrays(GL_QUADS, 0, 20);
 
 	glm::mat4 obsltacle1 = glm::mat4(1.0f);
-	obsltacle1 = translation_shape(transObstacle1) * rotate_shape(rotateBox);
+	obsltacle1 = rotate_shape(rotateBox) * translation_shape(transObstacle1);
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle1));
-	glDrawArrays(GL_QUADS, 20, 20);
+	glDrawArrays(GL_QUADS, 20, 24);
 
 	glm::mat4 obsltacle2 = glm::mat4(1.0f);
-	obsltacle2 = translation_shape(transObstacle2) * rotate_shape(rotateBox);
+	obsltacle2 = rotate_shape(rotateBox) * translation_shape(transObstacle2);
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle2));
-	glDrawArrays(GL_QUADS, 40, 20);
+	glDrawArrays(GL_QUADS, 44, 24);
 
 	glm::mat4 obsltacle3 = glm::mat4(1.0f);
-	obsltacle3 = translation_shape(transObstacle3) * rotate_shape(rotateBox);
+	obsltacle3 = rotate_shape(rotateBox) * translation_shape(transObstacle3);
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle3));
-	glDrawArrays(GL_QUADS, 60, 20);
+	glDrawArrays(GL_QUADS, 68, 24);
 
 	glUseProgram(shaderProgramID);
 
@@ -430,7 +432,7 @@ GLvoid SpecialKeyboard(int key, int x, int y) {
 GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
-	if (timeSwitch) glutTimerFunc(10, TimerFunction, 1);
+	glutTimerFunc(10, TimerFunction, 1);
 }
 
 GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
@@ -440,4 +442,9 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 
 	unsigned int viewLocation = glGetUniformLocation(shaderProgramID, "view");
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
+}
+
+GLvoid fallObstacle() {
+	fallObstacle1.x += 0.01f;
+	fallObstacle1.y += 0.01f;
 }
