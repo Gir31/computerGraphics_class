@@ -48,6 +48,85 @@ float points[] = {
 	-0.2f, -0.2f, 0.2f,
 	-0.2f, 0.2f, 0.2f, // 장애물 1 왼
 
+	-0.2f, 0.2f, -0.2f, 
+	0.2f, 0.2f, -0.2f,
+	0.2f, -0.2f, -0.2f,
+	-0.2f, -0.2f, -0.2f, // 장애물 1 뒤
+
+	0.2f, 0.2f, -0.2f,
+	0.2f, 0.2f, 0.2f,
+	0.2f, -0.2f, 0.2f,
+	0.2f, -0.2f, -0.2f, // 장애물 1 오
+
+	-0.2f, 0.2f, 0.2f,
+	-0.2f, -0.2f, 0.2f,
+	0.2f, -0.2f, 0.2f,
+	0.2f, 0.2f, 0.2f, // 장애물 1 앞
+
+	0.2f, -0.2f, 0.2f,
+	-0.2f, -0.2f, 0.2f,
+	-0.2f, -0.2f, -0.2f,
+	0.2f, -0.2f, -0.2f, // 장애물 1 밑
+
+	-0.15f, 0.15f, -0.15f,
+	-0.15f, 0.15f, 0.15f,
+	0.15f, 0.15f, 0.15f,
+	0.15f, 0.15f, -0.15f, // 장애물 2 위
+
+	-0.15f, 0.15f, -0.15f,
+	-0.15f, -0.15f, -0.15f,
+	-0.15f, -0.15f, 0.15f,
+	-0.15f, 0.15f, 0.15f, // 장애물 2 왼
+
+	-0.15f, 0.15f, -0.15f,
+	0.15f, 0.15f, -0.15f,
+	0.15f, -0.15f, -0.15f,
+	-0.15f, -0.15f, -0.15f, // 장애물 2 뒤
+
+	0.15f, 0.15f, -0.15f,
+	0.15f, 0.15f, 0.15f,
+	0.15f, -0.15f, 0.15f,
+	0.15f, -0.15f, -0.15f, // 장애물 2 오
+
+	-0.15f, 0.15f, 0.15f,
+	-0.15f, -0.15f, 0.15f,
+	0.15f, -0.15f, 0.15f,
+	0.15f, 0.15f, 0.15f, // 장애물 2 앞
+
+	0.15f, -0.15f, 0.15f,
+	-0.15f, -0.15f, 0.15f,
+	-0.15f, -0.15f, -0.15f,
+	0.15f, -0.15f, -0.15f, // 장애물 2 밑
+
+	-0.1f, 0.1f, -0.1f,
+	-0.1f, 0.1f, 0.1f,
+	0.1f, 0.1f, 0.1f,
+	0.1f, 0.1f, -0.1f, // 장애물 3 위
+
+	-0.1f, 0.1f, -0.1f,
+	-0.1f, -0.1f, -0.1f,
+	-0.1f, -0.1f, 0.1f,
+	-0.1f, 0.1f, 0.1f, // 장애물 3 왼
+
+	-0.1f, 0.1f, -0.1f,
+	0.1f, 0.1f, -0.1f,
+	0.1f, -0.1f, -0.1f,
+	-0.1f, -0.1f, -0.1f, // 장애물 3 뒤
+
+	0.1f, 0.1f, -0.1f,
+	0.1f, 0.1f, 0.1f,
+	0.1f, -0.1f, 0.1f,
+	0.1f, -0.1f, -0.1f, // 장애물 3 오
+
+	-0.1f, 0.1f, 0.1f,
+	-0.1f, -0.1f, 0.1f,
+	0.1f, -0.1f, 0.1f,
+	0.1f, 0.1f, 0.1f, // 장애물 3 앞
+
+	0.1f, -0.1f, 0.1f,
+	-0.1f, -0.1f, 0.1f,
+	-0.1f, -0.1f, -0.1f,
+	0.1f, -0.1f, -0.1f, // 장애물 3 밑
 };
 float color[] = {
 	0.3f, 0.3f, 0.3f,
@@ -74,9 +153,103 @@ float color[] = {
 	0.5f, 0.5f, 0.5f,
 	0.5f, 0.5f, 0.5f,
 	0.5f, 0.5f, 0.5f,
+
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+	0.0f, 1.f, 1.f,
+
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+	1.f, 0.f, 1.f,
+
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
+	1.f, 1.f, 0.f,
 };
 
 glm::vec3 rotateBox = glm::vec3(0.f, 0.f, 0.f);
+
+glm::vec3 transObstacle1 = glm::vec3(0.f, -0.8f, -0.35f);
+glm::vec3 transObstacle2 = glm::vec3(0.f, -0.85f, 0.f);
+glm::vec3 transObstacle3 = glm::vec3(0.f, -0.9f, 0.25f);
 
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 rotateCamera = glm::vec3(0, 0, 0);
@@ -140,6 +313,21 @@ GLvoid drawScene()
 	box = translation_shape(glm::vec3(0.f, 0.f, 0.f)) * rotate_shape(rotateBox);
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(box));
 	glDrawArrays(GL_QUADS, 0, 20);
+
+	glm::mat4 obsltacle1 = glm::mat4(1.0f);
+	obsltacle1 = translation_shape(transObstacle1) * rotate_shape(rotateBox);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle1));
+	glDrawArrays(GL_QUADS, 20, 20);
+
+	glm::mat4 obsltacle2 = glm::mat4(1.0f);
+	obsltacle2 = translation_shape(transObstacle2) * rotate_shape(rotateBox);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle2));
+	glDrawArrays(GL_QUADS, 40, 20);
+
+	glm::mat4 obsltacle3 = glm::mat4(1.0f);
+	obsltacle3 = translation_shape(transObstacle3) * rotate_shape(rotateBox);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle3));
+	glDrawArrays(GL_QUADS, 60, 20);
 
 	glUseProgram(shaderProgramID);
 
