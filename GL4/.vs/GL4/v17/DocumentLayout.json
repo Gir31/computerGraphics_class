@@ -38,21 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GL4_Q19.cpp",
-              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
-              "RelativeDocumentMoniker": "GL4_Q19.cpp",
-              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
-              "RelativeToolTip": "GL4_Q19.cpp",
-              "ViewState": "AQIAANcBAAAAAAAAAADwv+kBAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-13T01:10:55.425Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -75,8 +62,7 @@
               "RelativeToolTip": "fragment.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:37:50.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:37:50.603Z"
             },
             {
               "$type": "Document",
@@ -86,10 +72,22 @@
               "RelativeDocumentMoniker": "GL4_Q18.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q18.cpp",
               "RelativeToolTip": "GL4_Q18.cpp",
-              "ViewState": "AQIAAPMAAAAAAAAAAAAAAAQBAAABAAAA",
+              "ViewState": "AQIAAP4AAAAAAAAAAAAAADABAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-29T02:37:20.279Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GL4_Q19.cpp",
+              "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
+              "RelativeDocumentMoniker": "GL4_Q19.cpp",
+              "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
+              "RelativeToolTip": "GL4_Q19.cpp",
+              "ViewState": "AQIAANcBAAAAAAAAAADwv+kBAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-13T01:10:55.425Z"
             },
             {
               "$type": "Document",
@@ -113,8 +111,7 @@
               "RelativeToolTip": "vertex.glsl",
               "ViewState": "AQIAAAAAAACA0tLS0tICwA8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:38:10.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:38:10.407Z"
             },
             {
               "$type": "Document",

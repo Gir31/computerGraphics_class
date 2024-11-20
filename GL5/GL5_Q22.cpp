@@ -254,6 +254,17 @@ glm::vec3 transObstacle3 = glm::vec3(0.f, -0.9f, 0.25f);
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 rotateCamera = glm::vec3(0, 0, 0);
 
+glm::vec3 bounceBall = glm::vec3(0, 0, 0);
+glm::vec3 touchWall = glm::vec3(0, 0, 0);
+GLfloat bounceValue = 0.01f;
+
+glm::vec2 hitBox[4] = { 
+	glm::vec2(-0.9f, 0.9f) ,glm::vec2(0.9f, 0.9f),
+	glm::vec2(-0.9f, -0.9f) ,glm::vec2(0.9f, -0.9f)
+};
+
+GLUquadric* qobj;
+
 GLfloat initMouseDegree; // 마우스의 초기 각도
 
 GLboolean left_button = FALSE;
@@ -272,6 +283,8 @@ void InitBuffer_();
 // 사용자 지정 함수
 GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate);
 GLvoid fallObstacle();
+GLvoid touch();
+GLvoid bounce();
 //========================================================
 
 int main(int argc, char** argv)
@@ -330,6 +343,14 @@ GLvoid drawScene()
 	obsltacle3 = rotate_shape(rotateBox) * translation_shape(transObstacle3);
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obsltacle3));
 	glDrawArrays(GL_QUADS, 68, 24);
+
+
+	glm::mat4 ball = glm::mat4(1.0f);
+	ball = translation_shape(bounceBall);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball));
+	qobj = gluNewQuadric();
+	gluQuadricDrawStyle(qobj, GLU_FILL);
+	gluSphere(qobj, 0.05f, 50, 50);
 
 	glUseProgram(shaderProgramID);
 
@@ -436,6 +457,7 @@ GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
 	fallObstacle();
+	bounce();
 
 	glutTimerFunc(10, TimerFunction, 1);
 }
@@ -451,7 +473,8 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 
 GLvoid fallObstacle() {
 
-	transObstacle1.x += sinf(rotateBox.z * PI / 180.f) * -0.01f;
+	// 장애물 1 자유 낙하
+	transObstacle1.x += sinf(rotateBox.z * PI / 180.f) * -0.05f;
 
 	if (!(transObstacle1.x > -0.8f && transObstacle1.x < 0.8f)) {
 		
@@ -459,18 +482,88 @@ GLvoid fallObstacle() {
 		else transObstacle1.x = 0.8f;
 	}
 
-	transObstacle2.x += sinf(rotateBox.z * PI / 180.f) * -0.01f;
+	transObstacle1.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
+
+	if (!(transObstacle1.y > -0.8f && transObstacle1.y < 0.8f)) {
+
+		if (transObstacle1.y < 0.f) transObstacle1.y = -0.8f;
+		else transObstacle1.y = 0.8f;
+	}
+
+	// 장애물 2 자유 낙하
+	transObstacle2.x += sinf(rotateBox.z * PI / 180.f) * -0.05f;
 
 	if (!(transObstacle2.x > -0.85f && transObstacle2.x < 0.85f)) {
 		if (transObstacle2.x < 0.f) transObstacle2.x = -0.85f;
 		else transObstacle2.x = 0.85f;
 	}
 
-	transObstacle3.x += sinf(rotateBox.z * PI / 180.f) * -0.01f;
+	transObstacle2.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
+
+	if (!(transObstacle2.y > -0.8f && transObstacle2.y < 0.8f)) {
+
+		if (transObstacle2.y < 0.f) transObstacle2.y = -0.8f;
+		else transObstacle2.y = 0.8f;
+	}
+
+	// 장애물 3 자유 낙하
+	transObstacle3.x += sinf(rotateBox.z * PI / 180.f) * -0.05f;
 
 	if(!(transObstacle3.x > -0.9f && transObstacle3.x < 0.9f)) {
 		if (transObstacle3.x < 0.f) transObstacle3.x = -0.9f;
 		else transObstacle3.x = 0.9f;
 	}
 
+	transObstacle3.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
+
+	if (!(transObstacle3.y > -0.8f && transObstacle3.y < 0.8f)) {
+
+		if (transObstacle3.y < 0.f) transObstacle3.y = -0.8f;
+		else transObstacle3.y = 0.8f;
+	}
+
+}
+
+GLvoid touch(GLfloat bx, GLfloat by) {
+	GLfloat x[4], y[4];
+	GLfloat m[4], c[4];
+	GLfloat R = 0.9 * sqrtf(2);
+
+	// 오른쪽 위 점
+	x[0] = R * cosf((135.f - rotateBox.z) * PI / 180.f) * -1; y[0] = R * sinf((135.f - rotateBox.z) * PI / 180.f);
+
+	// 오른쪽 아래 점
+	x[1] = R * cosf((225.f - rotateBox.z) * PI / 180.f) * -1; y[1] = R * sinf((225.f - rotateBox.z) * PI / 180.f);
+
+	// 왼쪽 아래 점
+	x[2] = R * cosf((315.f - rotateBox.z) * PI / 180.f) * -1; y[2] = R * sinf((315.f - rotateBox.z) * PI / 180.f);
+
+	// 왼쪽 위 점
+	x[3] = R * cosf((45.f - rotateBox.z) * PI / 180.f) * -1; y[3] = R * sinf((45.f - rotateBox.z) * PI / 180.f);
+
+	m[0] = (y[1] - y[0]) / (x[1] - x[0]); c[0] = m[0] * x[0] - y[0];
+	m[1] = (y[2] - y[1]) / (x[2] - x[1]); c[0] = m[1] * x[1] - y[1];
+	m[2] = (y[3] - y[2]) / (x[3] - x[2]); c[0] = m[2] * x[2] - y[2];
+	m[3] = (y[0] - y[3]) / (x[0] - x[3]); c[0] = m[3] * x[3] - y[3];
+
+	// y = mx + c
+	GLfloat bm = by / bx;
+
+}
+
+GLvoid bounce() {
+	bounceBall.y += bounceValue * cosf(touchWall.z * PI / 180.f);
+	bounceBall.x += bounceValue * sinf(touchWall.z * PI / 180.f);
+
+	if (!(bounceBall.y < 0.9f && bounceBall.y > -0.9f)) {
+		bounceValue *= -1;
+		touchWall.z -= rotateBox.z;
+		touch();
+	}
+
+	if (!(bounceBall.x < 0.9f && bounceBall.x > -0.9f)) {
+		bounceValue *= -1;
+		touchWall.z += rotateBox.z;
+		touch();
+	}
 }

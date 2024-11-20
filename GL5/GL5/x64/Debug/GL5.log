@@ -1,5 +1,6 @@
 ﻿  GL5_Q22.cpp
-D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(283,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(283,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(341,24): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(296,29): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(296,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(362,24): warning C4244: '=': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\github_My\computerGraphics_class\GL5\GL5_Q22.cpp(529,12): warning C4244: '초기화 중': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   GL5.vcxproj -> D:\github_My\computerGraphics_class\GL5\x64\Debug\GL5.exe
