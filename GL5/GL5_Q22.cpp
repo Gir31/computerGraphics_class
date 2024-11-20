@@ -259,8 +259,8 @@ glm::vec3 touchWall = glm::vec3(0, 0, 0);
 GLfloat bounceValue = 0.01f;
 
 glm::vec2 hitBox[4] = { 
-	glm::vec2(-0.9f, 0.9f) ,glm::vec2(0.9f, 0.9f),
-	glm::vec2(-0.9f, -0.9f) ,glm::vec2(0.9f, -0.9f)
+	glm::vec2(-0.8f, 0.8f) ,glm::vec2(0.8f, 0.8f),
+	glm::vec2(-0.8f, -0.8f) ,glm::vec2(0.8f, -0.8f)
 };
 
 GLUquadric* qobj;
@@ -283,7 +283,7 @@ void InitBuffer_();
 // 사용자 지정 함수
 GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate);
 GLvoid fallObstacle();
-GLvoid touch();
+GLboolean touch(GLfloat bx, GLfloat by); 
 GLvoid bounce();
 //========================================================
 
@@ -293,7 +293,7 @@ int main(int argc, char** argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(800.0f, 800.0f);
+	glutInitWindowSize(100.0f, 100.0f);
 	glutCreateWindow("Example1");
 
 	glewExperimental = GL_TRUE;
@@ -524,7 +524,7 @@ GLvoid fallObstacle() {
 
 }
 
-GLvoid touch(GLfloat bx, GLfloat by) {
+GLboolean touch(GLfloat bx, GLfloat by) {
 	GLfloat x[4], y[4];
 	GLfloat m[4], c[4];
 	GLfloat R = 0.9 * sqrtf(2);
@@ -541,29 +541,34 @@ GLvoid touch(GLfloat bx, GLfloat by) {
 	// 왼쪽 위 점
 	x[3] = R * cosf((45.f - rotateBox.z) * PI / 180.f) * -1; y[3] = R * sinf((45.f - rotateBox.z) * PI / 180.f);
 
-	m[0] = (y[1] - y[0]) / (x[1] - x[0]); c[0] = m[0] * x[0] - y[0];
-	m[1] = (y[2] - y[1]) / (x[2] - x[1]); c[0] = m[1] * x[1] - y[1];
-	m[2] = (y[3] - y[2]) / (x[3] - x[2]); c[0] = m[2] * x[2] - y[2];
-	m[3] = (y[0] - y[3]) / (x[0] - x[3]); c[0] = m[3] * x[3] - y[3];
+	m[0] = (y[1] - y[0]) / (x[1] - x[0]); c[0] = y[0] - (m[0] * x[0]);
+	m[1] = (y[2] - y[1]) / (x[2] - x[1]); c[1] = y[1] - (m[1] * x[1]);
+	m[2] = (y[3] - y[2]) / (x[3] - x[2]); c[2] = y[2] - (m[2] * x[2]);
+	m[3] = (y[0] - y[3]) / (x[0] - x[3]); c[3] = y[3] - (m[3] * x[3]);
 
 	// y = mx + c
 	GLfloat bm = by / bx;
+	GLfloat bl = sqrtf((powf(bx, 2) + powf(by, 2))); // 공과 원점 사이의 거리 
+	GLfloat tx, ty, tl; // 원점과 각 변 사이의 거리
 
+	for (int i = 0; i < 4; i++) {
+		if (m[i] != bm) {
+			tx = (c[i] / (m[i] - bm)) * -1;
+			ty = m[i] * tx + c[i];
+			tl = sqrtf((powf(tx, 2) + powf(ty, 2)));
+			if (bl >= tl) return TRUE;
+		}
+	}
+
+	return FALSE;
 }
 
 GLvoid bounce() {
 	bounceBall.y += bounceValue * cosf(touchWall.z * PI / 180.f);
 	bounceBall.x += bounceValue * sinf(touchWall.z * PI / 180.f);
 
-	if (!(bounceBall.y < 0.9f && bounceBall.y > -0.9f)) {
+	if (touch(bounceBall.x, bounceBall.y)) {
 		bounceValue *= -1;
 		touchWall.z -= rotateBox.z;
-		touch();
-	}
-
-	if (!(bounceBall.x < 0.9f && bounceBall.x > -0.9f)) {
-		bounceValue *= -1;
-		touchWall.z += rotateBox.z;
-		touch();
 	}
 }
