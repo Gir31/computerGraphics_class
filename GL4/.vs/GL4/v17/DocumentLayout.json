@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\github_My\\computerGraphics_class\\GL4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q19.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q18.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q18.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q17.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q17.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\vertex.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -25,6 +13,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\fragment.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:fragment.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q19.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q17.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL4_Q17.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|solutionrelative:GL_My_header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91814F7B-E9A5-4C2F-851D-A64555A1B7D3}|GL4.vcxproj|D:\\github_My\\computerGraphics_class\\GL4\\vertex_Q18.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -38,24 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 215,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GL4_Q19.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
               "RelativeDocumentMoniker": "GL4_Q19.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q19.cpp",
               "RelativeToolTip": "GL4_Q19.cpp",
-              "ViewState": "AQIAABICAAAAAAAAAAAAAFgCAAAGAAAA",
+              "ViewState": "AQIAANcBAAAAAAAAAADwv+kBAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-13T01:10:55.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "GL4_Q17.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q17.cpp",
               "RelativeDocumentMoniker": "GL4_Q17.cpp",
@@ -63,12 +63,11 @@
               "RelativeToolTip": "GL4_Q17.cpp",
               "ViewState": "AQIAAD8BAAAAAAAAAAAAAEEAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-29T14:15:39.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T14:15:39.256Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "fragment.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\fragment.glsl",
               "RelativeDocumentMoniker": "fragment.glsl",
@@ -76,24 +75,25 @@
               "RelativeToolTip": "fragment.glsl",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:37:50.603Z"
+              "WhenOpened": "2024-10-25T08:37:50.603Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GL4_Q18.cpp",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q18.cpp",
               "RelativeDocumentMoniker": "GL4_Q18.cpp",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\GL4_Q18.cpp",
               "RelativeToolTip": "GL4_Q18.cpp",
-              "ViewState": "AQIAAM8AAAAAAAAAAAAAANkAAAAIAAAA",
+              "ViewState": "AQIAAPMAAAAAAAAAAAAAAAQBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-29T02:37:20.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "GL_My_header.h",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\GL_My_header.h",
               "RelativeDocumentMoniker": "GL_My_header.h",
@@ -101,20 +101,20 @@
               "RelativeToolTip": "GL_My_header.h",
               "ViewState": "AQIAAEIBAAAAAAAAAADwv2QBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-30T02:50:11.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:50:11.573Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "vertex.glsl",
               "DocumentMoniker": "D:\\github_My\\computerGraphics_class\\GL4\\vertex.glsl",
               "RelativeDocumentMoniker": "vertex.glsl",
               "ToolTip": "D:\\github_My\\computerGraphics_class\\GL4\\vertex.glsl",
               "RelativeToolTip": "vertex.glsl",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAACA0tLS0tICwA8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-25T08:38:10.407Z"
+              "WhenOpened": "2024-10-25T08:38:10.407Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
