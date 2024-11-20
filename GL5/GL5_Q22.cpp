@@ -451,7 +451,7 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 
 GLvoid fallObstacle() {
 
-	transObstacle1.x += sinf(rotateBox.z / PI * 180.f) * 0.01f;
+	transObstacle1.x += sinf(rotateBox.z * PI / 180.f) * -0.01f;
 
 	if (!(transObstacle1.x > -0.8f && transObstacle1.x < 0.8f)) {
 		
@@ -459,17 +459,18 @@ GLvoid fallObstacle() {
 		else transObstacle1.x = 0.8f;
 	}
 
-	transObstacle2.x += sinf(rotateBox.z / PI * 180.f) * 0.01f;
+	transObstacle2.x += sinf(rotateBox.z * PI / 180.f) * -0.01f;
 
 	if (!(transObstacle2.x > -0.85f && transObstacle2.x < 0.85f)) {
 		if (transObstacle2.x < 0.f) transObstacle2.x = -0.85f;
 		else transObstacle2.x = 0.85f;
 	}
 
-	transObstacle3.x += sinf(rotateBox.z / PI * 180.f) * 0.01f;
+	transObstacle3.x += sinf(rotateBox.z * PI / 180.f) * -0.01f;
 
 	if(!(transObstacle3.x > -0.9f && transObstacle3.x < 0.9f)) {
 		if (transObstacle3.x < 0.f) transObstacle3.x = -0.9f;
 		else transObstacle3.x = 0.9f;
 	}
+
 }
