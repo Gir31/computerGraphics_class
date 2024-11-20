@@ -248,7 +248,6 @@ float color[] = {
 glm::vec3 rotateBox = glm::vec3(0.f, 0.f, 0.f);
 
 glm::vec3 transObstacle1 = glm::vec3(0.f, -0.8f, -0.35f);
-glm::vec3 fallObstacle1 = glm::vec3(0.f, 0.f, 0.f);
 glm::vec3 transObstacle2 = glm::vec3(0.f, -0.85f, 0.f);
 glm::vec3 transObstacle3 = glm::vec3(0.f, -0.9f, 0.25f);
 
@@ -272,6 +271,7 @@ void InitBuffer_();
 //========================================================
 // 사용자 지정 함수
 GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate);
+GLvoid fallObstacle();
 //========================================================
 
 int main(int argc, char** argv)
@@ -396,6 +396,9 @@ void Motion(int x, int y) {
 		rotateBox.z += curMouseDegree - initMouseDegree; // 초기 각도와 현재 각도의 차를 rotate.z에 더해줌 
 
 		initMouseDegree = curMouseDegree; // 초기 각도를 현재 각도로 초기화
+
+		if (rotateBox.z < 0.f) rotateBox.z += 360.f;
+		if (rotateBox.z >= 360.f) rotateBox.z = 0.f;
 	}
 	glutPostRedisplay();
 }
@@ -432,6 +435,8 @@ GLvoid SpecialKeyboard(int key, int x, int y) {
 GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
+	fallObstacle();
+
 	glutTimerFunc(10, TimerFunction, 1);
 }
 
@@ -445,6 +450,26 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 }
 
 GLvoid fallObstacle() {
-	fallObstacle1.x += 0.01f;
-	fallObstacle1.y += 0.01f;
+
+	transObstacle1.x += sinf(rotateBox.z / PI * 180.f) * 0.01f;
+
+	if (!(transObstacle1.x > -0.8f && transObstacle1.x < 0.8f)) {
+		
+		if (transObstacle1.x < 0.f) transObstacle1.x = -0.8f;
+		else transObstacle1.x = 0.8f;
+	}
+
+	transObstacle2.x += sinf(rotateBox.z / PI * 180.f) * 0.01f;
+
+	if (!(transObstacle2.x > -0.85f && transObstacle2.x < 0.85f)) {
+		if (transObstacle2.x < 0.f) transObstacle2.x = -0.85f;
+		else transObstacle2.x = 0.85f;
+	}
+
+	transObstacle3.x += sinf(rotateBox.z / PI * 180.f) * 0.01f;
+
+	if(!(transObstacle3.x > -0.9f && transObstacle3.x < 0.9f)) {
+		if (transObstacle3.x < 0.f) transObstacle3.x = -0.9f;
+		else transObstacle3.x = 0.9f;
+	}
 }
