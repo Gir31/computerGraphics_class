@@ -254,9 +254,9 @@ glm::vec3 transObstacle3 = glm::vec3(0.f, -0.9f, 0.25f);
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 rotateCamera = glm::vec3(0, 0, 0);
 
-glm::vec3 bounceBall = glm::vec3(0, 0, 0);
-glm::vec3 touchWall = glm::vec3(0, 0, 0);
-GLfloat bounceValue = 0.01f;
+glm::vec3 bounceBall[5] = { glm::vec3(0.2f, 0, 0), glm::vec3(0, 0.3f, 0), glm::vec3(0.5f, 0, -0.1f), glm::vec3(-0.7f, 0, 0.5f), glm::vec3(0.1f, -0.3f, 0.2f) };
+glm::vec3 touchWall[5] = { glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 0, 0) };
+GLfloat bounceValue[5] = { 0.01f, 0.01f, 0.01f, 0.01f, 0.01f };
 
 glm::vec2 hitBox[4] = { 
 	glm::vec2(-0.8f, 0.8f) ,glm::vec2(0.8f, 0.8f),
@@ -283,7 +283,7 @@ void InitBuffer_();
 // 사용자 지정 함수
 GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate);
 GLvoid fallObstacle();
-GLboolean touch(GLfloat bx, GLfloat by); 
+GLboolean touch(glm::vec3* b);
 GLvoid bounce();
 //========================================================
 
@@ -293,7 +293,7 @@ int main(int argc, char** argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(100.0f, 100.0f);
+	glutInitWindowSize(800.0f, 800.0f);
 	glutCreateWindow("Example1");
 
 	glewExperimental = GL_TRUE;
@@ -345,9 +345,37 @@ GLvoid drawScene()
 	glDrawArrays(GL_QUADS, 68, 24);
 
 
-	glm::mat4 ball = glm::mat4(1.0f);
-	ball = translation_shape(bounceBall);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball));
+	glm::mat4 ball1 = glm::mat4(1.0f);
+	ball1 = translation_shape(bounceBall[0]);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball1));
+	qobj = gluNewQuadric();
+	gluQuadricDrawStyle(qobj, GLU_FILL);
+	gluSphere(qobj, 0.05f, 50, 50);
+
+	glm::mat4 ball2 = glm::mat4(1.0f);
+	ball2 = translation_shape(bounceBall[1]);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball2));
+	qobj = gluNewQuadric();
+	gluQuadricDrawStyle(qobj, GLU_FILL);
+	gluSphere(qobj, 0.05f, 50, 50);
+
+	glm::mat4 ball3 = glm::mat4(1.0f);
+	ball3 = translation_shape(bounceBall[2]);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball3));
+	qobj = gluNewQuadric();
+	gluQuadricDrawStyle(qobj, GLU_FILL);
+	gluSphere(qobj, 0.05f, 50, 50);
+
+	glm::mat4 ball4 = glm::mat4(1.0f);
+	ball4 = translation_shape(bounceBall[3]);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball4));
+	qobj = gluNewQuadric();
+	gluQuadricDrawStyle(qobj, GLU_FILL);
+	gluSphere(qobj, 0.05f, 50, 50);
+
+	glm::mat4 ball5 = glm::mat4(1.0f);
+	ball5 = translation_shape(bounceBall[4]);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(ball5));
 	qobj = gluNewQuadric();
 	gluQuadricDrawStyle(qobj, GLU_FILL);
 	gluSphere(qobj, 0.05f, 50, 50);
@@ -500,10 +528,10 @@ GLvoid fallObstacle() {
 
 	transObstacle2.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
 
-	if (!(transObstacle2.y > -0.8f && transObstacle2.y < 0.8f)) {
+	if (!(transObstacle2.y > -0.85f && transObstacle2.y < 0.85f)) {
 
-		if (transObstacle2.y < 0.f) transObstacle2.y = -0.8f;
-		else transObstacle2.y = 0.8f;
+		if (transObstacle2.y < 0.f) transObstacle2.y = -0.85f;
+		else transObstacle2.y = 0.85f;
 	}
 
 	// 장애물 3 자유 낙하
@@ -516,15 +544,15 @@ GLvoid fallObstacle() {
 
 	transObstacle3.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
 
-	if (!(transObstacle3.y > -0.8f && transObstacle3.y < 0.8f)) {
+	if (!(transObstacle3.y > -0.9f && transObstacle3.y < 0.9f)) {
 
-		if (transObstacle3.y < 0.f) transObstacle3.y = -0.8f;
-		else transObstacle3.y = 0.8f;
+		if (transObstacle3.y < 0.f) transObstacle3.y = -0.9f;
+		else transObstacle3.y = 0.9f;
 	}
 
 }
 
-GLboolean touch(GLfloat bx, GLfloat by) {
+GLboolean touch(glm::vec3* b) {
 	GLfloat x[4], y[4];
 	GLfloat m[4], c[4];
 	GLfloat R = 0.9 * sqrtf(2);
@@ -547,8 +575,8 @@ GLboolean touch(GLfloat bx, GLfloat by) {
 	m[3] = (y[0] - y[3]) / (x[0] - x[3]); c[3] = y[3] - (m[3] * x[3]);
 
 	// y = mx + c
-	GLfloat bm = by / bx;
-	GLfloat bl = sqrtf((powf(bx, 2) + powf(by, 2))); // 공과 원점 사이의 거리 
+	GLfloat bm = b->y / b->x;
+	GLfloat bl = sqrtf((powf(b->x, 2) + powf(b->y, 2))); // 공과 원점 사이의 거리 
 	GLfloat tx, ty, tl; // 원점과 각 변 사이의 거리
 
 	for (int i = 0; i < 4; i++) {
@@ -564,11 +592,13 @@ GLboolean touch(GLfloat bx, GLfloat by) {
 }
 
 GLvoid bounce() {
-	bounceBall.y += bounceValue * cosf(touchWall.z * PI / 180.f);
-	bounceBall.x += bounceValue * sinf(touchWall.z * PI / 180.f);
+	for (int i = 0; i < 5; i++) {
+		bounceBall[i].y += bounceValue[i] * cosf(touchWall[i].z * PI / 180.f);
+		bounceBall[i].x += bounceValue[i] * sinf(touchWall[i].z * PI / 180.f);
 
-	if (touch(bounceBall.x, bounceBall.y)) {
-		bounceValue *= -1;
-		touchWall.z -= rotateBox.z;
+		if (touch(&bounceBall[i])) {
+			bounceValue[i] *= -1;
+			touchWall[i].z += rotateBox.z;
+		}
 	}
 }
