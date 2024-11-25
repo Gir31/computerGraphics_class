@@ -28,15 +28,15 @@ float points[] = {
 	-1.f, -1.f, 1.f,
 	-1.f, -1.f, -1.f, // 왼
 
-	1.f, -1.f, -1.f,
-	-1.f, -1.f, -1.f,
-	-1.f, -1.f, 1.f,
-	1.f, -1.f, 1.f, // 아래
-
 	1.f, 1.f, 1.f,
 	1.f, 1.f, -1.f,
 	1.f, -1.f, -1.f,
 	1.f, -1.f, 1.f, // 오
+
+	1.f, -1.f, -1.f,
+	-1.f, -1.f, -1.f,
+	-1.f, -1.f, 1.f,
+	1.f, -1.f, 1.f, // 아래
 
 	-0.2f, 0.2f, -0.2f,
 	-0.2f, 0.2f, 0.2f,
@@ -144,15 +144,15 @@ float color[] = {
 	0.5f, 0.5f, 0.5f,
 	0.5f, 0.5f, 0.5f,
 
-	0.3f, 0.3f, 0.3f,
-	0.3f, 0.3f, 0.3f,
-	0.3f, 0.3f, 0.3f,
-	0.3f, 0.3f, 0.3f,
+	0.5f, 0.5f, 0.5f,
+	0.5f, 0.5f, 0.5f,
+	0.5f, 0.5f, 0.5f,
+	0.5f, 0.5f, 0.5f,
 
-	0.5f, 0.5f, 0.5f,
-	0.5f, 0.5f, 0.5f,
-	0.5f, 0.5f, 0.5f,
-	0.5f, 0.5f, 0.5f,
+	0.3f, 0.3f, 0.3f,
+	0.3f, 0.3f, 0.3f,
+	0.3f, 0.3f, 0.3f,
+	0.3f, 0.3f, 0.3f,
 
 	0.0f, 1.f, 1.f,
 	0.0f, 1.f, 1.f,
@@ -246,6 +246,7 @@ float color[] = {
 };
 
 glm::vec3 rotateBox = glm::vec3(0.f, 0.f, 0.f);
+glm::vec3 openBox = glm::vec3(0.f, 0.f, 0.f);
 
 glm::vec3 transObstacle1 = glm::vec3(0.f, -0.8f, -0.35f);
 glm::vec3 transObstacle2 = glm::vec3(0.f, -0.85f, 0.f);
@@ -266,9 +267,12 @@ glm::vec2 hitBox[4] = {
 GLUquadric* qobj;
 
 GLfloat initMouseDegree; // 마우스의 초기 각도
+GLfloat openValue = 1.f;
 
 GLboolean left_button = FALSE;
 GLboolean timeSwitch = FALSE;
+GLboolean oFlag = FALSE;
+GLboolean fFlag = FALSE;
 //========================================================
 GLvoid drawScene();
 GLvoid Reshape(int w, int h);
@@ -285,6 +289,7 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate);
 GLvoid fallObstacle();
 GLboolean touch(glm::vec3* b);
 GLvoid bounce();
+GLvoid open();
 //========================================================
 
 int main(int argc, char** argv)
@@ -327,7 +332,13 @@ GLvoid drawScene()
 	glm::mat4 box = glm::mat4(1.0f);
 	box = translation_shape(glm::vec3(0.f, 0.f, 0.f)) * rotate_shape(rotateBox);
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(box));
-	glDrawArrays(GL_QUADS, 0, 20);
+	glDrawArrays(GL_QUADS, 0, 16);
+
+	glm::mat4 box_bottom = glm::mat4(1.0f);
+	box_bottom = translation_shape(glm::vec3(0.f, 0.f, 0.f)) * rotate_shape(rotateBox) 
+		* translation_shape(glm::vec3(0.f, -1.f, -1.f)) * rotate_shape(openBox) * translation_shape(glm::vec3(0.f, 1.f, 1.f));
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(box_bottom));
+	glDrawArrays(GL_QUADS, 16, 4);
 
 	glm::mat4 obsltacle1 = glm::mat4(1.0f);
 	obsltacle1 = rotate_shape(rotateBox) * translation_shape(transObstacle1);
@@ -455,7 +466,18 @@ void Motion(int x, int y) {
 GLvoid Keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
-	
+	case 'o':
+		if (!oFlag)
+			oFlag = TRUE;
+		break;
+	case 'b': case 'B':
+		srand(time(NULL));
+
+		for (int i = 0; i < 5; i++) {
+			touchWall[i] = glm::vec3(0, 0, 0);
+			bounceBall[i] = glm::vec3(((rand() % 20)/10.f) - 1.f, ((rand() % 20) / 10.f) - 1.f, ((rand() % 20) / 10.f) - 1.f);
+		}
+		break;
 	case 'q': case 'Q':
 		glutLeaveMainLoop();
 	}
@@ -486,6 +508,7 @@ GLvoid TimerFunction(int value) {
 
 	fallObstacle();
 	bounce();
+	if (oFlag) open();
 
 	glutTimerFunc(10, TimerFunction, 1);
 }
@@ -512,9 +535,9 @@ GLvoid fallObstacle() {
 
 	transObstacle1.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
 
-	if (!(transObstacle1.y > -0.8f && transObstacle1.y < 0.8f)) {
+	if (!(transObstacle1.y > (fFlag ? -10.f : - 0.8f) && transObstacle1.y < 0.8f)) {
 
-		if (transObstacle1.y < 0.f) transObstacle1.y = -0.8f;
+		if (transObstacle1.y < 0.f) transObstacle1.y = (fFlag ? -10.f : -0.8f);
 		else transObstacle1.y = 0.8f;
 	}
 
@@ -528,9 +551,9 @@ GLvoid fallObstacle() {
 
 	transObstacle2.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
 
-	if (!(transObstacle2.y > -0.85f && transObstacle2.y < 0.85f)) {
+	if (!(transObstacle2.y > (fFlag ? -10.f : -0.85f) && transObstacle2.y < 0.85f)) {
 
-		if (transObstacle2.y < 0.f) transObstacle2.y = -0.85f;
+		if (transObstacle2.y < 0.f) transObstacle2.y = (fFlag ? -10.f : -0.85f);
 		else transObstacle2.y = 0.85f;
 	}
 
@@ -544,9 +567,9 @@ GLvoid fallObstacle() {
 
 	transObstacle3.y += cosf(rotateBox.z * PI / 180.f) * -0.05f;
 
-	if (!(transObstacle3.y > -0.9f && transObstacle3.y < 0.9f)) {
+	if (!(transObstacle3.y > (fFlag ? -10.f : -0.9f) && transObstacle3.y < 0.9f)) {
 
-		if (transObstacle3.y < 0.f) transObstacle3.y = -0.9f;
+		if (transObstacle3.y < 0.f) transObstacle3.y = (fFlag ? -10.f : -0.9f);
 		else transObstacle3.y = 0.9f;
 	}
 
@@ -600,5 +623,20 @@ GLvoid bounce() {
 			bounceValue[i] *= -1;
 			touchWall[i].z += rotateBox.z;
 		}
+	}
+}
+
+GLvoid open() {
+	openBox.x += openValue;
+
+	if (openBox.x >= 90.f) {
+		openValue *= -1;
+		oFlag = FALSE;
+		fFlag = TRUE;
+	}
+	else if (openBox.x <= 0.f) {
+		openValue *= -1;
+		oFlag = FALSE;
+		fFlag = FALSE;
 	}
 }
