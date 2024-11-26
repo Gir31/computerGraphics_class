@@ -9,6 +9,7 @@ typedef struct {
 }ROBOT;
 
 ROBOT robot;
+ROBOT small_robot[2];
 //========================================================
 // 원근 투영
 PROJECTION projection = { 45.0f, 0.0f, 0.1f, 50.0f };
@@ -946,4 +947,8 @@ GLvoid resetAll() {
 	armLegMotionValue = 5.0f;
 
 	alFlag = TRUE;
+}
+
+GLvoid move_robot(ROBOT robot) {
+
 }
