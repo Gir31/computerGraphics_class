@@ -5,11 +5,18 @@ typedef struct {
 	glm::vec3 dir;
 	glm::vec3 left_motion, right_motion;
 
+	glm::vec3 size;
+
+	GLint count;
+
 	GLint moveDir; // | 0 : up | 1 : right | 2 : down | 3 : left |
 }ROBOT;
 
 ROBOT robot;
-ROBOT small_robot[2];
+ROBOT origin_robot[20];
+ROBOT small_robot[3];
+ROBOT origin_small_robot[20];
+ROBOT origin_small_robot2[20];
 //========================================================
 // 원근 투영
 PROJECTION projection = { 45.0f, 0.0f, 0.1f, 50.0f };
@@ -37,15 +44,15 @@ float points[] = {
 	-1.f, -1.f, 1.f,
 	-1.f, -1.f, -1.f, // 왼
 
-	1.f, -1.f, -1.f,
-	-1.f, -1.f, -1.f,
-	-1.f, -1.f, 1.f, 
-	1.f, -1.f, 1.f, // 아래
-
 	1.f, 1.f, 1.f,
 	1.f, 1.f, -1.f,
 	1.f, -1.f, -1.f, 
 	1.f, -1.f, 1.f, // 오
+
+	1.f, -1.f, -1.f,
+	-1.f, -1.f, -1.f,
+	-1.f, -1.f, 1.f,
+	1.f, -1.f, 1.f, // 아래
 
 	0.f, 1.f, 0.f,
 	0.f, -1.f, 0.f,
@@ -272,7 +279,62 @@ float points[] = {
 	0.2f, 0.2f, 0.2f,
 	0.2f, 0.f, 0.2f,
 	0.2f, 0.f, -0.2f,
-	0.2f, 0.2f, -0.2f
+	0.2f, 0.2f, -0.2f,
+
+	-0.2f, 0.2f, -0.2f,
+	-0.2f, 0.2f, 0.2f,
+	0.2f, 0.2f, 0.2f,
+	0.2f, 0.2f, -0.2f,
+
+	-0.2f, 0.2f, -0.2f,
+	0.2f, 0.2f, -0.2f,
+	0.2f, 0.f, -0.2f,
+	-0.2f, 0.f, -0.2f,
+
+	-0.2f, 0.2f, 0.2f,
+	-0.2f, 0.2f, -0.2f,
+	-0.2f, 0.f, -0.2f,
+	-0.2f, 0.f, 0.2f,
+
+	-0.2f, 0.2f, 0.2f,
+	-0.2f, 0.f, 0.2f,
+	0.2f, 0.f, 0.2f,
+	0.2f, 0.2f, 0.2f,
+
+	0.2f, 0.2f, 0.2f,
+	0.2f, 0.f, 0.2f,
+	0.2f, 0.f, -0.2f,
+	0.2f, 0.2f, -0.2f,
+	//
+	-0.5f, 0.1f, -0.2f,
+	-0.5f, 0.1f, 0.2f,
+	0.5f, 0.1f, 0.2f,
+	0.5f, 0.1f, -0.2f,
+
+	-0.5f, 0.1f, -0.2f,
+	0.5f, 0.1f, -0.2f,
+	0.5f, 0.f, -0.2f,
+	-0.5f, 0.f, -0.2f,
+
+	-0.5f, 0.1f, 0.2f,
+	-0.5f, 0.1f, -0.2f,
+	-0.5f, 0.f, -0.2f,
+	-0.5f, 0.f, 0.2f,
+
+	-0.5f, 0.1f, 0.2f,
+	-0.5f, 0.f, 0.2f,
+	0.5f, 0.f, 0.2f,
+	0.5f, 0.1f, 0.2f,
+
+	0.5f, 0.1f, 0.2f,
+	0.5f, 0.f, 0.2f,
+	0.5f, 0.f, -0.2f,
+	0.5f, 0.1f, -0.2f,
+
+	-0.5f, 0.f, -0.2f,
+	0.5f, 0.f, -0.2f,
+	0.5f, 0.f, 0.2f,
+	-0.5f, 0.f, 0.2f
 };
 float color[] = {
 	0, 1, 1, 
@@ -501,6 +563,36 @@ float color[] = {
 	0, 0, 0,
 	0, 0, 0,
 	0, 0, 0,
+	//
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	0.25f, 0.25f, 0.25f,
+	//
+	0.75f, 0.75f, 0.75f,
+	0.75f, 0.75f, 0.75f,
+	0.75f, 0.75f, 0.75f,
+	0.75f, 0.75f, 0.75f,
 
 	0.75f, 0.75f, 0.75f,
 	0.75f, 0.75f, 0.75f,
@@ -521,12 +613,39 @@ float color[] = {
 	0.75f, 0.75f, 0.75f,
 	0.75f, 0.75f, 0.75f,
 	0.75f, 0.75f, 0.75f,
+	//
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
 
-	0.75f, 0.75f, 0.75f,
-	0.75f, 0.75f, 0.75f,
-	0.75f, 0.75f, 0.75f,
-	0.75f, 0.75f, 0.75f
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f,
+	0.f, 0.5f, 0.5f
 };
+
+GLUquadric* qobj;
 
 float obstacle1[4] = {-1.f, -0.2f, -0.6f, 0.2f}; // 장애물 xz좌표
 float obstacle2[4] = {0.3f, 0.3f, 0.7f, 0.7f};
@@ -536,9 +655,21 @@ glm::vec3 transObstacle = glm::vec3(-0.8f, -1.f, 0.f);
 glm::vec3 transObstacle1 = glm::vec3(0.5f, -1.f, 0.5f);
 glm::vec3 transObstacle2 = glm::vec3(-0.2f, -1.f, 0.8f);
 
+glm::vec3 floor_trans[25];
+glm::vec3 pillar_locate[4] = {
+	glm::vec3(-0.8f, -1.f, -0.8f),glm::vec3(0.8f, -1.f, -0.8f),
+	glm::vec3(-0.8f, -1.f, 0.8f),glm::vec3(0.8f, -1.f, 0.8f)
+};
+glm::vec3 obstacle_pillar_locate[2] = {
+	glm::vec3(-0.4f, -1.f, 0.f), glm::vec3(0.4f, -1.f, 0.f)
+};
+
 glm::vec3 transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 glm::vec3 rotateCamera = glm::vec3(0, 0, 0);
 glm::vec3 open = glm::vec3(0, 0, 0);
+
+GLint random_fall[5];
+GLint random_freefall;
 
 GLfloat rotateValue = 1.f;
 GLfloat openValue;
@@ -547,10 +678,12 @@ GLfloat robotJumpValue = 0.05f;
 GLfloat speedValue = 0.01f;
 
 GLboolean timeSwitch = FALSE;
+GLboolean fFlag[5];
 GLboolean rFlag = FALSE;
 GLboolean oFlag = FALSE;
 GLboolean jFlag = FALSE;
 GLboolean alFlag = TRUE;
+GLboolean sFlag = FALSE;
 //========================================================
 GLvoid drawScene();
 GLvoid Reshape(int w, int h);
@@ -563,19 +696,35 @@ void InitBuffer_();
 // 사용자 지정 함수
 GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate);
 
-GLvoid armLegMotion();
+GLvoid armLegMotion(ROBOT* robot);
 glm::mat4 armMotion(glm::vec3 motionValue);
 glm::mat4 legMotion(glm::vec3 motionValue);
 
 GLvoid robotJump();
-GLvoid touchWall();
-GLboolean touchObstacle(float obstacle[]);
-GLvoid robotMove();
+GLvoid touchWall(ROBOT* robot);
+GLboolean touchPillar(glm::vec3 locate);
+GLboolean touchObstaclePillar(glm::vec3 locate);
+GLboolean touchObstaclePlate();
+GLboolean touchFloor(GLint number);
+
+GLvoid robotMove(ROBOT* robot);
+GLvoid small_robot_move(ROBOT* small_robot);
+GLvoid small_robot_move2(ROBOT* small_robot2);
+GLvoid small_robot_move3(ROBOT* small_robot3);
 GLvoid resetAll();
+GLvoid draw_robot(ROBOT robot, unsigned int transformLocation);
+GLvoid draw_floor(unsigned int transformLocation);
+GLvoid draw_pillar(unsigned int transformLocation);
+GLvoid draw_obstacle(unsigned int transformLocation);
+
+GLvoid fall_floor(GLint number, GLint count);
+
+
 //========================================================
 
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
@@ -586,7 +735,12 @@ int main(int argc, char** argv)
 	glewExperimental = GL_TRUE;
 	glewInit();
 
+	resetAll();
 	robot.moveDir = 2;
+	for (int i = 0; i < 5; i++) {
+		random_fall[i] = rand() % 25;
+	}
+	random_freefall = rand() % 5;
 
 	make_shaderProgram();
 	InitBuffer_();
@@ -613,7 +767,7 @@ GLvoid drawScene()
 	glm::mat4 box = glm::mat4(1.0f);
 	box = translation_shape(glm::vec3(0.f, 0.f, 0.f));
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(box));
-	glDrawArrays(GL_QUADS, 0, 20);
+	glDrawArrays(GL_QUADS, 0, 16);
 
 	glm::mat4 openLeftDoor = glm::mat4(1.0f);
 	openLeftDoor = translation_shape(glm::vec3(-1.f, 0.f, 1.f)) * rotate_shape(open);
@@ -625,55 +779,18 @@ GLvoid drawScene()
 	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(openRightDoor));
 	glDrawArrays(GL_QUADS, 24, 4);
 
-	glm::mat4 robotHead = glm::mat4(1.0f);
-	robotHead = translation_shape(robot.move) * rotate_shape(robot.dir);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotHead));
-	glDrawArrays(GL_QUADS, 28, 24);
+	draw_robot(robot, transformLocation);
+	if (sFlag) {
+		draw_robot(small_robot[0], transformLocation);
+		draw_robot(small_robot[1], transformLocation);
+		draw_robot(small_robot[2], transformLocation);
+	}
 
-	glm::mat4 robotBody = glm::mat4(1.0f);
-	robotBody = translation_shape(robot.move) * rotate_shape(robot.dir);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotBody));
-	glDrawArrays(GL_QUADS, 52, 24);
+	draw_pillar(transformLocation);
+	draw_floor(transformLocation);
+	draw_obstacle(transformLocation);
+	
 
-	glm::mat4 robotRightArm = glm::mat4(1.0f);
-	robotRightArm = translation_shape(robot.move) * rotate_shape(robot.dir) * armMotion(robot.right_motion);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotRightArm));
-	glDrawArrays(GL_QUADS, 76, 24);
-
-	glm::mat4 robotLeftArm = glm::mat4(1.0f);
-	robotLeftArm = translation_shape(robot.move) * rotate_shape(robot.dir) * armMotion(robot.left_motion);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotLeftArm));
-	glDrawArrays(GL_QUADS, 100, 24);
-
-	glm::mat4 robotRightLeg = glm::mat4(1.0f);
-	robotRightLeg = translation_shape(robot.move) * rotate_shape(robot.dir) * legMotion(robot.right_motion);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotRightLeg));
-	glDrawArrays(GL_QUADS, 124, 24);
-
-	glm::mat4 robotLeftLeg = glm::mat4(1.0f);
-	robotLeftLeg = translation_shape(robot.move) * rotate_shape(robot.dir) * legMotion(robot.left_motion);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotLeftLeg));
-	glDrawArrays(GL_QUADS, 148, 24);
-
-	glm::mat4 nose = glm::mat4(1.0f);
-	nose = translation_shape(robot.move) * rotate_shape(robot.dir);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(nose));
-	glDrawArrays(GL_TRIANGLES, 172, 9);
-
-	glm::mat4 obstacle1 = glm::mat4(1.0f);
-	obstacle1 = translation_shape(transObstacle);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obstacle1));
-	glDrawArrays(GL_QUADS, 181, 20);
-
-	glm::mat4 obstacle2 = glm::mat4(1.0f);
-	obstacle2 = translation_shape(transObstacle1);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obstacle2));
-	glDrawArrays(GL_QUADS, 181, 20);
-
-	glm::mat4 obstacle3 = glm::mat4(1.0f);
-	obstacle3 = translation_shape(transObstacle2);
-	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(obstacle3));
-	glDrawArrays(GL_QUADS, 181, 20);
 
 	glUseProgram(shaderProgramID);
 
@@ -725,7 +842,14 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 	switch (key) {
 	case 'j':
 		if (timeSwitch) 
-			if (!jFlag) jFlag = TRUE;
+			if (!jFlag) {
+				jFlag = TRUE;
+				for (int i = 0; i < 5; i++) {
+					if (touchFloor(random_fall[i]) && floor_trans[random_fall[i]].y == -1.2f) {
+						fFlag[i] = TRUE;
+					}
+				}
+			}
 		break;
 	case 'w': case 'W':
 		robot.dir.y = 180.f;
@@ -742,6 +866,10 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 	case 'd': case 'D':
 		robot.dir.y = 90.f;
 		robot.moveDir = 1;
+		break;
+	case 't': case 'T':
+		if (sFlag) sFlag = FALSE;
+		else sFlag = TRUE;
 		break;
 	case 'i':
 		resetAll();
@@ -823,7 +951,6 @@ GLvoid SpecialKeyboard(int key, int x, int y) {
 		break;
 	case GLUT_KEY_DOWN:
 		transCamera.z -= 0.1f;
-		std::cout << transCamera.z << std::endl;
 		break;
 	}
 	glutPostRedisplay();
@@ -832,8 +959,20 @@ GLvoid SpecialKeyboard(int key, int x, int y) {
 GLvoid TimerFunction(int value) {
 	glutPostRedisplay();
 
-	armLegMotion();
-	robotMove();
+	armLegMotion(&robot);
+	robotMove(&robot);
+
+	small_robot[0].left_motion = robot.left_motion;
+	small_robot[0].right_motion = robot.right_motion;
+	small_robot_move(&small_robot[0]);
+
+	small_robot[1].left_motion = robot.left_motion;
+	small_robot[1].right_motion = robot.right_motion;
+	small_robot_move2(&small_robot[1]);
+
+	small_robot[2].left_motion = robot.left_motion;
+	small_robot[2].right_motion = robot.right_motion;
+	small_robot_move3(&small_robot[2]);
 
 	if (jFlag) robotJump();
 
@@ -842,6 +981,10 @@ GLvoid TimerFunction(int value) {
 		if (open.y == 0.f || open.y == -90.f) oFlag = FALSE;
 	}
 	if(rFlag) rotateCamera.y += rotateValue;
+
+	for (int i = 0; i < 5; i++) {
+		if(fFlag[i]) fall_floor(random_fall[i], i);
+	}
 
 	if (timeSwitch) glutTimerFunc(10, TimerFunction, 1);
 }
@@ -855,12 +998,12 @@ GLvoid cameraTranslation(glm::vec3 cameraTrans, glm::vec3 cameraRotate) {
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, &view[0][0]);
 }
 
-GLvoid armLegMotion() {
+GLvoid armLegMotion(ROBOT* robot) {
 
-	robot.left_motion.x += armLegMotionValue;
-	robot.right_motion.x -= armLegMotionValue;
+	robot->left_motion.x += armLegMotionValue;
+	robot->right_motion.x -= armLegMotionValue;
 
-	if ((robot.left_motion.x > speedValue * 4500.f && alFlag) || (robot.left_motion.x < speedValue * -4500.f && !alFlag)) {
+	if ((robot->left_motion.x > speedValue * 4500.f && alFlag) || (robot->left_motion.x < speedValue * -4500.f && !alFlag)) {
 		armLegMotionValue *= -1;
 
 		alFlag = (alFlag + 1) % 2;
@@ -884,53 +1027,182 @@ GLvoid robotJump() {
 
 	if (robot.move.y > 1.f)
 		robotJumpValue *= -1;
-	else if (robot.move.y < 0.f || ((touchObstacle(obstacle1) || touchObstacle(obstacle2) || touchObstacle(obstacle3)) && robot.move.y <= 0.2f)) {
-		robot.move.y = 0.2f;
+	else if(touchObstaclePlate()){
+		robot.move.y = 0.6f;
+		robotJumpValue *= -1;
+		jFlag = FALSE;
+	}
+	else if (robot.move.y < 0.f) {
+		robot.move.y = 0.0f;
 		robotJumpValue *= -1;
 		jFlag = FALSE;
 	}
 }
 
-GLvoid touchWall() {
-	if (robot.move.x > 1.0f || robot.move.x < -1.0f || robot.move.z > 1.0f || robot.move.z < -1.0f) {
-		robot.moveDir = (robot.moveDir + 2) % 4;
-		robot.dir.y += 180.f;
+GLvoid touchWall(ROBOT* robot) {
+	if (robot->move.x > 1.0f || robot->move.x < -1.0f || robot->move.z > 1.0f || robot->move.z < -1.0f) {
+		robot->moveDir = (robot->moveDir + 2) % 4;
+		robot->dir.y += 180.f;
 		return;
 	}
-	else if (robot.move.y < 0.2f && (touchObstacle(obstacle1) || touchObstacle(obstacle2) || touchObstacle(obstacle3))) {
-		robot.moveDir = (robot.moveDir + 2) % 4;
-		robot.dir.y += 180.f;
+	else if (touchPillar(pillar_locate[0]) || touchPillar(pillar_locate[1]) || touchPillar(pillar_locate[2]) || touchPillar(pillar_locate[3])) {
+		robot->moveDir = (robot->moveDir + 2) % 4;
+		robot->dir.y += 180.f;
 		return;
 	}
-
+	else if (touchObstaclePillar(obstacle_pillar_locate[0]) || touchObstaclePillar(obstacle_pillar_locate[1])) {
+		robot->moveDir = (robot->moveDir + 2) % 4;
+		robot->dir.y += 180.f;
+		return;
+	}
+	else if (robot->move.y > 0.5f && jFlag && touchObstaclePlate()) {
+		robot->moveDir = (robot->moveDir + 2) % 4;
+		robot->dir.y += 180.f;
+		return;
+	}
 }
 
-GLboolean touchObstacle(float obstacle[]) {
-	if (robot.move.x > obstacle[2]) return FALSE;
-	if (robot.move.x < obstacle[0]) return FALSE;
-	if (robot.move.z > obstacle[3]) return FALSE;
-	if (robot.move.z < obstacle[1]) return FALSE;
+GLboolean touchPillar(glm::vec3 locate) {
+	GLfloat minX, maxX, minZ, maxZ;
+
+	minX = locate.x - 0.2f;	maxX = locate.x + 0.2f;
+	minZ = locate.z - 0.2f; maxZ = locate.z + 0.2f;
+
+	if (robot.move.x > maxX) return FALSE;
+	if (robot.move.x < minX) return FALSE;
+	if (robot.move.z > maxZ) return FALSE;
+	if (robot.move.z < minZ) return FALSE;
 
 	return TRUE;
 }
 
-GLvoid robotMove() {
-	switch (robot.moveDir) {
+GLboolean touchObstaclePillar(glm::vec3 locate) {
+	GLfloat minX, maxX, minZ, maxZ;
+
+	minX = locate.x - 0.1f;	maxX = locate.x + 0.1f;
+	minZ = locate.z - 0.1f; maxZ = locate.z + 0.1f;
+
+	if (robot.move.x > maxX) return FALSE;
+	if (robot.move.x < minX) return FALSE;
+	if (robot.move.z > maxZ) return FALSE;
+	if (robot.move.z < minZ) return FALSE;
+
+	return TRUE;
+}
+
+GLboolean touchObstaclePlate() {
+	if (robot.move.x > 0.5f) return FALSE;
+	if (robot.move.x < -0.5f) return FALSE;
+	if (robot.move.z > 0.2f) return FALSE;
+	if (robot.move.z < -0.2f) return FALSE;
+
+	return TRUE;
+}
+
+GLboolean touchFloor(GLint number) {
+	GLfloat minX, maxX, minZ, maxZ;
+
+	minX = floor_trans[number].x - 0.2f; maxX = floor_trans[number].x + 0.2f;
+	minZ = floor_trans[number].z - 0.2f; maxZ = floor_trans[number].z + 0.2f;
+
+	if (robot.move.x > maxX) return FALSE;
+	if (robot.move.x < minX) return FALSE;
+	if (robot.move.z > maxZ) return FALSE;
+	if (robot.move.z < minZ) return FALSE;
+
+	return TRUE;
+}
+
+GLvoid robotMove(ROBOT* robot) {
+
+	switch (robot->moveDir) {
 	case 0: // up
-		robot.move.z -= speedValue;
+		robot->move.z -= speedValue;
 		break;
 	case 1: // right
-		robot.move.x += speedValue;
+		robot->move.x += speedValue;
 		break;
 	case 2: // down
-		robot.move.z += speedValue;
+		robot->move.z += speedValue;
 		break;
 	case 3: // left
-		robot.move.x -= speedValue;
+		robot->move.x -= speedValue;
 		break;
 	}
-	if(!jFlag && !(touchObstacle(obstacle1) || touchObstacle(obstacle2) || touchObstacle(obstacle3)))robot.move.y = 0;
-	touchWall();
+	if (!jFlag && !(touchObstaclePlate())) {
+		for (int i = 0; i < 25; i++) {
+			if(touchFloor(i))
+				robot->move.y = floor_trans[i].y + 1.2f;
+		}
+		
+	}
+	touchWall(robot);
+
+	robot->count++;
+
+	if (robot->count < 20)
+		origin_robot[robot->count] = *robot;
+	else
+		origin_robot[19] = *robot;
+}
+
+GLvoid small_robot_move(ROBOT* small_robot) {
+	if (robot.count > 20) {
+		small_robot->move.x = origin_robot[0].move.x;
+		small_robot->move.z = origin_robot[0].move.z;
+		small_robot->move.y = origin_robot[0].move.y - 0.25f;
+
+		small_robot->dir.y = origin_robot[0].dir.y;
+		small_robot->moveDir = origin_robot[0].moveDir;
+
+		for (int i = 0; i < 19; i++) {
+			origin_robot[i] = origin_robot[i + 1];
+		}
+
+		small_robot->count++;
+
+		if (small_robot->count < 20)
+			origin_small_robot[small_robot->count] = *small_robot;
+		else
+			origin_small_robot[19] = *small_robot;
+	}
+}
+
+GLvoid small_robot_move2(ROBOT* small_robot2) {
+	if (small_robot[0].count > 20) {
+		small_robot2->move.x = origin_small_robot[0].move.x;
+		small_robot2->move.z = origin_small_robot[0].move.z;
+		small_robot2->move.y = origin_small_robot[0].move.y - 0.25f;
+
+		small_robot2->dir.y = origin_small_robot[0].dir.y;
+		small_robot2->moveDir = origin_small_robot[0].moveDir;
+
+		for (int i = 0; i < 19; i++) {
+			origin_small_robot[i] = origin_small_robot[i + 1];
+		}
+
+		small_robot2->count++;
+
+		if (small_robot2->count < 20)
+			origin_small_robot2[small_robot2->count] = *small_robot2;
+		else
+			origin_small_robot2[19] = *small_robot2;
+	}
+}
+
+GLvoid small_robot_move3(ROBOT* small_robot3) {
+	if (small_robot[1].count > 20) {
+		small_robot3->move.x = origin_small_robot2[0].move.x;
+		small_robot3->move.z = origin_small_robot2[0].move.z;
+		small_robot3->move.y = origin_small_robot2[0].move.y - 0.25f;
+
+		small_robot3->dir.y = origin_small_robot2[0].dir.y;
+		small_robot3->moveDir = origin_small_robot2[0].moveDir;
+
+		for (int i = 0; i < 19; i++) {
+			origin_small_robot2[i] = origin_small_robot2[i + 1];
+		}
+	}
 }
 
 GLvoid resetAll() {
@@ -939,6 +1211,28 @@ GLvoid resetAll() {
 	robot.moveDir = 2;
 	robot.left_motion = glm::vec3(0.f, 0.f, 0.f);
 	robot.right_motion = glm::vec3(0.f, 0.f, 0.f);
+	robot.size = glm::vec3(1.f, 1.f, 1.f);
+
+	small_robot[0].move = glm::vec3(0.f, -0.25f, 0.f);
+	small_robot[0].dir = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[0].moveDir = 2;
+	small_robot[0].left_motion = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[0].right_motion = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[0].size = glm::vec3(0.75f, 0.75f, 0.75f);
+
+	small_robot[1].move = glm::vec3(0.f, -0.5f, 0.f);
+	small_robot[1].dir = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[1].moveDir = 2;
+	small_robot[1].left_motion = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[1].right_motion = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[1].size = glm::vec3(0.5f, 0.5f, 0.5f);
+
+	small_robot[2].move = glm::vec3(0.f, -0.75f, 0.f);
+	small_robot[2].dir = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[2].moveDir = 2;
+	small_robot[2].left_motion = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[2].right_motion = glm::vec3(0.f, 0.f, 0.f);
+	small_robot[2].size = glm::vec3(0.25f, 0.25f, 0.25f);
 
 	transCamera = glm::vec3(0.0f, 0.0f, 2.0f);
 	rotateCamera = glm::vec3(0, 0, 0);
@@ -947,8 +1241,96 @@ GLvoid resetAll() {
 	armLegMotionValue = 5.0f;
 
 	alFlag = TRUE;
+
+	for (int i = 0; i < 25; i++) {
+		floor_trans[i].x = -0.8f + (0.4f * (i % 5));
+		floor_trans[i].y = -1.2f;
+		floor_trans[i].z = -0.8f + (0.4f * (i / 5));
+	}
 }
 
-GLvoid move_robot(ROBOT robot) {
+GLvoid draw_robot(ROBOT robot, unsigned int transformLocation) {
+	glm::mat4 robotHead = glm::mat4(1.0f);
+	robotHead = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotHead));
+	glDrawArrays(GL_QUADS, 28, 24);
 
+	glm::mat4 robotBody = glm::mat4(1.0f);
+	robotBody = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotBody));
+	glDrawArrays(GL_QUADS, 52, 24);
+
+	glm::mat4 robotRightArm = glm::mat4(1.0f);
+	robotRightArm = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size) * armMotion(robot.right_motion);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotRightArm));
+	glDrawArrays(GL_QUADS, 76, 24);
+
+	glm::mat4 robotLeftArm = glm::mat4(1.0f);
+	robotLeftArm = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size) * armMotion(robot.left_motion);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotLeftArm));
+	glDrawArrays(GL_QUADS, 100, 24);
+
+	glm::mat4 robotRightLeg = glm::mat4(1.0f);
+	robotRightLeg = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size) * legMotion(robot.right_motion);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotRightLeg));
+	glDrawArrays(GL_QUADS, 124, 24);
+
+	glm::mat4 robotLeftLeg = glm::mat4(1.0f);
+	robotLeftLeg = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size) * legMotion(robot.left_motion);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(robotLeftLeg));
+	glDrawArrays(GL_QUADS, 148, 24);
+
+	glm::mat4 nose = glm::mat4(1.0f);
+	nose = translation_shape(robot.move) * rotate_shape(robot.dir) * scaling_shape(robot.size);
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(nose));
+	glDrawArrays(GL_TRIANGLES, 172, 9);
+}
+
+GLvoid draw_floor(unsigned int transformLocation) {
+	for (int i = 0; i < 25; i++) {
+		glm::mat4 floor_mat = glm::mat4(1.f);
+		floor_mat = translation_shape(floor_trans[i]);
+		glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(floor_mat));
+		i % 2 ? glDrawArrays(GL_QUADS, 181, 20) : glDrawArrays(GL_QUADS, 201, 20);
+	}
+}
+
+GLvoid draw_pillar(unsigned int transformLocation) {
+	for (int i = 0; i < 4; i++) {
+		qobj = gluNewQuadric();
+		gluQuadricDrawStyle(qobj, GLU_FILL);
+
+		glm::mat4 pillar = glm::mat4(1.f);
+		pillar = translation_shape(pillar_locate[i]) * rotate_shape(glm::vec3(-90.f, 0.f, 0.f));
+		glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(pillar));
+
+		gluCylinder(qobj, 0.2f, 0.2f, 2.f, 20, 8); 
+	}
+}
+
+GLvoid draw_obstacle(unsigned int transformLocation) {
+	for (int i = 0; i < 2; i++) {
+		qobj = gluNewQuadric();
+		gluQuadricDrawStyle(qobj, GLU_FILL);
+
+		glm::mat4 pillar = glm::mat4(1.f);
+		pillar = translation_shape(obstacle_pillar_locate[i]) * rotate_shape(glm::vec3(-90.f, 0.f, 0.f));
+		glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(pillar));
+
+		gluCylinder(qobj, 0.1f, 0.1f, 0.5f, 20, 8);
+	}
+
+	glm::mat4 plate = glm::mat4(1.0f);
+	plate = translation_shape(glm::vec3(0.f, -0.5f, 0.f));
+	glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(plate));
+	glDrawArrays(GL_QUADS, 221, 24);
+}
+
+GLvoid fall_floor(GLint number, GLint count) {
+	floor_trans[number].y -= 0.001f;
+	if (floor_trans[number].y < -1.4f && count != random_freefall) fFlag[count] = FALSE;
+	else if (floor_trans[number].y < -2.0f && count == random_freefall) {
+		fFlag[count] = FALSE;
+		floor_trans[number].y = -9999.0f;
+	}
 }
