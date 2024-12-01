@@ -682,6 +682,7 @@ GLboolean fFlag[5];
 GLboolean rFlag = FALSE;
 GLboolean oFlag = FALSE;
 GLboolean jFlag = FALSE;
+GLboolean jsFlag = FALSE;
 GLboolean alFlag = TRUE;
 GLboolean sFlag = FALSE;
 //========================================================
@@ -701,6 +702,7 @@ glm::mat4 armMotion(glm::vec3 motionValue);
 glm::mat4 legMotion(glm::vec3 motionValue);
 
 GLvoid robotJump();
+GLvoid smallRobotJump();
 GLvoid touchWall(ROBOT* robot);
 GLboolean touchPillar(glm::vec3 locate);
 GLboolean touchObstaclePillar(glm::vec3 locate);
@@ -871,6 +873,12 @@ GLvoid Keyboard(unsigned char key, int x, int y)
 		if (sFlag) sFlag = FALSE;
 		else sFlag = TRUE;
 		break;
+	case 'f': case 'F':
+		if (timeSwitch)
+			if (!jsFlag) {
+				jsFlag = TRUE;
+			}
+		break;
 	case 'i':
 		resetAll();
 		break;
@@ -975,6 +983,7 @@ GLvoid TimerFunction(int value) {
 	small_robot_move3(&small_robot[2]);
 
 	if (jFlag) robotJump();
+	if (jsFlag) smallRobotJump();
 
 	if (oFlag) {
 		open.y += openValue;
@@ -1036,6 +1045,18 @@ GLvoid robotJump() {
 		robot.move.y = 0.0f;
 		robotJumpValue *= -1;
 		jFlag = FALSE;
+	}
+}
+
+GLvoid smallRobotJump() {
+	small_robot[0].move.y += robotJumpValue;
+
+	if (small_robot[0].move.y > 1.f)
+		robotJumpValue *= -1;
+	if (small_robot[0].move.y < 0.f) {
+		small_robot[0].move.y = 0.0f;
+		robotJumpValue *= -1;
+		jsFlag = FALSE;
 	}
 }
 
@@ -1150,7 +1171,7 @@ GLvoid small_robot_move(ROBOT* small_robot) {
 	if (robot.count > 20) {
 		small_robot->move.x = origin_robot[0].move.x;
 		small_robot->move.z = origin_robot[0].move.z;
-		small_robot->move.y = origin_robot[0].move.y - 0.25f;
+		if(!jsFlag) small_robot->move.y = origin_robot[0].move.y - 0.25f;
 
 		small_robot->dir.y = origin_robot[0].dir.y;
 		small_robot->moveDir = origin_robot[0].moveDir;
