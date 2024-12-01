@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\github_my\\computerGraphics_class\\GL6\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4341C764-F583-48C2-81AA-9DDCEFEEFD6E}|GL6.vcxproj|D:\\github_my\\computerGraphics_class\\GL6\\GL6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4341C764-F583-48C2-81AA-9DDCEFEEFD6E}|GL6.vcxproj|solutionrelative:GL6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4341C764-F583-48C2-81AA-9DDCEFEEFD6E}|GL6.vcxproj|D:\\github_my\\computerGraphics_class\\GL6\\fragment.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4341C764-F583-48C2-81AA-9DDCEFEEFD6E}|GL6.vcxproj|solutionrelative:fragment.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4341C764-F583-48C2-81AA-9DDCEFEEFD6E}|GL6.vcxproj|D:\\github_my\\computerGraphics_class\\GL6\\vertex.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4341C764-F583-48C2-81AA-9DDCEFEEFD6E}|GL6.vcxproj|solutionrelative:vertex.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 215,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GL6.cpp",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL6\\GL6.cpp",
+              "RelativeDocumentMoniker": "GL6.cpp",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL6\\GL6.cpp",
+              "RelativeToolTip": "GL6.cpp",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAF4AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-01T11:24:43.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fragment.glsl",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL6\\fragment.glsl",
+              "RelativeDocumentMoniker": "fragment.glsl",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL6\\fragment.glsl",
+              "RelativeToolTip": "fragment.glsl",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-01T11:34:12.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "vertex.glsl",
+              "DocumentMoniker": "D:\\github_my\\computerGraphics_class\\GL6\\vertex.glsl",
+              "RelativeDocumentMoniker": "vertex.glsl",
+              "ToolTip": "D:\\github_my\\computerGraphics_class\\GL6\\vertex.glsl",
+              "RelativeToolTip": "vertex.glsl",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-01T11:38:34.052Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
