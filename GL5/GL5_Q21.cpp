@@ -1053,7 +1053,7 @@ GLvoid smallRobotJump() {
 
 	if (small_robot[0].move.y > 1.f)
 		robotJumpValue *= -1;
-	if (small_robot[0].move.y < 0.f) {
+	if (small_robot[0].move.y < -0.25f) {
 		small_robot[0].move.y = 0.0f;
 		robotJumpValue *= -1;
 		jsFlag = FALSE;
