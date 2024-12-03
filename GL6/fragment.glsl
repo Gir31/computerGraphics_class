@@ -1,38 +1,34 @@
 #version 330 core
-in vec3 FragPos; //--- 노멀값을 계산하기 위해 객체의 위치값을 버텍스 세이더에서 받아온다.
-in vec3 Normal;
 
-out vec4 FragColor;
+in vec3 FragPos; // 정점 위치 (월드 공간)
+in vec3 Normal;  // 변환된 법선 벡터
+in vec3 out_Color; // 색상
 
-uniform vec3 lightPos; //--- 조명의 위치
-uniform vec3 objectColor; //--- 응용 프로그램에서 설정한 객체의 색상
-uniform vec3 lightColor; //--- 응용 프로그램에서 설정한 조명 색상
-uniform vec3 viewPos;
+out vec4 FragColor; // 출력 색상
 
+uniform vec3 lightPos;   // 조명 위치
+uniform vec3 lightColor; // 조명 색상
+uniform vec3 viewPos;    // 카메라 위치
 
-void main ()
-{
-	// Ambient lighting
-	float ambientLight = 0.3; //--- 주변 조명 세기
-	vec3 ambient = ambientLight * lightColor; //--- 주변 조명 값
+void main() {
+    // Ambient lighting
+    float ambientLight = 0.3; // 주변 조명 강도
+    vec3 ambient = ambientLight * lightColor; // 주변 조명
 
-	// Diffuse lighting
-	vec3 normalVector = normalize (Normal); //--- 노말값을 정규화한다.
-	vec3 lightDir = normalize(lightPos - FragPos); //--- 표면과 조명의 위치로 조명의 방향을 결정한다.
-	float diffuseLight = max(dot(normalVector, lightDir), 0.0); //--- N과 L의 내적 값으로 강도 조절 (음의 값을 가질 수 없게 한다.)
-	vec3 diffuse = diffuseLight * lightColor; //--- 산란반사조명값=산란반사값*조명색상값
+    // Diffuse lighting
+    vec3 norm = normalize(Normal); // 정규화된 법선 벡터
+    vec3 lightDir = normalize(lightPos - FragPos); // 조명 방향 벡터
+    float diff = max(dot(norm, lightDir), 0.0); // N·L 계산 (산란 반사 강도)
+    vec3 diffuse = diff * lightColor; // 산란 반사 조명
 
-	
-	// Specular lighting
-	int shininess = 128; //--- 광택 계수
-	vec3 viewDir = normalize (viewPos - FragPos); //--- 관찰자의 방향
-	vec3 reflectDir = reflect (-lightDir, normalVector); //--- 반사 방향: reflect 함수 - 입사 벡터의 반사 방향 계산
-	float specularLight = max (dot (viewDir, reflectDir), 0.0); //--- V와 R의 내적값으로 강도 조절: 음수 방지
-	specularLight = pow(specularLight, shininess); //--- shininess 승을 해주어 하이라이트를 만들어준다.
-	vec3 specular = specularLight * lightColor; //--- 거울 반사 조명값: 거울반사값 * 조명색상값
-	
-	// Combine all lighting components
-	vec3 result = (ambient + diffuse + specular) * objectColor; //--- 최종 조명 설정된 픽셀 색상: (주변+산란반사+거울반사조명)*객체 색상
-	
-	FragColor = vec4 (result, 1.0); // --- 픽셀 색을 출력
+    // Specular lighting
+    int shininess = 64; // 광택 계수
+    vec3 viewDir = normalize(viewPos - FragPos); // 관찰자 방향 벡터
+    vec3 reflectDir = reflect(-lightDir, norm); // 반사 벡터
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess); // 하이라이트 강도
+    vec3 specular = spec * lightColor; // 반사 조명
+
+    // Combine all lighting components
+    vec3 result = (ambient + diffuse + specular) * out_Color; // 조명과 색상 결합
+    FragColor = vec4(result, 1.0); // 최종 색상 출력
 }
